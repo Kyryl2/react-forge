@@ -5,6 +5,10 @@ import {
   userRefreshThunk,
   userRegisterThunk,
 } from "../../redux/auth/operations";
+import {
+  getCategoriesThunk,
+  getSummaryThunk,
+} from "../../redux/transactions/operations.js";
 import { useEffect } from "react";
 
 const ReduxTest = () => {
@@ -16,6 +20,7 @@ const ReduxTest = () => {
 
   return (
     <>
+      {/* Auth */}
       <button
         onClick={() =>
           dispatch(
@@ -42,6 +47,12 @@ const ReduxTest = () => {
         Login
       </button>
       <button onClick={() => dispatch(userLogoutThunk())}>Logout</button>
+
+      {/* Transactions */}
+      <button onClick={() => dispatch(getCategoriesThunk())}>
+        getCategories
+      </button>
+      <button onClick={() => dispatch(getSummaryThunk())}>getSummary</button>
     </>
   );
 };

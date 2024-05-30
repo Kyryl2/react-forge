@@ -34,12 +34,6 @@
 <symbol id="icon-email" viewBox="0 0 32 32">
 <path fill="#fff" style="fill: var(--color3, #fff)" opacity="0.4" d="M26.667 5.333h-21.333c-1.467 0-2.653 1.2-2.653 2.667l-0.013 16c0 1.467 1.2 2.667 2.667 2.667h21.333c1.467 0 2.667-1.2 2.667-2.667v-16c0-1.467-1.2-2.667-2.667-2.667zM26.667 10.667l-10.667 6.667-10.667-6.667v-2.667l10.667 6.667 10.667-6.667v2.667z"></path>
 </symbol>
-<symbol id="icon-logotipe" viewBox="0 0 32 32">
-<path fill="#ffc727" style="fill: var(--color5, #ffc727)" d="M22.11 3.607c-2.328-0.582-4.655-1.747-6.401-3.494-1.746 1.747-4.073 2.911-6.401 3.494 0.582 5.24 2.328 8.734 6.401 11.645 4.073-2.911 6.401-6.405 6.401-11.645z"></path>
-<path fill="#fbfbfb" style="fill: var(--color1, #fbfbfb)" d="M19.782 25.287l-16.293-19.215v9.316l12.802 14.557 3.491-4.658z"></path>
-<path fill="#fbfbfb" style="fill: var(--color1, #fbfbfb)" d="M21.528 23.541l6.983-8.152v-8.734l-11.056 12.81 4.073 4.076z"></path>
-<path fill="#fbfbfb" style="fill: var(--color1, #fbfbfb)" d="M22.11 26.452v5.24l6.401-7.569v-5.24l-6.401 7.569z"></path>
-<path fill="#fbfbfb" style="fill: var(--color1, #fbfbfb)" d="M9.89 26.452l-6.401-7.569v5.24l6.401 7.569v-5.24z"></path>
-</symbol>
+
 </defs>
 </svg>

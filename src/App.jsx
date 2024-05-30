@@ -5,9 +5,6 @@ import ReduxTest from "./pages/ReduxTest/ReduxTest";
 // import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
 // import LoginPage from "./pages/LoginPage/LoginPage";
 
-import LoginPage from "./pages/LoginPage/LoginPage";
-
-
 function App() {
   return (
     <Routes>
@@ -27,7 +24,7 @@ function App() {
         }
       /> */}
       <Route index element={null}></Route>
-      <Route path="/login" element={<LoginPage />} />
+
       <Route path="/redux-test" element={<ReduxTest />} />
     </Routes>
   );

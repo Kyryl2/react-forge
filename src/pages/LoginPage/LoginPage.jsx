@@ -1,3 +1,4 @@
+
 import LoginForm from "../../components/LoginForm/LoginForm";
 
 const LoginPage = () => {
@@ -6,6 +7,7 @@ const LoginPage = () => {
       <LoginForm />
     </div>
   );
+
 };
 
 export default LoginPage;

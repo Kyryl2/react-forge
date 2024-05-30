@@ -1,5 +1,5 @@
 function App() {
-  return <p>aboba</p>;
+  return <></>;
 }
 
 export default App;

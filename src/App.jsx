@@ -1,5 +1,5 @@
 function App() {
-  return <p style={{ fontFamily: "Popins" }}>Hello ,world!</p>;
+  return <p></p>;
 }
 
 export default App;

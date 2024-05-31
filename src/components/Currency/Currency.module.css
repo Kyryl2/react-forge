@@ -1,0 +1,60 @@
+.currencyContainer {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.currencyTable {
+  width: 320px;
+  background-color: rgba(74, 86, 226, 0.1);
+  color: white;
+  border-collapse: collapse;
+  border-radius: 0 0 8px 8px;
+}
+
+.tableHeader {
+  background: rgba(255, 255, 255, 0.2);
+}
+.headerRows > td {
+  width: 33%;
+}
+.firstCol {
+  padding-left: 20px;
+  text-align: left;
+}
+.secondCol {
+  text-align: center;
+}
+.thirdCol {
+  text-align: right;
+  padding-right: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .currencyContainer {
+    max-width: 336px;
+    margin: 0 auto;
+  }
+  .currencyTable {
+    width: 336px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .currencyContainer {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .currencyTable {
+    width: 480px;
+  }
+  .headerRows {
+    padding-top: 16px;
+    padding-left: 62px;
+    padding-right: 131px;
+  }
+  .firstCol {
+    padding-left: 84px;
+  }
+  .thirdCol {
+    padding-right: 131px;
+  }
+}

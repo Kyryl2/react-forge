@@ -37,10 +37,14 @@
   font-size: 19px;
   color: #fbfbfb;
 }
+@media only screen and (min-width: 768px) {
+  .title {
+    font-size: 26px;
+  }
+}
 .form {
   display: flex;
   flex-direction: column;
-
   min-height: auto;
   gap: 40px;
   /* border-bottom: rgba(255, 255, 255, 0.4); */

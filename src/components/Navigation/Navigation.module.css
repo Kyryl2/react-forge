@@ -1,0 +1,21 @@
+.navigation {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+  background-color: black;
+  grid-area: navigation;
+}
+
+.linkText {
+  display: none;
+}
+
+.linkIcon {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+

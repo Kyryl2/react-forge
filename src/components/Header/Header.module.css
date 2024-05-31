@@ -9,7 +9,7 @@ background: linear-gradient(276deg, #2e1746 3.19%, #2e225f 100%);
   padding: 25px 16px;
 }
 
-.logo {
+.logoName{
   font-size: 17px;
   /* font-weight: "Poppins", sans-serif;   */
 }
@@ -25,6 +25,7 @@ background: linear-gradient(276deg, #2e1746 3.19%, #2e225f 100%);
 }
 
 .exitButton { 
+  display: flex;
   background: none;
   border: none;
   border-left: 1px solid var(--white-60);
@@ -35,8 +36,16 @@ background: linear-gradient(276deg, #2e1746 3.19%, #2e225f 100%);
 .exitText{
   margin-left: 3px;
 }
-
-@media (max-width: 480px) {
+.exitIcon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;  
+}
+.logoImage{
+  width: 25px;  
+  height: auto;
+}
+@media (max-width: 769px) {
   .exitText {
     display: none; 
   }

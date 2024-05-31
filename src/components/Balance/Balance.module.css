@@ -5,7 +5,8 @@
   padding: 8px 0 11px 56px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
+  margin-left: 56px;
   justify-content: center;
   width: 480px;
 height: 80px;

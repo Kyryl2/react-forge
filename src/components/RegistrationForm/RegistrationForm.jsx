@@ -119,22 +119,22 @@ const RegistrationForm = () => {
                     id={confirmPassField}
                     placeholder="Confirm password"
                   />
-                  <ErrorMessage
-                    className={s.error}
-                    component="span"
-                    name="confirm"
-                  />
                 </div>
-                <div className={s.buttonsWrapper}>
-                  <button className={clsx(s.btn, s.btnRegister)} type="submit">
-                    Register
+                <ErrorMessage
+                  className={s.error}
+                  component="span"
+                  name="confirm"
+                />
+              </div>
+              <div className={s.buttonsWrapper}>
+                <button className={clsx(s.btn, s.btnRegister)} type="submit">
+                  Register
+                </button>
+                <Link to="/login">
+                  <button className={clsx(s.btn, s.btnLogin)} type="submit">
+                    Log in
                   </button>
-                  <Link to="/login">
-                    <button className={clsx(s.btn, s.btnLogin)} type="submit">
-                      Log in
-                    </button>
-                  </Link>
-                </div>
+                </Link>
               </div>
             </Form>
           </Formik>

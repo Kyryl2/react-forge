@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import ReduxTest from "./pages/ReduxTest/ReduxTest";
-import Header from "./components/Header/Header";
 
 import RestrictedRoute from "./routes/RestrictedRoute";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
@@ -17,28 +16,26 @@ function App() {
     dispatch(userRefreshThunk());
   }, [dispatch]);
   return (
-    <>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <PrivateRoute redirectTo="/login" component={<DashboardPage />} />
-          }
-        />
-        <Route
-          path="/register"
-          element={
-            <RestrictedRoute redirectTo="/" component={<RegistrationPage />} />
-          }
-        />
-        <Route
-          path="/login"
-          element={<RestrictedRoute redirectTo="/" component={<LoginPage />} />}
-        />
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <PrivateRoute redirectTo="/login" component={<DashboardPage />} />
+        }
+      />
+      <Route
+        path="/register"
+        element={
+          <RestrictedRoute redirectTo="/" component={<RegistrationPage />} />
+        }
+      />
+      <Route
+        path="/login"
+        element={<RestrictedRoute redirectTo="/" component={<LoginPage />} />}
+      />
 
-        <Route path="/redux-test" element={<ReduxTest />} />
-      </Routes>
-    </>
+      <Route path="/redux-test" element={<ReduxTest />} />
+    </Routes>
   );
 }
 

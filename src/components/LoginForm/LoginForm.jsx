@@ -30,9 +30,7 @@ const LoginForm = () => {
         <Form className={s.form}>
           <div className={s.wrap}>
             <label htmlFor={emailFieldId}></label>
-            {/* <svg width="20" height="20">
-              <use href="/icons.svg#icon-logo"></use>
-            </svg> */}
+
             <Field
               className={s.input}
               type="email"

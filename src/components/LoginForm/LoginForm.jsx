@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { userLoginThunk } from "../../redux/auth/operations";
 import { Link } from "react-router-dom";
 import { Icon } from "../../images/Icon/Icon";
+import toast, { Toaster } from "react-hot-toast";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -26,12 +27,24 @@ const LoginForm = () => {
 
   const handleSubmit = (values, actions) => {
     dispatch(userLoginThunk(values))
+      .unwrap()
       .then(() => actions.resetForm())
-      .catch((error) => error);
+      .catch(() =>
+        toast.error("Email or password is not valid", {
+          icon: "❌",
+          position: "top-right",
+          style: {
+            backgroundImage:
+              "linear-gradient(167deg, #ffc727 0%, #9e40ba 61.46%, #7000ff 90.54%)",
+            color: "white",
+          },
+        })
+      );
   };
 
   return (
     <div className={s.mainContainer}>
+      <Toaster position="top-right" reverseOrder={false} />
       <div className={s.formContainer}>
         <div className={s.container}>
           <Icon id="icon-logo" className={s.icon} />

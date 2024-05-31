@@ -81,11 +81,11 @@ const LoginForm = () => {
               </div>
 
               <div className={s.buttonsWrapper}>
-                <button className={clsx(s.btn, s.btnLogin)} type="submit">
+                <button className={s.btnLogin} type="submit">
                   Log in
                 </button>
                 <Link to="/register">
-                  <button className={clsx(s.btn, s.btnRegister)} type="submit">
+                  <button className={s.btnRegister} type="submit">
                     Register
                   </button>
                 </Link>

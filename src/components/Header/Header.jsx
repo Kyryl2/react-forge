@@ -5,13 +5,14 @@ import "../../styles/container.css";
 import { Icon } from "../../images/Icon/Icon";
 import { useSelector } from "react-redux";
 import { selectUsername } from "../../redux/auth/selectors";
+import { useToggle } from "../../hooks/useToggle";
+import LogOutModal from "../LogoutModal/LogoutModal";
 
 const Header = () => {
-  // const dispatch = useDispatch();
+  const { openModal, isOpen, closeModal } = useToggle();
+
   const userName = useSelector(selectUsername);
-  const handleExit = () => {
-    // dispatch(userLogoutThunk());
-  };
+
   return (
     <header className="container">
       <div className={s.header}>
@@ -20,9 +21,8 @@ const Header = () => {
           <div className={s.logoName}>Money Guard</div>
         </div>
         <div className={s.userInfo}>
-          {/* <div className={s.userName}>Name</div> */}
           <div className={s.userName}>{userName || "Guest"}</div>
-          <button className={s.exitButton} onClick={handleExit}>
+          <button className={s.exitButton} onClick={openModal}>
             {/* <span className={s.exitIcon}>⬅</span> */}
             <svg className={s.exitIcon}>
               <use href="../../images/icons.svg#icon-home" />
@@ -30,6 +30,7 @@ const Header = () => {
             </svg>
             <span className={s.exitText}>Exit</span>
           </button>
+          {isOpen && <LogOutModal closeModal={closeModal} />}
         </div>
       </div>
     </header>

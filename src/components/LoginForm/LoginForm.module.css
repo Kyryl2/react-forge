@@ -1,18 +1,7 @@
-@media only screen and (min-width: 768px) {
-  .mainContainer {
-    background-image: url("../../images/LoginPage-IMG/login-page-gradient-tablet_1x.webp"),
-      linear-gradient(220deg, rgb(109, 84, 235, 0.4), rgb(100, 35, 144, 0.4));
-  }
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 568px;
-  /* margin-right: 20px;
-  margin-left: 20px; */
+.mainContainer {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
   background-image: linear-gradient(
     220deg,
     rgb(109, 84, 235, 0.4),
@@ -20,57 +9,73 @@
   );
 }
 
-@media only screen and (min-width: 768px) {
-  .container {
-    border-radius: 8px;
-    width: 533px;
-    height: 570px;
-    backdrop-filter: blur(100px);
-    box-shadow: 0 4px 60px 0 rgba(0, 0, 0, 0.25);
-    background: rgba(255, 255, 255, 0.1);
-    /* margin: 227px 117px; */
-    margin: 0 auto;
-  }
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
+    220deg,
+    rgb(109, 84, 235, 0.4),
+    rgb(100, 35, 144, 0.4)
+  );
+  height: 100vh;
 }
+
+.icon {
+  width: 27px;
+  height: 26px;
+}
+
 .title {
   font-weight: 400;
   font-size: 19px;
   color: #fbfbfb;
 }
-@media only screen and (min-width: 768px) {
-  .title {
-    font-size: 26px;
-  }
-}
+
 .form {
   display: flex;
   flex-direction: column;
   min-height: auto;
   gap: 40px;
-  /* border-bottom: rgba(255, 255, 255, 0.4); */
   margin-top: 52px;
-  /* width: 350px;
-  height: 350px; */
 }
+
+.buttonsWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
 .wrap {
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   display: flex;
+  padding-bottom: 8px;
+  padding-left: 10.5px;
+  margin-bottom: 16px;
+  width: 280px;
 }
+
 .input {
   font-weight: 400;
   font-size: 18px;
+  width: 280px;
+  height: 32px;
   gap: 40px;
   background-color: transparent;
   border: none;
   outline: none;
   padding-left: 19px;
+  color: white;
 }
-.btn {
+
+.btnLogin {
   border-radius: 20px;
+  border: none;
   width: 280px;
   height: 50px;
-}
-.btnLogin {
+
   box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
   background: linear-gradient(
     167deg,
@@ -78,18 +83,101 @@
     #9e40ba 61.46%,
     #7000ff 90.54%
   );
+
+  font-family: var(--font-family);
+  font-weight: 400;
   font-size: 18px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-align: center;
-  color: #fbfbfb;
+  color: var(--white);
 }
+
 .btnRegister {
+  border: 1px solid #4a56e2;
+  border-radius: 20px;
+  width: 280px;
+  height: 50px;
+
   box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
   background: #fcfcfc;
+
+  font-family: var(--font-family);
+  font-weight: 400;
   font-size: 18px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-align: center;
-  color: #623f8b;
+  color: var(--text-button);
+}
+
+.error {
+  color: #ffc727;
+}
+
+@media only screen and (min-width: 768px) {
+  .mainContainer {
+    background-image: url("../../images/LoginPage-IMG/login-page-gradient-tablet_1x.webp"),
+      linear-gradient(220deg, rgb(109, 84, 235, 0.4), rgb(100, 35, 144, 0.4));
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+  }
+
+  .input {
+    width: 409px;
+    height: 35px;
+  }
+
+  .wrap{
+    width: 409px;
+  }
+
+  .btnRegister {
+    border-radius: 20px;
+    width: 300px;
+    height: 50px;
+  }
+
+  .btnLogin {
+    border-radius: 20px;
+    width: 300px;
+    height: 50px;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .container {
+    border-radius: 8px;
+    padding: 80px 62px;
+    height: 100%;
+    backdrop-filter: blur(100px);
+    box-shadow: 0 4px 60px 0 rgba(0, 0, 0, 0.25);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .formContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .icon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .mainContainer {
+    background-image: url("../../images/LoginPage-IMG/login-page-gradient-dekstop1x.webp"),
+      linear-gradient(220deg, rgb(109, 84, 235, 0.4), rgb(100, 35, 144, 0.4));
+  }
+
+  .title {
+    font-size: 26px;
+  }
 }

@@ -9,7 +9,7 @@ const Navigation = () => {
     <nav className={s.navigation}>
       <NavLink to='' className={({ isActive }) => getClasses(isActive)}>
         <div className={s.linkIcon}>
-          <Icon id='icon-home' className={s.homeIcon} />
+          <Icon id='icon-home'  className={s.homeIcon} />
         </div>
         <span className={s.linkText}>Home</span>
       </NavLink>
@@ -19,7 +19,7 @@ const Navigation = () => {
         className={({ isActive }) => getClasses(isActive)}
       >
         <div className={s.linkIcon}>
-          <Icon id='icon-timeline' className={s.timeLineIcon} />
+          <Icon id='icon-timeline'    className={s.timeLineIcon} />
         </div>
         <span className={s.linkText}>Statistics</span>
       </NavLink>
@@ -33,7 +33,7 @@ const Navigation = () => {
         }
       >
         <div className={s.linkIcon}>
-          <Icon id='icon-dollar' className={s.dollarIcon} />
+          <Icon id='icon-dollar'   className={s.dollarIcon} />
         </div>
         <span className={s.linkText}>Currency</span>
       </NavLink>

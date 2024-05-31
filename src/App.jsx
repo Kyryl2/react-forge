@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import ReduxTest from "./pages/ReduxTest/ReduxTest";
-import Header from "./components/Header/Header";
+
 
 import RestrictedRoute from "./routes/RestrictedRoute";
 import RegistrationPage from "./pages/RegistrationPage/RegistrationPage";
@@ -43,7 +43,7 @@ function App() {
 
         <Route path="/redux-test" element={<ReduxTest />} />
       </Routes>
-      <Header />
+     
     </>
   );
 }

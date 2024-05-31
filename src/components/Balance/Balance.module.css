@@ -25,3 +25,6 @@ height: 80px;
   /* margin: 5px 0 0;  */
   color:  var( --white);
 }
+.balanceAmount1{
+  font-weight: 400;
+}

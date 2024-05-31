@@ -1,16 +1,15 @@
-import React from "react";
 import s from "./Header.module.css";
 import "../../styles/container.css";
-import { useDispatch } from "react-redux";
-import { userLogoutThunk } from "../../redux/auth/operations";
+// import { useDispatch } from "react-redux";
+// import { userLogoutThunk } from "../../redux/auth/operations";
 import { Icon } from "../../images/Icon/Icon";
 import { useSelector } from "react-redux";
 
 const Header = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const userName = useSelector((state) => state.auth.user.username);
   const handleExit = () => {
-    dispatch(userLogoutThunk());
+    // dispatch(userLogoutThunk());
   };
   return (
     <header className="container">

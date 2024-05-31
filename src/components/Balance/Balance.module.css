@@ -2,6 +2,7 @@
   box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
   background: rgba(82, 59, 126, 0.6);
   color: #fff;
+  margin-bottom: 32px;
   padding: 8px 0 11px 56px;
   display: flex;
   flex-direction: column;
@@ -9,23 +10,24 @@
   margin-left: 56px;
   justify-content: center;
   width: 480px;
-height: 80px;
+  height: 80px;
 }
 
-.balanceTitle { 
+.balanceTitle {
   font-weight: 400;
   font-size: 12px;
   text-transform: uppercase;
   margin: 0;
-  color: var( --white-40);
+  color: var(--white-40);
 }
 
-.balanceAmount { 
- font-size: 30px;
- font-weight: 700;
+.balanceAmount {
+  font-size: 30px;
+  font-weight: 700;
   /* margin: 5px 0 0;  */
-  color:  var( --white);
+  color: var(--white);
 }
-.balanceAmount1{
+
+.balanceAmount1 {
   font-weight: 400;
 }

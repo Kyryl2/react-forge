@@ -4,19 +4,20 @@
   align-items: center;
   /* background-color: var(--icon-violet); */
   box-shadow: 0 4px 40px 0 rgba(0, 0, 0, 0.25), inset 0 -3px 2px 0 rgba(0, 0, 0, 0.1);
-background: linear-gradient(276deg, #2e1746 3.19%, #2e225f 100%);
+  background: linear-gradient(276deg, #2e1746 3.19%, #2e225f 100%);
   color: var(--white);
   padding: 25px 16px;
 }
+
 .logo {
   display: flex;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
   /* height: 100px;  */
 }
 
-.logoName{
+.logoName {
   font-size: 17px;
   font-weight: 400;
 }
@@ -31,7 +32,7 @@ background: linear-gradient(276deg, #2e1746 3.19%, #2e225f 100%);
   color: var(--white-60);
 }
 
-.exitButton { 
+.exitButton {
   display: flex;
   background: none;
   border: none;
@@ -40,21 +41,25 @@ background: linear-gradient(276deg, #2e1746 3.19%, #2e225f 100%);
   cursor: pointer;
   padding: 6px 12px;
 }
-.exitText{
+
+.exitText {
   margin-left: 3px;
 }
+
 .exitIcon {
   width: 18px;
   height: 18px;
-  fill: currentColor;  
+  fill: currentColor;
 }
-.logoImage{
+
+.logoImage {
   text-align: center;
-  width: 25px;  
+  width: 25px;
   height: auto;
 }
-@media screen and (max-width: 767px)  {
+
+@media screen and (max-width: 767px) {
   .exitText {
-    display: none; 
+    display: none;
   }
 }

@@ -27,17 +27,12 @@ function App() {
         <Route
           path='/register'
           element={
-            <RestrictedRoute
-              redirectTo='/home'
-              component={<RegistrationPage />}
-            />
+            <RestrictedRoute redirectTo='/' component={<RegistrationPage />} />
           }
         />
         <Route
           path='/login'
-          element={
-            <RestrictedRoute redirectTo='/home' component={<LoginPage />} />
-          }
+          element={<RestrictedRoute redirectTo='/' component={<LoginPage />} />}
         />
 
         <Route path='/redux-test' element={<ReduxTest />} />

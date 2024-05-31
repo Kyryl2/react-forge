@@ -1,5 +1,7 @@
+import Navigation from '../../components/Navigation/Navigation';
+
 const DashboardPage = () => {
-  return <div>DashboardPage</div>;
+  return <div><Navigation /></div>;
 };
 
 export default DashboardPage;

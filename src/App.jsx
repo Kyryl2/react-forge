@@ -10,44 +10,39 @@ import { userRefreshThunk } from "./redux/auth/operations";
 import PrivateRoute from "./routes/PrivateRoute";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
 
-
-
-
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(userRefreshThunk());
   }, [dispatch]);
   return (
-
     <>
       <Routes>
         <Route
-          path="/home"
+          path='/'
           element={
-            <PrivateRoute redirectTo="/login" component={<DashboardPage />} />
+            <PrivateRoute redirectTo='/login' component={<DashboardPage />} />
           }
         />
         <Route
-          path="/register"
+          path='/register'
           element={
             <RestrictedRoute
-              redirectTo="/home"
+              redirectTo='/home'
               component={<RegistrationPage />}
             />
           }
         />
         <Route
-          path="/login"
+          path='/login'
           element={
-            <RestrictedRoute redirectTo="/home" component={<LoginPage />} />
+            <RestrictedRoute redirectTo='/home' component={<LoginPage />} />
           }
         />
 
-        <Route path="/redux-test" element={<ReduxTest />} />
+        <Route path='/redux-test' element={<ReduxTest />} />
       </Routes>
     </>
-
   );
 }
 

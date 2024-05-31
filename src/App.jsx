@@ -16,6 +16,7 @@ function App() {
     dispatch(userRefreshThunk());
   }, [dispatch]);
   return (
+
     <>
       <Routes>
         <Route
@@ -38,6 +39,28 @@ function App() {
         <Route path='/redux-test' element={<ReduxTest />} />
       </Routes>
     </>
+
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <PrivateRoute redirectTo="/login" component={<DashboardPage />} />
+        }
+      />
+      <Route
+        path="/register"
+        element={
+          <RestrictedRoute redirectTo="/" component={<RegistrationPage />} />
+        }
+      />
+      <Route
+        path="/login"
+        element={<RestrictedRoute redirectTo="/" component={<LoginPage />} />}
+      />
+
+      <Route path="/redux-test" element={<ReduxTest />} />
+    </Routes>
+
   );
 }
 

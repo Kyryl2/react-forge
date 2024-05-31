@@ -1,12 +1,14 @@
 import React from "react";
 import s from "./Balance.module.css";
 
-const Balance = ({ amount }) => {
+const Balance = () => {
+  // const amount = useSelector(state => state.user.balance); // возьмем из баланса  состояния Redux
+
   return (
     <div className={s.balanceContainer}>
       <p className={s.balanceTitle}>YOUR BALANCE</p>
       <p className={s.balanceAmount}>
-        €33333{" "}
+        ₴ 33333{" "}
         {/* {amount.toLocaleString(undefined, {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2,

@@ -19,9 +19,12 @@ height: 80px;
   color: var( --white-40);
 }
 
-.balanceAmount {
-  font-weight: 400;
+.balanceAmount { 
  font-size: 30px;
+ font-weight: 700;
   /* margin: 5px 0 0;  */
   color:  var( --white);
+}
+.balanceAmount1{
+  font-weight: 400;
 }

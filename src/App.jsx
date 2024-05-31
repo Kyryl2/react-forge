@@ -9,10 +9,6 @@ import { useDispatch } from "react-redux";
 import { userRefreshThunk } from "./redux/auth/operations";
 import PrivateRoute from "./routes/PrivateRoute";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
-import Loader from "./components/Loader/Loader";
-
-
-
 
 function App() {
   const dispatch = useDispatch();
@@ -20,36 +16,33 @@ function App() {
     dispatch(userRefreshThunk());
   }, [dispatch]);
   return (
-
     <>
-    <Loader/>
       <Routes>
         <Route
-          path="/home"
+          path='/home'
           element={
-            <PrivateRoute redirectTo="/login" component={<DashboardPage />} />
+            <PrivateRoute redirectTo='/login' component={<DashboardPage />} />
           }
         />
         <Route
-          path="/register"
+          path='/register'
           element={
             <RestrictedRoute
-              redirectTo="/home"
+              redirectTo='/home'
               component={<RegistrationPage />}
             />
           }
         />
         <Route
-          path="/login"
+          path='/login'
           element={
-            <RestrictedRoute redirectTo="/home" component={<LoginPage />} />
+            <RestrictedRoute redirectTo='/home' component={<LoginPage />} />
           }
         />
 
-        <Route path="/redux-test" element={<ReduxTest />} />
+        <Route path='/redux-test' element={<ReduxTest />} />
       </Routes>
     </>
-
   );
 }
 

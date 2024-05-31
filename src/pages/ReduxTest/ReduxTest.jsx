@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import {
   userLoginThunk,
@@ -14,8 +14,12 @@ import {
   patchTransactionThunk,
   postTransactionThunk,
 } from "../../redux/transactions/operations.js";
+import { selectTransactions } from "../../redux/transactions/selectors.js";
 
 const ReduxTest = () => {
+  const transactions = useSelector(selectTransactions);
+  console.log(transactions);
+
   const dispatch = useDispatch();
 
   useEffect(() => {

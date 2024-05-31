@@ -19,23 +19,23 @@ function App() {
     <>
       <Routes>
         <Route
-          path="/"
+          path='/'
           element={
-            <PrivateRoute redirectTo="/login" component={<DashboardPage />} />
+            <PrivateRoute redirectTo='/login' component={<DashboardPage />} />
           }
         />
         <Route
-          path="/register"
+          path='/register'
           element={
-            <RestrictedRoute redirectTo="/" component={<RegistrationPage />} />
+            <RestrictedRoute redirectTo='/' component={<RegistrationPage />} />
           }
         />
         <Route
-          path="/login"
-          element={<RestrictedRoute redirectTo="/" component={<LoginPage />} />}
+          path='/login'
+          element={<RestrictedRoute redirectTo='/' component={<LoginPage />} />}
         />
 
-        <Route path="/redux-test" element={<ReduxTest />} />
+        <Route path='/redux-test' element={<ReduxTest />} />
       </Routes>
     </>
   );

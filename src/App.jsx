@@ -19,7 +19,7 @@ function App() {
     <>
       <Routes>
         <Route
-          path='/home'
+          path='/'
           element={
             <PrivateRoute redirectTo='/login' component={<DashboardPage />} />
           }

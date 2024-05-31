@@ -5,6 +5,8 @@ import * as Yup from "yup";
 import clsx from "clsx";
 import { useDispatch } from "react-redux";
 import { userLoginThunk } from "../../redux/auth/operations";
+import { Link } from "react-router-dom";
+import { Icon } from "../../images/Icon/Icon";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -23,16 +25,16 @@ const LoginForm = () => {
     password: "",
   };
 
-  const handleSubmit = (values) => {
-    dispatch(userLoginThunk(values));
-    //   .then(() => actions.resetForm())
-    //   .catch((error) => error);
+  const handleSubmit = (values, actions) => {
+    dispatch(userLoginThunk(values))
+      .then(() => actions.resetForm())
+      .catch((error) => error);
   };
 
   return (
     <div className={s.mainContainer}>
       <div className={s.container}>
-        {/* <img src={favicon} alt="logo" /> */}
+        <Icon id="icon-logo" width={21} height={26} />
         <h2 className={s.title}>Money Guard</h2>
         <Formik
           initialValues={initialValues}
@@ -42,9 +44,7 @@ const LoginForm = () => {
           <Form className={s.form}>
             <div className={s.wrap}>
               <label htmlFor={emailFieldId}></label>
-              <svg width="21" height="26">
-                <use href="../../images/icons.svg#icon-email" />
-              </svg>
+              <Icon id="icon-email" width={24} height={24} />
               <Field
                 className={s.input}
                 type="email"
@@ -56,6 +56,7 @@ const LoginForm = () => {
             </div>
             <div className={s.wrap}>
               <label htmlFor={passwordFieldId}></label>
+              <Icon id="icon-lock" width={24} height={24} />
               <Field
                 className={s.input}
                 type="text"
@@ -78,9 +79,11 @@ const LoginForm = () => {
             <button className={clsx(s.btn, s.btnLogin)} type="submit">
               Log in
             </button>
-            <button className={clsx(s.btn, s.btnRegister)} type="submit">
-              Register
-            </button>
+            <Link to="/register">
+              <button className={clsx(s.btn, s.btnRegister)} type="submit">
+                Register
+              </button>
+            </Link>
           </Form>
         </Formik>
       </div>

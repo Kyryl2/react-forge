@@ -34,6 +34,12 @@
 <symbol id="icon-email" viewBox="0 0 32 32">
 <path fill="#fff" style="fill: var(--color3, #fff)" opacity="0.4" d="M26.667 5.333h-21.333c-1.467 0-2.653 1.2-2.653 2.667l-0.013 16c0 1.467 1.2 2.667 2.667 2.667h21.333c1.467 0 2.667-1.2 2.667-2.667v-16c0-1.467-1.2-2.667-2.667-2.667zM26.667 10.667l-10.667 6.667-10.667-6.667v-2.667l10.667 6.667 10.667-6.667v2.667z"></path>
 </symbol>
-
+<symbol id="icon-logo" width="21" height="26" viewBox="0 0 21 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M15.2328 3.50029C13.4298 3.04956 11.6269 2.1481 10.2747 0.795898C8.92251 2.1481 7.11958 3.04956 5.31665 3.50029C5.76738 7.55689 7.11958 10.2613 10.2747 12.5149C13.4298 10.2613 15.2328 7.55689 15.2328 3.50029Z" fill="#FFC727"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M13.4296 20.2824L0.809082 5.4082V12.6199L10.7252 23.8882L13.4296 20.2824Z" fill="#FBFBFB"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M14.782 18.9306L20.1908 12.6204V5.85938L11.6268 15.7755L14.782 18.9306Z" fill="#FBFBFB"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M15.2327 21.1842V25.2408L20.1907 19.3813V15.3247L15.2327 21.1842Z" fill="#FBFBFB"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.76714 21.1842L0.809082 15.3247V19.3813L5.76714 25.2408V21.1842Z" fill="#FBFBFB"/>
+</symbol>
 </defs>
 </svg>

@@ -1,7 +1,7 @@
 import React from "react";
 import s from "./Header.module.css";
 import "../../styles/container.css";
-import "../../images/icons.svg";
+
 import favicon from "../../images/faviсon.png";
 
 const Header = () => {
@@ -20,7 +20,7 @@ const Header = () => {
           <button className={s.exitButton} onClick={handleExit}>
             {/* <span className={s.exitIcon}>⬅</span> */}
             <svg className={s.exitIcon}>
-              <use href="#icon-home" />
+              <use href="../../images/icons.svg#icon-home" />
             </svg>
             <span className={s.exitText}>Exit</span>
           </button>

@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { userRefreshThunk } from "./redux/auth/operations";
 import PrivateRoute from "./routes/PrivateRoute";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
+import Balance from "./components/Balance/Balance";
 
 function App() {
   const dispatch = useDispatch();
@@ -44,6 +45,7 @@ function App() {
         <Route path="/redux-test" element={<ReduxTest />} />
       </Routes>
       <Header />
+      <Balance />
     </>
   );
 }

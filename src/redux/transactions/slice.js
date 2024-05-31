@@ -1,4 +1,5 @@
-import { createSlice, isAnyOf } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
+import { userLogoutThunk } from "../auth/operations";
 import {
   deleteTransactionThunk,
   getCategoriesThunk,
@@ -14,8 +15,6 @@ const initialState = {
     transactions: [],
     summary: {},
   },
-  isLoading: false,
-  setError: null,
 };
 
 const transactionsSlice = createSlice({
@@ -47,47 +46,9 @@ const transactionsSlice = createSlice({
         );
         state.transactions.transactions.splice(index, 1);
       })
-      .addMatcher(
-        isAnyOf(
-          getCategoriesThunk.pending,
-          getSummaryThunk.pending,
-          getTransactionsThunk.pending,
-          postTransactionThunk.pending,
-          patchTransactionThunk.pending,
-          deleteTransactionThunk.pending
-        ),
-        (state) => {
-          state.isLoading = true;
-          state.setError = null;
-        }
-      )
-      .addMatcher(
-        isAnyOf(
-          getCategoriesThunk.fulfilled,
-          getSummaryThunk.fulfilled,
-          getTransactionsThunk.fulfilled,
-          postTransactionThunk.fulfilled,
-          patchTransactionThunk.fulfilled,
-          deleteTransactionThunk.fulfilled
-        ),
-        (state) => {
-          state.isLoading = false;
-        }
-      )
-      .addMatcher(
-        isAnyOf(
-          getCategoriesThunk.rejected,
-          getSummaryThunk.rejected,
-          getTransactionsThunk.rejected,
-          postTransactionThunk.rejected,
-          patchTransactionThunk.rejected,
-          deleteTransactionThunk.rejected
-        ),
-        (state, { action }) => {
-          state.isLoading = false;
-          state.setError = action;
-        }
-      );
+      .addCase(userLogoutThunk.fulfilled, () => {
+        return initialState;
+      });
   },
 });
 

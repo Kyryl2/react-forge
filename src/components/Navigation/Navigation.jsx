@@ -9,7 +9,7 @@ const Navigation = () => {
     <nav className={s.navigation}>
       <NavLink to='' className={({ isActive }) => getClasses(isActive)}>
         <div className={s.linkIcon}>
-          <Icon id='icon-home'  className={s.homeIcon} />
+          <Icon id="icon-home" className={s.homeIcon} />
         </div>
         <span className={s.linkText}>Home</span>
       </NavLink>

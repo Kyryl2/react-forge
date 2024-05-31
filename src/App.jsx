@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { userRefreshThunk } from "./redux/auth/operations";
 import PrivateRoute from "./routes/PrivateRoute";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
+import Loader from "./components/Loader/Loader";
 
 
 
@@ -21,6 +22,7 @@ function App() {
   return (
 
     <>
+    <Loader/>
       <Routes>
         <Route
           path="/home"

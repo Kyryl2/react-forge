@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import s from "./Navigation.module.css";
+import { Icon } from "../../images/Icon/Icon";
 
 const Navigation = () => {
   const getClasses = (isActive) =>
@@ -7,7 +8,9 @@ const Navigation = () => {
   return (
     <nav className={s.navigation}>
       <NavLink to="" className={({ isActive }) => getClasses(isActive)}>
-        <div className={s.linkIcon}></div>
+        <div className={s.linkIcon}>
+          <Icon id="#icon-home" className={s.homeIcon} />
+        </div>
         <span className={s.linkText}>Home</span>
       </NavLink>
 
@@ -15,7 +18,9 @@ const Navigation = () => {
         to="statistics"
         className={({ isActive }) => getClasses(isActive)}
       >
-        <div className={s.linkIcon}></div>
+        <div className={s.linkIcon}>
+          <Icon id="#icon-graphic" className={s.graphicIcon} />
+        </div>
         <span className={s.linkText}>Statistics</span>
       </NavLink>
 
@@ -27,7 +32,9 @@ const Navigation = () => {
             : `${s.navLink} ${s.currencyLink}`
         }
       >
-        <div className={s.linkIcon}></div>
+        <div className={s.linkIcon}>
+          <Icon id="#icon-dollar" className={s.dollarIcon} />
+        </div>
         <span className={s.linkText}>Currency</span>
       </NavLink>
     </nav>

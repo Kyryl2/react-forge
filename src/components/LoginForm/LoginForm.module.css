@@ -1,3 +1,10 @@
+@media only screen and (min-width: 768px) {
+  .mainContainer {
+    background-image: url("../../images/LoginPage-IMG/login-page-gradient-tablet_1x.webp"),
+      linear-gradient(220deg, rgb(109, 84, 235, 0.4), rgb(100, 35, 144, 0.4));
+  }
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -6,6 +13,19 @@
   height: 568px;
   margin-right: 20px;
   margin-left: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    border-radius: 8px;
+    width: 533px;
+    height: 570px;
+    backdrop-filter: blur(100px);
+    box-shadow: 0 4px 60px 0 rgba(0, 0, 0, 0.25);
+    background: rgba(255, 255, 255, 0.1);
+    /* margin: 227px 117px; */
+    margin: 0 auto;
+  }
 }
 .title {
   font-weight: 400;

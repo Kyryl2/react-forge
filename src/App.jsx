@@ -10,7 +10,6 @@ import { useDispatch } from "react-redux";
 import { userRefreshThunk } from "./redux/auth/operations";
 import PrivateRoute from "./routes/PrivateRoute";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
-import Balance from "./components/Balance/Balance";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,7 +20,7 @@ function App() {
     <>
       <Routes>
         <Route
-          path="/home"
+          path="/"
           element={
             <PrivateRoute redirectTo="/login" component={<DashboardPage />} />
           }
@@ -29,23 +28,16 @@ function App() {
         <Route
           path="/register"
           element={
-            <RestrictedRoute
-              redirectTo="/home"
-              component={<RegistrationPage />}
-            />
+            <RestrictedRoute redirectTo="/" component={<RegistrationPage />} />
           }
         />
         <Route
           path="/login"
-          element={
-            <RestrictedRoute redirectTo="/home" component={<LoginPage />} />
-          }
+          element={<RestrictedRoute redirectTo="/" component={<LoginPage />} />}
         />
 
         <Route path="/redux-test" element={<ReduxTest />} />
       </Routes>
-      <Header />
-      <Balance />
     </>
   );
 }

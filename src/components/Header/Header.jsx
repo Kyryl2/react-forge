@@ -4,10 +4,11 @@ import "../../styles/container.css";
 // import { userLogoutThunk } from "../../redux/auth/operations";
 import { Icon } from "../../images/Icon/Icon";
 import { useSelector } from "react-redux";
+import { selectUsername } from "../../redux/auth/selectors";
 
 const Header = () => {
   // const dispatch = useDispatch();
-  const userName = useSelector((state) => state.auth.user.username);
+  const userName = useSelector(selectUsername);
   const handleExit = () => {
     // dispatch(userLogoutThunk());
   };

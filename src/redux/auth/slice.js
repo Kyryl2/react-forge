@@ -39,12 +39,15 @@ const authSlice = createSlice({
         state.user = payload;
         state.isLoggedIn = true;
       })
-
+      .addCase(userRefreshThunk.rejected, (state) => {
+        state.isLoading = false;
+      })
       .addMatcher(
         isAnyOf(
           userRegisterThunk.pending,
           userLoginThunk.pending,
-          userLogoutThunk.pending
+          userLogoutThunk.pending,
+          userRefreshThunk.pending
         ),
         (state) => {
           state.isLoading = true;
@@ -55,7 +58,8 @@ const authSlice = createSlice({
         isAnyOf(
           userRegisterThunk.fulfilled,
           userLoginThunk.fulfilled,
-          userLogoutThunk.fulfilled
+          userLogoutThunk.fulfilled,
+          userRefreshThunk.fulfilled
         ),
         (state) => {
           state.isLoading = false;

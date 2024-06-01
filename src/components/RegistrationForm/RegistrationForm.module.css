@@ -88,7 +88,11 @@
   text-align: center;
   color: var(--text-button);
 }
-
+.btnLogin:hover {
+  background: #7000ff;
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  color: whitesmoke;
+}
 .btnRegister {
   border-radius: 20px;
   border: none;
@@ -112,7 +116,11 @@
   text-align: center;
   color: var(--white);
 }
-
+.btnRegister:hover {
+  background: #9e40ba;
+  color: whitesmoke;
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
 .error {
   color: #ffc727;
 }

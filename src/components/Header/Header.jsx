@@ -19,21 +19,20 @@ const Header = () => {
     <header className={s.header}>
       {isMobile && (
         <NavLink to="" className={s.link}>
-   <div className={s.div}>
-           <Icon id="icon-logo"  className={s.icon}/>
+          <div className={s.div}>
+            <Icon id="icon-logo" className={s.icon} />
 
-<p className={s.logoName}>Money Guard</p>
-</div>
-   
+            <p className={s.logoName}>Money Guard</p>
+          </div>
         </NavLink>
       )}
       {!isMobile && (
         <NavLink to="">
           <div className={s.div}>
-           <Icon id="icon-logo"  className={s.icon}/>
+            <Icon id="icon-logo" className={s.icon} />
 
-<p className={s.logoName}>Money Guard</p>
-</div>
+            <p className={s.logoName}>Money Guard</p>
+          </div>
         </NavLink>
       )}
       <div className={s.userExit}>

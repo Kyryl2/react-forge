@@ -27,19 +27,34 @@
   border-left: 1px solid grey;
   padding-left: 12px;
   transition: color .25s cubic-bezier(.4,0,.2,1);
-  &:hover .exitText {
-    color: grey ; 
-  } 
+  
+ 
 }
+
+
+
+
+
+
 
 .exitWrapper svg {
   fill: var(--color1, #fff);
   transition: fill .25s cubic-bezier(.4,0,.2,1); 
 }
-
 .exitWrapper:hover svg {
   fill:#adb5bd;  
 }
+
+ .exitText{
+  margin-left: 8px;
+  color: var(--white-60);
+ 
+  transition: color .25s cubic-bezier(.4,0,.2,1); 
+}
+.exitWrapper:hover .exitText {
+  color: grey ; 
+} 
+
 
 .userExit {
   display: flex;
@@ -56,16 +71,17 @@
   color: #fbfbfb;
 }
 
-.userName,
-.exitText {
+.userName
+ {
   font-size: 16px;
   color: var(--white-60);
+
+    
+  
+  
 }
 
-.exitText { 
-  margin-left: 8px;
-  /* padding-left: 12px; */
-}
+
 
 @media screen and (min-width: 768px) {
   .header {

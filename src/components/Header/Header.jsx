@@ -7,6 +7,7 @@ import { useToggle } from "../../hooks/useToggle";
 import LogOutModal from "../LogoutModal/LogoutModal";
 import Logo from "../Logo/Logo";
 import useMedia from "../../hooks/useMedia";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const { openModal, isOpen, closeModal } = useToggle();
@@ -16,14 +17,22 @@ const Header = () => {
 
   return (
     <header className={s.header}>
-      {isMobile && <Logo width={17} height={17} className={s.logo} />}
-      {!isMobile && <Logo width={23} height={23} className={s.logo} />}
+      {isMobile && (
+        <NavLink to="">
+          <Logo width={17} height={17} className={s.logo} />
+        </NavLink>
+      )}
+      {!isMobile && (
+        <NavLink to="">
+          <Logo width={23} height={23} className={s.logo} />
+        </NavLink>
+      )}
       <div className={s.userExit}>
         <div className={s.userName}>{userName || "Guest"}</div>
-        <a className={s.exitWrapper} onClick={openModal}>
+        <button className={s.exitWrapper} onClick={openModal}>
           <Icon id="icon-exit" width={18} height={18} />
           {!isMobile && <p className={s.exitText}>Exit</p>}
-        </a>
+        </button>
         {isOpen && <LogOutModal closeModal={closeModal} />}
       </div>
     </header>

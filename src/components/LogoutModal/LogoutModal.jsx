@@ -39,7 +39,7 @@ const LogOutModal = ({ closeModal }) => {
           />
         )}
 
-        {isTablet && <Logo className={s.title} width={36} height={36} />}
+        {isTablet && <Logo classHover={s.hover} className={s.title} width={36} height={36} />}
         <p className={s.p}>Are you sure you want to log out?</p>
         <div className={s.buttonsWrapper}>
           <button

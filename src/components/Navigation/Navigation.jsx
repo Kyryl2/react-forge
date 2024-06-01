@@ -36,7 +36,7 @@ const Navigation = () => {
         .filter((link) => link.visible)
         .map((link) => (
           <NavLink key={link.title} to={link.path} className={getClasses}>
-            <div>
+            <div className={s.linkIcon}>
               <Icon id={link.icon} className={s.navIcon} />
               <p className={isMobile ? s.hidden : s.linkText}>{link.title}</p>
             </div>

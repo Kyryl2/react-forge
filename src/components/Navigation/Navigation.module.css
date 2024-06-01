@@ -1,100 +1,50 @@
+.dollarIcon,
+.homeIcon,
+.timeLineIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.homeContainer,
+.timeLineContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.homeContainer {
+  margin-bottom: 12px;
+}
+.timeLineContainer {
+  margin-bottom: 28px;
+}
+
 .navigation {
-    display: flex;
-    flex-direction: row;
-    gap: 38px;
-    justify-content: center;
-    margin-top: 12px;
-    grid-area: navigation;
+  display: flex;
+  flex-direction: column;
+  margin: 0px 16px;
 }
 
 .linkText {
-    display: none;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--white);
 }
 
-.linkIcon {
-    width: 38px;
-    height: 38px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-
-.linkIcon::before {
-    content: '';
-    display: block;
-    width: calc(100% - 8px);
-    height: calc(100% - 8px);
-    border-radius: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-}
-
-.active .linkIcon::before {
-    background-color: var(--text-color);
-}
-
-.homeIcon,
-.timeLineIcon,
-.dollarIcon {
-    fill: var(--text-color);
-}
-
-.active .homeIcon,
-.active .timeLineIcon,
-.active .dollarIcon {
-    fill: rgb(74, 86, 226);
+.isActive {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--white);
+  color: red;
 }
 
 @media screen and (min-width: 768px) {
-    .navigation {
-        flex-direction: column;
-        gap: 12px;
-        align-self: start;
-        margin-left: 30px;
-        margin-top: 0;
-    }
-
-    .navLink {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        gap: 23px;
-    }
-
-    .currencyLink {
-        display: none;
-    }
-
-    .linkText {
-        display: block;
-        color: rgba(251, 251, 251, 1);
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 27px;
-    }
-
-    .navLink.active .linkText {
-        font-weight: 700;
-        font-size: 20px;
-    }
-
-    .navLink.active .linkIcon {
-        border-radius: 4px;
-    }
-
-
-    .linkIcon {
-        width: 32px;
-        height: 32px;
-    }
 }
 
 @media screen and (min-width: 1280px) {
-    .navigation {
-        margin-bottom: 28px;
-    }
+  .dollarContainer {
+    display: none;
+  }
 }

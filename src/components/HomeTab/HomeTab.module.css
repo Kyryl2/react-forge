@@ -1,4 +1,5 @@
 .tab{
-    width:800px;
-    height:642px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 128, 0, 0.466);
 }

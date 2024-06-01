@@ -1,3 +1,4 @@
+
 import { useDispatch, useSelector } from 'react-redux';
 import TransactionsItem from '../TransactionsItem/TransactionsItem';
 import { selectTransactions } from '../../redux/transactions/selectors';
@@ -33,6 +34,7 @@ const TransactionsList = () => {
       </table>
     </>
   );
+
 };
 
 export default TransactionsList;

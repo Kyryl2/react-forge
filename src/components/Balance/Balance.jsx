@@ -5,11 +5,10 @@ import { selectUserBalance } from "../../redux/auth/selectors";
 const Balance = () => {
   const userBalance = useSelector(selectUserBalance);
 
-  // const formattedBalance = userBalance.toLocaleString("en-US", {
-  //   minimumFractionDigits: 2,
-  //   maximumFractionDigits: 2,
-  // });
-  const formattedBalance = userBalance.toFixed(2).replace(/,/g, "");
+  const formattedBalance = userBalance
+    .toFixed(2)
+    .replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+
   return (
     <div className={s.balanceContainer}>
       <p className={s.balanceTitle}>YOUR BALANCE</p>

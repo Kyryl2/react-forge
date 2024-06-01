@@ -3,14 +3,13 @@ import s from "./LogoutModal.module.css";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import { useMediaQuery } from "react-responsive";
 import { userLogoutThunk } from "../../redux/auth/operations";
 import useMedia from "../../hooks/useMedia";
 import { Icon } from "../../images/Icon/Icon";
 
 const LogOutModal = ({ closeModal }) => {
   const dispatch = useDispatch();
-  const { isMobile } = useMedia();
+  const { isMobile, isTablet } = useMedia();
 
   useEffect(() => {
     const addCloseEvent = (event) => {
@@ -27,8 +26,6 @@ const LogOutModal = ({ closeModal }) => {
     event.currentTarget === event.target && closeModal();
   };
 
-  const screenCondition = useMediaQuery({ query: "(min-width: 768px)" });
-
   return (
     <div className={s.logOutModal} onClick={closeOnClickOutside}>
       <div className={s.modalContent}>
@@ -38,10 +35,10 @@ const LogOutModal = ({ closeModal }) => {
             onClick={() => {
               closeModal();
             }}
-          ></div>
+          />
         )}
 
-        {screenCondition && (
+        {isTablet && (
           <>
             <div className={s.divIcon}>
               <Icon id="icon-logo" className={s.icon} />

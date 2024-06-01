@@ -1,15 +1,22 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { goitApi, updateAuthHeader } from "../../config/goitApi";
+import {
+  clearAuthHeader,
+  goitApi,
+  updateAuthHeader,
+} from "../../config/goitApi";
 
 export const userRegisterThunk = createAsyncThunk(
   "auth/register",
   async (credentials, thunkAPI) => {
     try {
       const { data } = await goitApi.post("auth/sign-up", credentials);
+      updateAuthHeader(data.token);
 
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(
+        error.response ? error.response.data : error.message
+      );
     }
   }
 );
@@ -19,6 +26,7 @@ export const userLoginThunk = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const { data } = await goitApi.post("auth/sign-in", credentials);
+      updateAuthHeader(data.token);
 
       return data;
     } catch (error) {
@@ -31,13 +39,8 @@ export const userLogoutThunk = createAsyncThunk(
   "auth/logout",
   async (_, thunkAPI) => {
     try {
-      const { auth } = thunkAPI.getState();
-
-      updateAuthHeader(auth.token);
-
-      const { data } = await goitApi.delete("auth/sign-out");
-
-      return data;
+      await goitApi.delete("auth/sign-out");
+      clearAuthHeader();
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

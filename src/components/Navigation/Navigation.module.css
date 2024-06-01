@@ -132,14 +132,14 @@
   }
 
   .navIcon {
-    width: 18px;
-    height: 18px;
+    width: 28px;
+    height: 28px;
   }
 
-  .linkText{
+  .linkText {
     font-size: 18px;
   }
-  .navLink{
+  .navLink {
     width: 27px;
   }
 }
@@ -149,7 +149,7 @@
     display: none;
   }
 
-  .navigation{
+  .navigation {
     margin-left: 16px;
   }
 }

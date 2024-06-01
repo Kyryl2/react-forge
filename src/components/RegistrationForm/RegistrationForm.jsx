@@ -7,6 +7,8 @@ import { userRegisterThunk } from "../../redux/auth/operations";
 import { Icon } from "../../images/Icon/Icon";
 import { Link } from "react-router-dom";
 import clsx from "clsx";
+import PasswordStrengthBar from "react-password-strength-bar";
+import Logo from "../Logo/Logo";
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
@@ -14,6 +16,24 @@ const RegistrationForm = () => {
   const emailFieldId = useId();
   const passwordFieldId = useId();
   const confirmPassField = useId();
+
+  const styles = {
+    wrap: {
+      width: 300,
+    },
+    input: {
+      display: "block",
+      width: "100%",
+      height: 38,
+      padding: "6px 10px",
+      borderRadius: 2,
+      border: "solid 1px #ccc",
+      boxShadow: "inset 0 1px 1px rgba(0,0,0,.1)",
+      fontSize: 16,
+      outline: "0",
+      boxSizing: "border-box",
+    },
+  };
 
   const FeedbackSchema = Yup.object().shape({
     username: Yup.string()
@@ -52,8 +72,9 @@ const RegistrationForm = () => {
     <div className={s.mainContainer}>
       <div className={s.formContainer}>
         <div className={s.container}>
-          <Icon id="icon-logo" width={21} height={26} />
-          <h2 className={s.title}>Money Guard</h2>
+          <div style={{ marginBottom: 40 }}>
+            <Logo className={s.title} width={36} height={36} />
+          </div>
           <Formik
             initialValues={initialValues}
             onSubmit={handleSubmit}
@@ -62,9 +83,10 @@ const RegistrationForm = () => {
             <Form className={s.form}>
               <div className={s.wrapContent}>
                 <div className={s.wrap}>
-                  <label htmlFor={usernameFieldId}></label>
+                  <label htmlFor={passwordFieldId}></label>
                   <Icon id="icon-user" width={24} height={24} />
                   <Field
+                    style={styles.input}
                     className={s.input}
                     type="text"
                     name="username"
@@ -83,6 +105,7 @@ const RegistrationForm = () => {
                   <label htmlFor={emailFieldId}></label>
                   <Icon id="icon-email" width={24} height={24} />
                   <Field
+                    style={styles.input}
                     className={s.input}
                     type="email"
                     name="email"
@@ -101,6 +124,7 @@ const RegistrationForm = () => {
                   <label htmlFor={passwordFieldId}></label>
                   <Icon id="icon-lock" width={24} height={24} />
                   <Field
+                    style={styles.input}
                     className={s.input}
                     type="password"
                     name="password"
@@ -119,6 +143,7 @@ const RegistrationForm = () => {
                   <label htmlFor={confirmPassField}></label>
                   <Icon id="icon-lock" width={24} height={24} />
                   <Field
+                    style={styles.input}
                     className={s.input}
                     type="password"
                     name="confirm"
@@ -132,6 +157,14 @@ const RegistrationForm = () => {
                   name="confirm"
                 />
               </div>
+
+              <PasswordStrengthBar
+                // password={inputValue}
+                minLength={5}
+                onChangeScore={(score, feedback) => {
+                  console.log(score, feedback);
+                }}
+              />
               <div className={s.buttonsWrapper}>
                 <button className={clsx(s.btn, s.btnRegister)} type="submit">
                   Register

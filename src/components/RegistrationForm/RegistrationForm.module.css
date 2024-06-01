@@ -120,12 +120,12 @@
 @media only screen and (min-width: 768px) {
   .mainContainer {
     background-image: url("../../images/RegistrationPage-IMG/registr-page-gradient-tablet_1x.webp");
-      
+
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
   }
-/* linear-gradient(220deg, rgb(109, 84, 235, 0.4), rgb(100, 35, 144, 0.4)); */
+  /* linear-gradient(220deg, rgb(109, 84, 235, 0.4), rgb(100, 35, 144, 0.4)); */
   .input {
     width: 409px;
     height: 35px;
@@ -177,9 +177,9 @@
 
 @media only screen and (min-width: 1280px) {
   .mainContainer {
-    background-image: url("../../images/RegistrationPage-IMG/registr-page-gradient-dekstop_1x.webp")}
-      /* linear-gradient(220deg, rgb(109, 84, 235, 0.4), rgb(100, 35, 144, 0.4)); */
- 
+    background-image: url("../../images/RegistrationPage-IMG/registr-page-gradient-dekstop_1x.webp");
+  }
+  /* linear-gradient(220deg, rgb(109, 84, 235, 0.4), rgb(100, 35, 144, 0.4)); */
 
   .title {
     font-size: 26px;

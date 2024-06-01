@@ -1,0 +1,31 @@
+.btncontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+
+.button {
+    width: 69px;
+    height: 29px;
+    padding: 4px 12px 4px 12px;
+    border-radius: 20px;
+    opacity: 0px;
+    cursor: pointer;
+    background: linear-gradient(96.76deg, #FFC727 -16.42%, #9E40BA 97.04%, #7000FF 150.71%);
+    color: white;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carandash {
+    background: none;
+    border: none;
+}
+
+tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}

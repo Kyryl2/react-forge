@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { Icon } from "../../images/Icon/Icon";
 import toast, { Toaster } from "react-hot-toast";
 import { CustomInput } from "./CustomInput";
+import Logo from "../Logo/Logo";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -44,8 +45,9 @@ const LoginForm = () => {
       <Toaster position="top-right" reverseOrder={false} />
       <div className={s.formContainer}>
         <div className={s.container}>
-          <Icon id="icon-logo" className={s.icon} />
-          <h2 className={s.title}>Money Guard</h2>
+          <div style={{ marginBottom: 52 }}>
+            <Logo className={s.title} width={36} height={36} />
+          </div>
           <Formik
             initialValues={initialValues}
             onSubmit={handleSubmit}

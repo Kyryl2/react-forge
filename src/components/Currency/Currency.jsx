@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import s from "./Currency.module.css";
-import getCurrency from "../../helpers/currencyApi";
+import getCurrency from "../../config/currencyApi";
 import Loader from "../../components/Loader/Loader";
 import downloadImage from "../../images/DashboardPage-IMG/currency-dekstop_1x.webp";
 const Currency = () => {

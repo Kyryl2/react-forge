@@ -19,10 +19,12 @@ const StatisticsTab = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className={css.wrapper}>
       <Chart />
-      <StatisticsDashboard />
-      <StatisticsTable />
+      <div>
+        <StatisticsDashboard />
+        <StatisticsTable />
+      </div>
     </div>
   );
 };

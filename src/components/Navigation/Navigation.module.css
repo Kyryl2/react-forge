@@ -1,9 +1,42 @@
-.dollarIcon,
+.navigation {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 16px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* #region icon */
+
+/* .dollarIcon,
 .homeIcon,
 .timeLineIcon {
   width: 18px;
   height: 18px;
 }
+
+.active .dollarIcon,
+.active .homeIcon,
+.active .timeLineIcon {
+    fill: var(--icon-violet);
+} */
+
+.navIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.navIcon .active {
+  fill: var(--icon-violet);
+}
+
+.navLink {
+  color: orange;
+}
+
+/* #endregion icon */
 
 .homeContainer,
 .timeLineContainer {
@@ -19,17 +52,8 @@
   margin-bottom: 28px;
 }
 
-.navigation {
-  display: flex;
-  flex-direction: column;
-  margin: 0px 16px;
-}
-
 .linkText {
-  font-family: var(--font-family);
-  font-weight: 400;
-  font-size: 18px;
-  color: var(--white);
+  color: red;
 }
 
 .isActive {

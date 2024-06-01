@@ -1,50 +1,85 @@
-.contentTable {
-  font-size: 16px;
-}
-
-.image {
-  background-repeat: no-repeat;
+.headContainer {
   width: 100%;
-  height: 100%;
-}
-
-.contentTable thead tr {
-  color: #ffffff;
-  text-align: left;
+  background-color: #fff;
   background: rgba(255, 255, 255, 0.2);
+
+  display: flex;
+  padding: 13px 20px;
 }
 
-.contentTable td {
+.headContainer p {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 16px;
   text-align: center;
-  width: 33%;
-  padding: 24px 0px 0px 0px;
+  color: #fff;
+  height: 24px;
+
+  display: flex;
+  align-items: center;
 }
 
-.contentTable th {
-  padding: 16px 0px;
-  width: 33%;
-  text-align: center;
+.purchase {
+  margin-left: 26px;
 }
 
-.contentTable td {
-  text-align: center;
+.sale {
+  margin-left: 66px;
+}
+
+.valContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.valContainer p {
+  display: flex;
+  align-items: center;
+  height: 24px;
+
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 16px;
-  color: var(--white);
+  text-align: center;
+  color: #fff;
 }
 
-.contentTable table thead {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.wrapper {
+.valWrapper {
   display: flex;
   flex-direction: column;
-  gap: 27px;
+  gap: 12px;
+  padding: 8px 20px 0px 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .headContainer {
+    padding: 12px 20px;
+  }
+
+  .purchase {
+    margin-left: 34px;
+  }
+
+  .sale {
+    margin-left: 74px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .headContainer {
+    padding: 16px 62px;
+  }
+
+  .purchase {
+    margin-left: 49px;
+  }
+
+  .sale {
+    margin-left: 50px;
+  }
+
+  .valWrapper {
+    gap: 24px;
+    padding: 24px 131px 0px 85px;
+  }
 }

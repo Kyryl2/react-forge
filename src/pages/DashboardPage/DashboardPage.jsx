@@ -10,9 +10,9 @@ const DashboardPage = () => {
   return (
     <div className={s.pageContainer}>
       <Header />
-      <div className="container">
-        <div className={s.main}>
-          <div className={s.box_left}>
+      <div className={s.customContainer}>
+        <div className={s.boxesContainer}>
+          <div className={s.boxLeft}>
             <div className={s.navbalcur}>
               <div className={s.navbal}>
                 <Navigation />
@@ -21,7 +21,7 @@ const DashboardPage = () => {
               <CurrencyTab />
             </div>
           </div>
-          <div className={s.box_right}>
+          <div className={s.boxRight}>
             <Outlet />
           </div>
         </div>

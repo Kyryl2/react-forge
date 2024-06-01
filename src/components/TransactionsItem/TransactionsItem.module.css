@@ -1,0 +1,11 @@
+@media screen and (min-width: 768px) {
+    .item {
+        top: 0;
+        min-height: 100vh;
+        background: #220d5b3b;
+        backdrop-filter: blur(3px);
+        display: flex;
+        justify-content: center;
+        padding: 40px 118px;
+    }
+}

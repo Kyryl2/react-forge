@@ -1,0 +1,25 @@
+.wrapper thead tr {
+    background-color: #523B7E99;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+
+th,
+td {
+    padding: 20px;
+    color: white;
+}

@@ -75,6 +75,7 @@
   border-radius: 20px;
   width: 280px;
   height: 50px;
+  cursor: pointer;
 
   box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
   background: #fcfcfc;
@@ -93,6 +94,7 @@
   border: none;
   width: 280px;
   height: 50px;
+  cursor: pointer;
 
   box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
   background: linear-gradient(

@@ -7,7 +7,7 @@
     inset 0 -3px 2px 0 rgba(0, 0, 0, 0.1);
   background: linear-gradient(276deg, #2e1746 3.19%, #2e225f 100%);
   color: var(--white);
-  padding: 25px 16px;
+
   height: 80px;
 }
 
@@ -16,12 +16,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* height: 100px;  */
 }
 
 .logoName {
-  font-size: 17px;
   font-weight: 400;
+  font-size: 17px;
+  color: #fbfbfb;
 }
 
 .userInfo {

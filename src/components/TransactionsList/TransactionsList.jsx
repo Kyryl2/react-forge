@@ -1,10 +1,9 @@
-
-import { useDispatch, useSelector } from 'react-redux';
-import TransactionsItem from '../TransactionsItem/TransactionsItem';
-import { selectTransactions } from '../../redux/transactions/selectors';
-import { useEffect } from 'react';
-import { getTransactionsThunk } from '../../redux/transactions/operations';
-
+import { useDispatch, useSelector } from "react-redux";
+import TransactionsItem from "../TransactionsItem/TransactionsItem";
+import { selectTransactions } from "../../redux/transactions/selectors";
+import { useEffect } from "react";
+import { getTransactionsThunk } from "../../redux/transactions/operations";
+import s from "./TransactionsList.module.css";
 const TransactionsList = () => {
   const transactions = useSelector(selectTransactions);
   const dispatch = useDispatch();
@@ -14,7 +13,7 @@ const TransactionsList = () => {
 
   return (
     <>
-      {' '}
+      {" "}
       {!transactions && <p>You don`t have transaction now...</p>}
       <table>
         <thead>
@@ -34,7 +33,6 @@ const TransactionsList = () => {
       </table>
     </>
   );
-
 };
 
 export default TransactionsList;

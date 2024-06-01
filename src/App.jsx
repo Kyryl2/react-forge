@@ -13,6 +13,8 @@ import HomeTab from "./components/HomeTab/HomeTab";
 import StatisticsTab from "./components/StatisticsTab/StatisticsTab";
 import { selectIsRefreshing } from "./redux/auth/selectors";
 
+import Loader from "./components/Loader/Loader";
+
 function App() {
   const isRefreshing = useSelector(selectIsRefreshing);
 
@@ -23,7 +25,9 @@ function App() {
 
   return (
     <>
-      {isRefreshing ? null : (
+      {isRefreshing ? (
+        <Loader />
+      ) : (
         <Routes>
           <Route
             path="/"

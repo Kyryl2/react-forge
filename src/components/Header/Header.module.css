@@ -11,18 +11,34 @@
     inset 0 -3px 2px 0 rgba(0, 0, 0, 0.1);
   background: linear-gradient(276deg, #2e1746 3.19%, #2e225f 100%);
 }
+
  .icon {
   width: 18px;
-  height: 18px;
-  
+  height: 18px;  
   transition: fill .25s cubic-bezier(.4,0,.2,1);
   fill: white;
 }
+
 .exitWrapper {
   display: flex;
   background: none;
   border: none;
   cursor: pointer;
+  border-left: 1px solid grey;
+  padding-left: 12px;
+  transition: color .25s cubic-bezier(.4,0,.2,1);
+  &:hover .exitText {
+    color: grey ; 
+  } 
+}
+
+.exitWrapper svg {
+  fill: var(--color1, #fff);
+  transition: fill .25s cubic-bezier(.4,0,.2,1); 
+}
+
+.exitWrapper:hover svg {
+  fill:#adb5bd;  
 }
 
 .userExit {
@@ -46,10 +62,9 @@
   color: var(--white-60);
 }
 
-.exitText {
-  border-left: 1px solid grey;
-  margin-left: 12px;
-  padding-left: 12px;
+.exitText { 
+  margin-left: 8px;
+  /* padding-left: 12px; */
 }
 
 @media screen and (min-width: 768px) {
@@ -60,14 +75,10 @@
   }
   .div .icon {
     width: 25px;
-    height: 23px;
-    
-   
+    height: 23px;   
   }
-  .logoName{
-   
-    font-size: 17px;
-    
+  .logoName{   
+    font-size: 17px;    
   }
   
   .logo {
@@ -81,6 +92,7 @@
     max-width: 1280px;
   }
 }
+
 .logoName{
 color:white;
 
@@ -88,20 +100,20 @@ color:white;
 .div:hover p {
   color: #adb5bd;
 }
+
 .div p {
   transition: color .25s cubic-bezier(.4,0,.2,1);
 }
+
 .div {
-
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   color: #adb5bd;
   cursor:pointer;
 }
-.div:hover .icon {
- 
+
+.div:hover .icon { 
   fill: #adb5bd;
 }

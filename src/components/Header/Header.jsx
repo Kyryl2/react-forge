@@ -16,8 +16,8 @@ const Header = () => {
 
   return (
     <header className={s.header}>
-      {isMobile && <Logo width={17} height={17} />}
-      {!isMobile && <Logo width={23} height={23} />}
+      {isMobile && <Logo width={17} height={17} className={s.logo} />}
+      {!isMobile && <Logo width={23} height={23} className={s.logo} />}
       <div className={s.userExit}>
         <div className={s.userName}>{userName || "Guest"}</div>
         <a className={s.exitWrapper} onClick={openModal}>

@@ -2,6 +2,13 @@ p {
   color: white;
 }
 
+.title {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 30px;
+  color: var(--white);
+}
+
 @media only screen and (min-width: 768px) {
   .wrapper {
     display: flex;

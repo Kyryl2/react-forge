@@ -1,3 +1,7 @@
 export const Chart = () => {
-  return <div>Chart</div>;
+  return (
+    <>
+      <p>Chart</p>
+    </>
+  );
 };

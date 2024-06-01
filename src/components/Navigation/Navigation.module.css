@@ -1,17 +1,14 @@
 .navigation {
   display: flex;
   flex-direction: row;
-  gap: 38px;
+  gap: 44px;
   justify-content: center;
-  margin-top: 12px;
+  margin: 12px 0px;
 
   grid-area: navigation;
 }
 
 .linkIcon {
-  /* width: 38px;
-  height: 38px; */
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,8 +19,6 @@
 .hidden {
   display: none;
 }
-
-/* #region icon */
 
 .active .linkIcon::before {
   background-color: var(--white);
@@ -39,7 +34,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1); */
 }
 
 .navIcon {
@@ -50,8 +44,6 @@
 
 .active .navIcon {
   fill: var(--icon-violet);
-  /* width: 38px;
-  height: 38px; */
   border-radius: 6px;
   box-shadow: 0px 3px 10px 0px #4a56e280;
   z-index: 1;
@@ -67,6 +59,7 @@
 .homeContainer {
   margin-bottom: 12px;
 }
+
 .timeLineContainer {
   margin-bottom: 28px;
 }
@@ -80,15 +73,15 @@
   font-weight: 700;
   font-size: 18px;
   color: var(--white);
-  /* color: red; */
 }
 
 @media screen and (min-width: 768px) {
   .navigation {
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
     align-self: start;
     margin-top: 0;
+    margin-bottom: 26px;
   }
 
   .navLink {
@@ -96,7 +89,6 @@
     align-items: center;
     text-decoration: none;
     gap: 23px;
-    /* background-color: aquamarine; */
   }
 
   .currencyLink {
@@ -104,9 +96,6 @@
   }
 
   .linkIcon {
-    /* width: 38px;
-  height: 38px; */
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -143,13 +132,24 @@
   }
 
   .navIcon {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .linkText {
+    font-size: 18px;
+  }
+  .navLink {
+    width: 27px;
   }
 }
 
 @media screen and (min-width: 1280px) {
   .dollarContainer {
     display: none;
+  }
+
+  .navigation {
+    margin-left: 16px;
   }
 }

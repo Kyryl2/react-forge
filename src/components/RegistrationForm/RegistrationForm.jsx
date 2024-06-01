@@ -44,8 +44,8 @@ const RegistrationForm = () => {
       .required("Required"),
     email: Yup.string().email("Invalid email address").required("Required"),
     password: Yup.string()
-      .min(6, "Password must be at least 6 characters")
-      .max(12, "Password must be at most 12 characters")
+      .min(8, "Password must be at least 6 characters")
+      .max(20, "Password must be at most 12 characters")
       .required("Required"),
     confirm: Yup.string()
       .oneOf([Yup.ref("password"), null], "Passwords must match")
@@ -59,7 +59,6 @@ const RegistrationForm = () => {
     confirm: "",
   };
 
-//   const [inputValue, setInputValue] = useState("");
 
   const handleSubmit = (values, actions) => {
     const { username, email, password } = values;

@@ -4,10 +4,13 @@
   margin: 0px 16px;
 }
 
+.hidden {
+  display: none;
+}
 
 /* #region icon */
 
-.dollarIcon,
+/* .dollarIcon,
 .homeIcon,
 .timeLineIcon {
   width: 18px;
@@ -18,6 +21,19 @@
 .active .homeIcon,
 .active .timeLineIcon {
     fill: var(--icon-violet);
+} */
+
+.navIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.navIcon .active {
+  fill: var(--icon-violet);
+}
+
+.navLink {
+  color: orange;
 }
 
 /* #endregion icon */
@@ -36,9 +52,8 @@
   margin-bottom: 28px;
 }
 
-
 .linkText {
-  display: none;
+  color: red;
 }
 
 .isActive {

@@ -20,11 +20,8 @@ const Currency = () => {
         setLoading(false);
       }
     };
-
-    if (!currency) {
-      fetchData();
-    }
-  }, [currency]);
+    fetchData();
+  }, []);
 
   if (loading) {
     return <Loader />;

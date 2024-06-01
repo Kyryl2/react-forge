@@ -5,6 +5,24 @@ import { Icon } from "../../images/Icon/Icon";
 const Navigation = () => {
   const getClasses = (isActive) =>
     isActive ? `${s.navLink} ${s.active}` : `${s.navLink}`;
+
+  const navLinks = [
+    {
+      title: "Home",
+      path: "/",
+      icon: "icon-home",
+    },
+    {
+      title: "Statistics",
+      path: "/statistics",
+      icon: "icon-timeline",
+    },
+    {
+      title: "Currency",
+      path: "/currency",
+      icon: "icon-dollar",
+    },
+  ];
   return (
     <nav className={s.navigation}>
       <NavLink to="" className={({ isActive }) => getClasses(isActive)}>

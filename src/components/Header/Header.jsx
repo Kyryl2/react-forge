@@ -1,5 +1,6 @@
 import s from "./Header.module.css";
 import "../../styles/container.css";
+import Icons from "../../images/icons.svg";
 // import { useDispatch } from "react-redux";
 // import { userLogoutThunk } from "../../redux/auth/operations";
 import { Icon } from "../../images/Icon/Icon";
@@ -18,6 +19,7 @@ const Header = () => {
       <div className={s.header}>
         <div className={s.logo}>
           <Icon id="icon-logo" width="25" height="23" />
+
           <div className={s.logoName}>Money Guard</div>
         </div>
         <div className={s.userInfo}>

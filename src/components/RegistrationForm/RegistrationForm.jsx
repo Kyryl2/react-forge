@@ -39,6 +39,7 @@ const RegistrationForm = () => {
   const handleSubmit = (values, actions) => {
     const { username, email, password } = values;
     dispatch(userRegisterThunk({ username, email, password }))
+      .unwrap()
       .then(() => {
         actions.resetForm();
       })

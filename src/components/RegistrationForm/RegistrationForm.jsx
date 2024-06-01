@@ -10,37 +10,43 @@ import clsx from "clsx";
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
-  const nameFieldId = useId();
+  const usernameFieldId = useId();
   const emailFieldId = useId();
   const passwordFieldId = useId();
   const confirmPassField = useId();
 
   const FeedbackSchema = Yup.object().shape({
-    name: Yup.string()
-      .min(2, "Too Short!")
-      .max(50, "Too Long!")
+    username: Yup.string()
+      .min(1, "Must be at least 1 character")
       .required("Required"),
-    email: Yup.string().email("Must be a valid email.").required("Required"),
+    email: Yup.string().email("Invalid email address").required("Required"),
     password: Yup.string()
-      .min(8, "Minimum 8 characters.")
-      .max(20, "Maximum 20 characters.")
+      .min(6, "Password must be at least 6 characters")
+      .max(12, "Password must be at most 12 characters")
       .required("Required"),
     confirm: Yup.string()
-      .oneOf([Yup.ref("password")], "Password does not match.")
+      .oneOf([Yup.ref("password"), null], "Passwords must match")
       .required("Required"),
   });
+
   const initialValues = {
-    name: "",
+    username: "",
     email: "",
     password: "",
     confirm: "",
   };
 
   const handleSubmit = (values, actions) => {
-    dispatch(userRegisterThunk(values))
-      .then(() => actions.resetForm())
-      .catch((error) => error);
+    const { username, email, password } = values;
+    dispatch(userRegisterThunk({ username, email, password }))
+      .then(() => {
+        actions.resetForm();
+      })
+      .catch((error) => {
+        console.error("Registration error:", error);
+      });
   };
+
   return (
     <div className={s.mainContainer}>
       <div className={s.formContainer}>
@@ -55,25 +61,25 @@ const RegistrationForm = () => {
             <Form className={s.form}>
               <div className={s.wrapContent}>
                 <div className={s.wrap}>
-                  <label htmlFor={passwordFieldId}></label>
+                  <label htmlFor={usernameFieldId}></label>
                   <Icon id="icon-user" width={24} height={24} />
                   <Field
                     className={s.input}
                     type="text"
-                    name="name"
-                    id={nameFieldId}
-                    placeholder="Name"
+                    name="username"
+                    id={usernameFieldId}
+                    placeholder="Username"
                   />
                   <ErrorMessage
                     className={s.error}
                     component="span"
-                    name="name"
+                    name="username"
                   />
                 </div>
               </div>
               <div className={s.wrapContent}>
                 <div className={s.wrap}>
-                  <label htmlFor={passwordFieldId}></label>
+                  <label htmlFor={emailFieldId}></label>
                   <Icon id="icon-email" width={24} height={24} />
                   <Field
                     className={s.input}
@@ -89,14 +95,13 @@ const RegistrationForm = () => {
                   />
                 </div>
               </div>
-
               <div className={s.wrapContent}>
                 <div className={s.wrap}>
                   <label htmlFor={passwordFieldId}></label>
                   <Icon id="icon-lock" width={24} height={24} />
                   <Field
                     className={s.input}
-                    type="text"
+                    type="password"
                     name="password"
                     id={passwordFieldId}
                     placeholder="Password"
@@ -110,11 +115,11 @@ const RegistrationForm = () => {
               </div>
               <div className={s.wrapContent}>
                 <div className={s.wrap}>
-                  <label htmlFor={passwordFieldId}></label>
+                  <label htmlFor={confirmPassField}></label>
                   <Icon id="icon-lock" width={24} height={24} />
                   <Field
                     className={s.input}
-                    type="text"
+                    type="password"
                     name="confirm"
                     id={confirmPassField}
                     placeholder="Confirm password"
@@ -131,7 +136,7 @@ const RegistrationForm = () => {
                   Register
                 </button>
                 <Link to="/login">
-                  <button className={clsx(s.btn, s.btnLogin)} type="submit">
+                  <button className={clsx(s.btn, s.btnLogin)} type="button">
                     Log in
                   </button>
                 </Link>

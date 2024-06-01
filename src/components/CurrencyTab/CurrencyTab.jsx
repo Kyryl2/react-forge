@@ -1,9 +1,12 @@
-import { Currency } from "../Currency/Currency";
+import Currency from "../Currency/Currency";
+import s from "./CurrencyTab.module.css";
 
-export default function CurrencyTab() {
+const CurrencyTab = () => {
   return (
-    <div>
+    <div className={s.wrapper}>
       <Currency />
     </div>
   );
-}
+};
+
+export default CurrencyTab;

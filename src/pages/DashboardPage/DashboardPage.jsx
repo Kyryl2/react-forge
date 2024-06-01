@@ -9,9 +9,9 @@ import s from "./DashboardPage.module.css";
 
 const DashboardPage = () => {
   return (
-    <>
+    <div className={s.pageContainer}>
       <Header />
-      <main className='container'>
+      <div className="container">
         <div className={s.main}>
           <div className={s.box_left}>
             <Navigation />
@@ -20,11 +20,11 @@ const DashboardPage = () => {
           </div>
           <div className={s.box_right}>
             <HomeTab />
-            <Outlet/>
+            <Outlet />
           </div>
         </div>
-      </main>
-    </>
+      </div>
+    </div>
   );
 };
 

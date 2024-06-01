@@ -2,7 +2,6 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import s from "./LoginForm.module.css";
 import { useId } from "react";
 import * as Yup from "yup";
-import clsx from "clsx";
 import { useDispatch } from "react-redux";
 import { userLoginThunk } from "../../redux/auth/operations";
 import { Link } from "react-router-dom";

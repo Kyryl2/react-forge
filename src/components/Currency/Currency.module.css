@@ -1,60 +1,50 @@
-.currencyContainer {
-  max-width: 320px;
-  margin: 0 auto;
+.contentTable {
+  font-size: 16px;
 }
 
-.currencyTable {
-  width: 320px;
-  background-color: rgba(74, 86, 226, 0.1);
-  color: white;
-  border-collapse: collapse;
-  border-radius: 0 0 8px 8px;
+.image {
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
 }
 
-.tableHeader {
+.contentTable thead tr {
+  color: #ffffff;
+  text-align: left;
   background: rgba(255, 255, 255, 0.2);
 }
-.headerRows > td {
-  width: 33%;
-}
-.firstCol {
-  padding-left: 20px;
-  text-align: left;
-}
-.secondCol {
+
+.contentTable td {
   text-align: center;
-}
-.thirdCol {
-  text-align: right;
-  padding-right: 20px;
+  width: 33%;
+  padding: 24px 0px 0px 0px;
 }
 
-@media screen and (min-width: 768px) {
-  .currencyContainer {
-    max-width: 336px;
-    margin: 0 auto;
-  }
-  .currencyTable {
-    width: 336px;
-  }
+.contentTable th {
+  padding: 16px 0px;
+  width: 33%;
+  text-align: center;
 }
-@media screen and (min-width: 1280px) {
-  .currencyContainer {
-    max-width: 480px;
-    margin: 0 auto;
-  }
-  .currencyTable {
-    width: 480px;
-  }
-  .headerRows {
-    padding-top: 16px;
-    padding-left: 62px;
-    padding-right: 131px;
-  }
-  .firstCol {
-    padding-left: 84px;
-  }
-  .thirdCol {
-    padding-right: 131px;
-  }
+
+.contentTable td {
+  text-align: center;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--white);
+}
+
+.contentTable table thead {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
 }

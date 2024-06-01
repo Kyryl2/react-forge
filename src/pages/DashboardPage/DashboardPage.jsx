@@ -13,9 +13,13 @@ const DashboardPage = () => {
       <div className="container">
         <div className={s.main}>
           <div className={s.box_left}>
-            <Navigation />
-            <Balance />
-            <CurrencyTab />
+            <div className={s.navbalcur}>
+              <div className={s.navbal}>
+                <Navigation />
+                <Balance />
+              </div>
+              <CurrencyTab />
+            </div>
           </div>
           <div className={s.box_right}>
             <Outlet />

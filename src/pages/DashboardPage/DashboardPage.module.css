@@ -15,13 +15,13 @@
   display: flex;
   flex-direction: column;
   border-right: 1px solid rgba(255, 255, 255, 0.6);
-  padding-top: 46px;
+  padding-top: 40px;
   max-width: 480px;
   width: 100%;
 }
 
 .box_right {
-  padding-top: 46px;
+  padding-top: 40px;
   width: 100%;
 }
 

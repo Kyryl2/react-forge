@@ -20,7 +20,7 @@ const Header = () => {
       {isMobile && (
         <NavLink to="" className={s.link}>
           <div className={s.div}>
-            <Icon id="icon-logo" className={s.icon} />
+            <Icon id="icon-logo"  width={18} height={18} className={s.icon}  />
 
             <p className={s.logoName}>Money Guard</p>
           </div>
@@ -29,7 +29,7 @@ const Header = () => {
       {!isMobile && (
         <NavLink to="">
           <div className={s.div}>
-            <Icon id="icon-logo" className={s.icon} />
+            <Icon id="icon-logo" width={25} height={23}  className={s.icon} />
 
             <p className={s.logoName}>Money Guard</p>
           </div>

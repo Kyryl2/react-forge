@@ -13,8 +13,7 @@
 }
 
  .icon {
-  width: 18px;
-  height: 18px;  
+ 
   transition: fill .25s cubic-bezier(.4,0,.2,1);
   fill: white;
 }
@@ -30,10 +29,6 @@
   
  
 }
-
-
-
-
 
 
 
@@ -89,17 +84,12 @@
     padding: 16px 32px;
     max-width: 768px;
   }
-  .div .icon {
-    width: 25px;
-    height: 23px;   
-  }
+ 
   .logoName{   
     font-size: 17px;    
   }
   
-  .logo {
-    font-size: 17px;
-  }
+
 }
 
 @media screen and (min-width: 1280px) {

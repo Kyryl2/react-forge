@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { selectUsername } from "../../redux/auth/selectors";
 import { useToggle } from "../../hooks/useToggle";
 import LogOutModal from "../LogoutModal/LogoutModal";
-import Logo from "../Logo/Logo";
+
 import useMedia from "../../hooks/useMedia";
 import { NavLink } from "react-router-dom";
 
@@ -18,13 +18,21 @@ const Header = () => {
   return (
     <header className={s.header}>
       {isMobile && (
-        <NavLink to="">
-          <Logo width={17} height={17} className={s.logo} />
+        <NavLink to="" className={s.link}>
+          <div className={s.div}>
+            <Icon id="icon-logo"  width={18} height={18} className={s.icon}  />
+
+            <p className={s.logoName}>Money Guard</p>
+          </div>
         </NavLink>
       )}
       {!isMobile && (
         <NavLink to="">
-          <Logo width={23} height={23} className={s.logo} />
+          <div className={s.div}>
+            <Icon id="icon-logo" width={25} height={23}  className={s.icon} />
+
+            <p className={s.logoName}>Money Guard</p>
+          </div>
         </NavLink>
       )}
       <div className={s.userExit}>

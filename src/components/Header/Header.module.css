@@ -12,12 +12,44 @@
   background: linear-gradient(276deg, #2e1746 3.19%, #2e225f 100%);
 }
 
+ .icon {
+ 
+  transition: fill .25s cubic-bezier(.4,0,.2,1);
+  fill: white;
+}
+
 .exitWrapper {
   display: flex;
   background: none;
   border: none;
   cursor: pointer;
+  border-left: 1px solid grey;
+  padding-left: 12px;
+  transition: color .25s cubic-bezier(.4,0,.2,1);
+  
+ 
 }
+
+
+
+.exitWrapper svg {
+  fill: var(--color1, #fff);
+  transition: fill .25s cubic-bezier(.4,0,.2,1); 
+}
+.exitWrapper:hover svg {
+  fill:#adb5bd;  
+}
+
+ .exitText{
+  margin-left: 8px;
+  color: var(--white-60);
+ 
+  transition: color .25s cubic-bezier(.4,0,.2,1); 
+}
+.exitWrapper:hover .exitText {
+  color: grey ; 
+} 
+
 
 .userExit {
   display: flex;
@@ -28,18 +60,23 @@
 .logo {
   font-size: 12px;
 }
+.logoName{
+  font-weight: 400;
+  font-size: 12px;
+  color: #fbfbfb;
+}
 
-.userName,
-.exitText {
+.userName
+ {
   font-size: 16px;
   color: var(--white-60);
+
+    
+  
+  
 }
 
-.exitText {
-  border-left: 1px solid grey;
-  margin-left: 12px;
-  padding-left: 12px;
-}
+
 
 @media screen and (min-width: 768px) {
   .header {
@@ -47,10 +84,12 @@
     padding: 16px 32px;
     max-width: 768px;
   }
-
-  .logo{
-    font-size: 17px;
+ 
+  .logoName{   
+    font-size: 17px;    
   }
+  
+
 }
 
 @media screen and (min-width: 1280px) {
@@ -58,4 +97,29 @@
     padding: 16px;
     max-width: 1280px;
   }
+}
+
+.logoName{
+color:white;
+
+}
+.div:hover p {
+  color: #adb5bd;
+}
+
+.div p {
+  transition: color .25s cubic-bezier(.4,0,.2,1);
+}
+
+.div {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  color: #adb5bd;
+  cursor:pointer;
+}
+
+.div:hover .icon { 
+  fill: #adb5bd;
 }

@@ -19,14 +19,25 @@ export const getCategoriesThunk = createAsyncThunk(
 );
 
 export const getSummaryThunk = createAsyncThunk(
-  'transaction/getSummary',
-  async (_, thunkAPI) => {
+
+  "transaction/getSummary",
+  async (query, thunkAPI) => {
+
     try {
+      const { month, year } = query;
+
       const { auth } = thunkAPI.getState();
 
       updateAuthHeader(auth.token);
 
-      const { data } = await goitApi.get('transactions-summary');
+
+      const { data } = await goitApi.get("transactions-summary", {
+        params: {
+          month,
+          year,
+        },
+      });
+
 
       return data;
     } catch (error) {

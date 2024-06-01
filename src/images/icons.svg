@@ -77,5 +77,8 @@
             <path fill="#fbfbfb" style="fill: var(--color2, #fbfbfb)"
                 d="M9.89 26.452l-6.401-7.569v5.24l6.401 7.569v-5.24z"></path>
         </symbol>
+        <symbol id="icon-Icon-carandash" viewBox="0 0 34 32">
+<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.9538" d="M25.846 13.128l-5.744-5.744M3.59 29.641l4.86-0.54c0.594-0.066 0.891-0.099 1.168-0.189 0.246-0.080 0.48-0.192 0.696-0.335 0.243-0.16 0.455-0.372 0.877-0.794l18.963-18.963c1.586-1.586 1.586-4.158 0-5.744s-4.158-1.586-5.744 0l-18.963 18.963c-0.422 0.422-0.634 0.634-0.794 0.877-0.142 0.216-0.255 0.45-0.335 0.696-0.090 0.277-0.123 0.574-0.189 1.168l-0.54 4.86z"></path>
+</symbol>
     </defs>
 </svg>

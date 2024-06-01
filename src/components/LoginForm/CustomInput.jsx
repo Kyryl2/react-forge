@@ -7,7 +7,6 @@ export const CustomInput = ({ iconID, type = "text", name, placeholder }) => {
   return (
     <div className={s.wrapContent}>
       <div className={s.wrap}>
-        <label htmlFor={id}></label>
         <Icon id={iconID} width={24} height={24} />
         <Field
           className={s.input}

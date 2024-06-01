@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { userLoginThunk } from "../../redux/auth/operations";
 import { Link } from "react-router-dom";
-import { Icon } from "../../images/Icon/Icon";
+
 import toast, { Toaster } from "react-hot-toast";
 import { CustomInput } from "./CustomInput";
 import Logo from "../Logo/Logo";
@@ -62,7 +62,7 @@ const LoginForm = () => {
               />
               <CustomInput
                 name="password"
-                placeholder="password"
+                placeholder="Password"
                 iconID="icon-lock"
               />
 

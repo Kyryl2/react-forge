@@ -1,47 +1,32 @@
 .main {
-display: flex;
-
-    color: aqua;
-    background-image:
-        radial-gradient(closest-side,
-            rgba(109, 84, 235),
-            rgba(101, 35, 146),
-            transparent 100%),
-        radial-gradient(closest-side,
-            rgb(109, 84, 235),
-            rgb(101, 35, 146),
-            transparent 100%),
-        radial-gradient(closest-side,
-            rgba(52, 31, 160) 30%,
-            rgb(101, 35, 146, 0.6),
-            transparent 100%),
-        radial-gradient(closest-side,
-            rgb(109, 28, 119),
-            rgb(109, 28, 119),
-            transparent 100%),
-        radial-gradient(closest-side,
-            rgb(48, 46, 142),
-            rgb(48, 46, 142),
-            transparent 100%);
-
-
-
-    background-size: 800px 800px, 1200px 1200px, 1000px 1000px, 650px 650px, 650px 650px;
-    background-repeat: no-repeat;
-    background-position: top -250px left -250px,
-        top 350px left 460px,
-        top 250px left -300px,
-        top 550px left 500px,
-        top 300px left 1000px
+  display: flex;
+  flex-direction: row;
+  gap: 69px;
 }
 
-.box_left{
-    display: flex;
-    flex-direction: column;
-    border-right: 1px solid rgba(255, 255, 255,0.6);
-    padding-top: 40px;
-    margin-right: 69px;
+.pageContainer {
+  background-image: url("../../images/DashboardPage-IMG/gradient-desktop_1px.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
-.box_right{
-    padding-top: 46px;
+
+.box_left {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgba(255, 255, 255, 0.6);
+  padding-top: 46px;
+  max-width: 480px;
+  width: 100%;
+}
+
+.box_right {
+  padding-top: 46px;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1280px) {
 }

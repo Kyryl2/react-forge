@@ -7,35 +7,35 @@ const Navigation = () => {
     isActive ? `${s.navLink} ${s.active}` : `${s.navLink}`;
   return (
     <nav className={s.navigation}>
-      <NavLink to='' className={({ isActive }) => getClasses(isActive)}>
-        <div className={s.linkIcon}>
+      <NavLink to="" className={({ isActive }) => getClasses(isActive)}>
+        <div className={s.homeContainer}>
           <Icon id="icon-home" className={s.homeIcon} />
+          <p className={s.linkText}>Home</p>
         </div>
-        <span className={s.linkText}>Home</span>
       </NavLink>
 
       <NavLink
-        to='statistics'
+        to="statistics"
         className={({ isActive }) => getClasses(isActive)}
       >
-        <div className={s.linkIcon}>
-          <Icon id='icon-timeline'    className={s.timeLineIcon} />
+        <div className={s.timeLineContainer}>
+          <Icon id="icon-timeline" className={s.timeLineIcon} />
+          <p className={s.linkText}>Statistics</p>
         </div>
-        <span className={s.linkText}>Statistics</span>
       </NavLink>
 
       <NavLink
-        to='currency'
+        to="currency"
         className={({ isActive }) =>
           isActive
             ? `${s.navLink} ${s.active}`
             : `${s.navLink} ${s.currencyLink}`
         }
       >
-        <div className={s.linkIcon}>
-          <Icon id='icon-dollar'   className={s.dollarIcon} />
+        <div className={s.dollarContainer}>
+          <Icon id="icon-dollar" className={s.dollarIcon} />
+          <p className={s.linkText}>Currency</p>
         </div>
-        <span className={s.linkText}>Currency</span>
       </NavLink>
     </nav>
   );

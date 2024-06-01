@@ -3,13 +3,8 @@
   background: rgba(82, 59, 126, 0.6);
   color: #fff;
   margin-bottom: 32px;
-  padding: 8px 0 11px 56px;
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  margin-left: 56px;
-  justify-content: center;
-  width: 480px;
+
+  padding: 8px 56px 11px 56px;
   height: 80px;
 }
 
@@ -19,15 +14,22 @@
   text-transform: uppercase;
   margin: 0;
   color: var(--white-40);
+
+  margin-bottom: 8px;
 }
 
 .balanceAmount {
   font-size: 30px;
   font-weight: 700;
-  /* margin: 5px 0 0;  */
   color: var(--white);
 }
 
 .balanceAmount1 {
   font-weight: 400;
+}
+
+@media screen and (min-width: 768px) {
+}
+
+@media screen and (min-width: 1280px) {
 }

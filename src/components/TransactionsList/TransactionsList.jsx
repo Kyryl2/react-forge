@@ -1,9 +1,9 @@
-import { useDispatch, useSelector } from 'react-redux';
-import TransactionsItem from '../TransactionsItem/TransactionsItem';
-import { selectTransactions } from '../../redux/transactions/selectors';
-import { useEffect } from 'react';
-import { getTransactionsThunk } from '../../redux/transactions/operations';
-import s from './TransactionsList.module.css';
+import { useDispatch, useSelector } from "react-redux";
+import TransactionsItem from "../TransactionsItem/TransactionsItem";
+import { selectTransactions } from "../../redux/transactions/selectors";
+import { useEffect } from "react";
+import { getTransactionsThunk } from "../../redux/transactions/operations";
+import s from "./TransactionsList.module.css";
 
 const TransactionsList = () => {
   const transactions = useSelector(selectTransactions);

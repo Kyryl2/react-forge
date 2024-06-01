@@ -5,7 +5,8 @@ import { useDispatch } from "react-redux";
 
 import { userLogoutThunk } from "../../redux/auth/operations";
 import useMedia from "../../hooks/useMedia";
-import { Icon } from "../../images/Icon/Icon";
+
+import Logo from "../Logo/Logo";
 
 const LogOutModal = ({ closeModal }) => {
   const dispatch = useDispatch();
@@ -38,15 +39,7 @@ const LogOutModal = ({ closeModal }) => {
           />
         )}
 
-        {isTablet && (
-          <>
-            <div className={s.divIcon}>
-              <Icon id="icon-logo" className={s.icon} />
-            </div>
-
-            <h2 className={s.title}>Money Guard</h2>
-          </>
-        )}
+        {isTablet && <Logo className={s.title} width={36} height={36} />}
         <p className={s.p}>Are you sure you want to log out?</p>
         <div className={s.buttonsWrapper}>
           <button

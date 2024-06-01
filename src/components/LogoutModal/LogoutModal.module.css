@@ -33,7 +33,7 @@
   position: relative;
 }
 
-.modalContent p {
+.modalContent {
   color: #ffffff;
   font-size: 18px;
   font-weight: 400;
@@ -131,19 +131,14 @@
   text-align: center;
   color: var(--text-button);
 }
-.icon {
-  width: 27px;
-  height: 26px;
-}
+
 .title {
-  font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-size: 26px;
   color: #fbfbfb;
-  padding: 0;
-  margin: 0;
 }
-.divIcon {
-  padding: 0;
-  margin: 0;
+.p {
+  font-weight: 400;
+  font-size: 18px;
+  color: #fff;
 }

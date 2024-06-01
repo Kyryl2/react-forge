@@ -9,6 +9,9 @@ import { Link } from "react-router-dom";
 import clsx from "clsx";
 import PasswordStrengthBar from "react-password-strength-bar";
 
+import Logo from "../Logo/Logo";
+
+
 const RegistrationForm = () => {
   const dispatch = useDispatch();
   const usernameFieldId = useId();
@@ -74,8 +77,9 @@ const RegistrationForm = () => {
     <div className={s.mainContainer}>
       <div className={s.formContainer}>
         <div className={s.container}>
-          <Icon id="icon-logo" width={21} height={26} />
-          <h2 className={s.title}>Money Guard</h2>
+          <div style={{ marginBottom: 40 }}>
+            <Logo className={s.title} width={36} height={36} />
+          </div>
           <Formik
             initialValues={initialValues}
             onSubmit={handleSubmit}

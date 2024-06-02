@@ -1,11 +1,7 @@
 // import css from "./StatisticsTable.module.css";
 
 const StatisticsTable = () => {
-  return (
-    <>
-      <p>StatiscticsTable</p>
-    </>
-  );
+  return <></>;
 };
 
 export default StatisticsTable;

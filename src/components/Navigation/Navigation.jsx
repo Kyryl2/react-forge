@@ -38,8 +38,8 @@ const Navigation = () => {
           <NavLink key={link.title} to={link.path} className={getClasses}>
             <div className={s.linkIcon}>
               <Icon id={link.icon} className={s.navIcon} />
-              <p className={isMobile ? s.hidden : s.linkText}>{link.title}</p>
             </div>
+            <p className={isMobile ? s.hidden : s.linkText}>{link.title}</p>
           </NavLink>
         ))}
     </nav>

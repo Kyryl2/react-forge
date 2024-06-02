@@ -26,6 +26,7 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin: 0px 20px;
 }
 
 .card {

@@ -1,10 +1,14 @@
 import css from "./Chart.module.css";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { useSelector } from "react-redux";
+import { selectUserBalance } from "../../redux/auth/selectors";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const Chart = () => {
+  const userBalance = useSelector(selectUserBalance);
+
   const data = {
     datasets: [
       {
@@ -32,7 +36,7 @@ export const Chart = () => {
   return (
     <div className={css.wrapper}>
       <Doughnut data={data} />
-      <span className={css.balance}>&#8372; 24 000.00</span>
+      <span className={css.balance}>&#8372; {userBalance}</span>
     </div>
   );
 };

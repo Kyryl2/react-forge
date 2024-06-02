@@ -24,6 +24,12 @@
   background-color: var(--white);
 }
 
+.navIcon {
+  fill: var(--white-40);
+  width: 38px;
+  height: 38px;
+}
+
 .linkIcon::before {
   content: "";
   display: block;
@@ -36,36 +42,15 @@
   transform: translate(-50%, -50%);
 }
 
-.navIcon {
-  fill: rgba(255, 255, 255, 0.4);
-  width: 38px;
-  height: 38px;
-}
-
 .active .navIcon {
   fill: var(--icon-violet);
   border-radius: 6px;
-  box-shadow: 0px 3px 10px 0px #4a56e280;
-  z-index: 1;
-}
-
-.homeContainer,
-.timeLineContainer {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.homeContainer {
-  margin-bottom: 12px;
-}
-
-.timeLineContainer {
-  margin-bottom: 28px;
+  box-shadow: 0px 3px 10px 0px var(--box-shadow);
+  z-index: 2;
 }
 
 .linkText {
-  color: rgb(255, 255, 255);
+  color: var(--white);
 }
 
 .isActive {
@@ -87,7 +72,6 @@
   .navLink {
     display: flex;
     align-items: center;
-    text-decoration: none;
     gap: 23px;
   }
 
@@ -106,7 +90,7 @@
 
   .linkText {
     display: block;
-    color: rgba(251, 251, 251, 1);
+    color: var(--white);
     font-size: 18px;
     font-weight: 400;
     line-height: 27px;
@@ -118,38 +102,12 @@
     transition: all 0.5s ease 0s;
   }
 
-  .navLink.active .linkIcon {
-    border-radius: 4px;
-  }
-
-  .navLink:not(.active):hover > .linkText {
-    text-decoration: underline;
-    transition: all 0.5s ease 0s;
-  }
-
-  .active .linkIcon::before {
-    background-color: transparent;
-  }
-
   .navIcon {
     width: 28px;
     height: 28px;
   }
-
-  .linkText {
-    font-size: 18px;
-  }
-  .navLink {
-    width: 27px;
-  }
 }
 
-@media screen and (min-width: 1280px) {
-  .dollarContainer {
-    display: none;
-  }
+/* @media screen and (min-width: 1280px) {
 
-  .navigation {
-    margin-left: 16px;
-  }
-}
+} */

@@ -8,11 +8,20 @@
   --text-button: #623f8b;
   --dashboard-text: #ff868d;
   --form-color: rgba(255, 255, 255, 0.1);
-  --box-shadow: #4a56e280;
   --error-yellow: #ffc727;
   --btn-border: #4a56e2;
   --btn-hover: #7000ff;
   --btn-hover-bg: #9e40ba;
+  --modal-bg: #220d5b3b;
+
+  /* #region box-shadow */
+
+  --box-shadow: #4a56e280;
+  --box-shadow-modal: #00000033;
+
+  /* #endregion box-shadow */
+
+  /* #region bg gradients */
 
   --bg-mobile-linear-gradient: linear-gradient(
     147deg,
@@ -20,6 +29,28 @@
     rgba(33, 22, 41, 0.2),
     rgba(89, 42, 143, 0.26)
   );
+
+  --bg-tablet-linear-gradient: linear-gradient(
+    147deg,
+    rgb(6 5 12 / 0%),
+    rgb(9 6 11 / 40%),
+    rgb(9 6 11 / 78%),
+    rgb(156 70 165 / 21%),
+    rgb(48 24 76 / 26%)
+  );
+
+  --bg-desktop-linear-gradient: linear-gradient(
+    157deg,
+    rgb(6 5 12 / 40%),
+    rgb(9 6 11 / 40%),
+    rgb(9 6 11 / 40%),
+    rgb(106 70 165 / 24%),
+    rgb(2 144 252 / 26%)
+  );
+
+  /* #endregion bg gradients */
+
+  /* #region form gradients */
 
   --form-mobile-linear-gradient: linear-gradient(
     243deg,
@@ -35,29 +66,15 @@
     rgba(255, 255, 255, 0.1) 90%
   );
 
-  --bg-tablet-linear-gradient: linear-gradient(
-    147deg,
-    rgb(6 5 12 / 0%),
-    rgb(9 6 11 / 40%),
-    rgb(9 6 11 / 78%),
-    rgb(156 70 165 / 21%),
-    rgb(48 24 76 / 26%)
-  );
-
   --form-tablet-desktop-radial-gradient: radial-gradient(
     circle at center,
     rgb(63, 46, 133) 40%,
     rgba(255, 255, 255, 0.1)
   );
 
-  --bg-desktop-linear-gradient: linear-gradient(
-    157deg,
-    rgb(6 5 12 / 40%),
-    rgb(9 6 11 / 40%),
-    rgb(9 6 11 / 40%),
-    rgb(106 70 165 / 24%),
-    rgb(2 144 252 / 26%)
-  );
+  /* #endregion form gradients */
+
+  /* #region button gradients */
 
   --button-gradient: linear-gradient(
     133deg,
@@ -66,12 +83,17 @@
     #a54ab2 90.54%
   );
 
+  /* #endregion button gradients */
+
+  /* #region modal gradients */
+
   --modal-bg-gradient-mobile: linear-gradient(
     182deg,
     rgba(83, 61, 186, 1) 0%,
     rgb(72 37 145) 43.14%,
     rgb(85 49 140) 73.27%,
-    rgb(199 180 81 / 37%) 120.03%,
+    rgb(199 180 81 / 37%) 120.03%
   );
 
+  /* #endregion modal gradients */
 }

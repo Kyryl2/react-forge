@@ -10,6 +10,7 @@ import clsx from "clsx";
 import { CustomInput } from "../LoginForm/CustomInput";
 import Logo from "../Logo/Logo";
 
+
 const RegistrationForm = () => {
   const dispatch = useDispatch();
 

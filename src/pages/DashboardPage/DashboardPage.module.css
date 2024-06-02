@@ -1,8 +1,7 @@
 .pageContainer {
-  background-image: url("../../images/DashboardPage-IMG/gradient-desktop_1px.webp");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
+  background: var(--form-mobile-linear-gradient),
+    var(--form-mobile-radial-gradient);
+  min-height: 100vh;
 }
 
 body {
@@ -23,10 +22,18 @@ body {
   width: 100%;
 }
 
+.boxLeft {
+  margin: 0px 20px;
+}
+
 @media screen and (min-width: 768px) {
   .customContainer {
     padding: 0 32px;
     max-width: 768px;
+  }
+
+  .boxLeft {
+    margin: 0px;
   }
 
   .navbalcur {
@@ -42,10 +49,6 @@ body {
     width: 100%;
     margin-top: 40px;
   }
-
-  .pageContainer {
-    height: 100vh;
-  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -58,6 +61,7 @@ body {
     display: flex;
     flex-direction: row;
     gap: 69px;
+    margin-right: 16px;
   }
 
   .boxLeft {
@@ -72,11 +76,11 @@ body {
   .boxRight {
     padding-top: 46px;
     width: 100%;
-    margin-right: 16px;
   }
 
   .navbalcur {
     display: block;
+    width: 480px;
   }
 
   .navbal {

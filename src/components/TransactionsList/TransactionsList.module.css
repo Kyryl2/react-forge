@@ -73,10 +73,14 @@ ul {
 .wrapper::-webkit-scrollbar-track {
   background: #523b7e99;
   border-radius: 8px;
-
 }
 
 .wrapper::-webkit-scrollbar-thumb {
-  background: linear-gradient(96.76deg, #FFC727 -16.42%, #9E40BA 97.04%, #7000FF 150.71%);
+  background: linear-gradient(
+    96.76deg,
+    #ffc727 -16.42%,
+    #9e40ba 97.04%,
+    #7000ff 150.71%
+  );
   border-radius: 8px;
 }

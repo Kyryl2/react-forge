@@ -108,6 +108,8 @@
   }
 }
 
-/* @media screen and (min-width: 1280px) {
-
-} */
+@media screen and (min-width: 1280px) {
+  .navigation {
+    margin-left: 20px;
+  }
+}

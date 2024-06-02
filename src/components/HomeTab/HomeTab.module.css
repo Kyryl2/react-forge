@@ -1,4 +1,46 @@
 .tab {
   width: 100%;
-  height: 100%;
+  height: 100%;  
+ position: relative;
 }
+
+.fixedButton{
+  position: fixed;
+  bottom: 20px;        
+  right: 20px;       
+  z-index: 1000;  
+}
+
+
+@media screen and (min-width: 768px) {
+  .fixedButton {
+    bottom: 40px;      
+    right: 40px;        
+}
+}
+
+/* 
+.container {
+  position: relative;
+  max-width: 320px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+} */

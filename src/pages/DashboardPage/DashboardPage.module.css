@@ -23,10 +23,18 @@ body {
   width: 100%;
 }
 
+.boxLeft {
+  margin: 0px 20px;
+}
+
 @media screen and (min-width: 768px) {
   .customContainer {
     padding: 0 32px;
     max-width: 768px;
+  }
+
+  .boxLeft {
+    margin: 0px;
   }
 
   .navbalcur {
@@ -58,6 +66,7 @@ body {
     display: flex;
     flex-direction: row;
     gap: 69px;
+    margin-right: 16px;
   }
 
   .boxLeft {
@@ -72,7 +81,6 @@ body {
   .boxRight {
     padding-top: 46px;
     width: 100%;
-    margin-right: 16px;
   }
 
   .navbalcur {

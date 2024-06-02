@@ -19,7 +19,7 @@ const StatisticsTab = () => {
   }, [dispatch]);
 
   return (
-    <div className="container">
+    <div className={css.tabContainer}>
       <h2 className={css.title}>Statistics</h2>
       <div className={css.wrapper}>
         <Chart />

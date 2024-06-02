@@ -9,4 +9,48 @@
   --form-color: rgba(255, 255, 255, 0.1);
   --box-shadow: #4a56e280;
 
+  --bg-mobile-linear-gradient: linear-gradient(
+    147deg,
+    rgba(41, 34, 81, 0),
+    rgba(33, 22, 41, 0.2),
+    rgba(89, 42, 143, 0.26)
+  );
+
+  --form-mobile-linear-gradient: linear-gradient(
+    243deg,
+    rgb(31 28 32 / 71%),
+    rgb(50 31 145 / 30%),
+    rgb(75 52 130 / 78%),
+    rgb(7 1 13 / 23%)
+  );
+
+  --form-mobile-radial-gradient: radial-gradient(
+    circle at center,
+    rgb(87 59 223 / 73%) 0%,
+    rgba(255, 255, 255, 0.1) 90%
+  );
+
+  --bg-tablet-linear-gradient: linear-gradient(
+    147deg,
+    rgb(6 5 12 / 0%),
+    rgb(9 6 11 / 40%),
+    rgb(9 6 11 / 78%),
+    rgb(156 70 165 / 21%),
+    rgb(48 24 76 / 26%)
+  );
+
+  --form-tablet-desktop-radial-gradient: radial-gradient(
+    circle at center,
+    rgb(63, 46, 133) 40%,
+    rgba(255, 255, 255, 0.1)
+  );
+
+  --bg-desktop-linear-gradient: linear-gradient(
+    157deg,
+    rgb(6 5 12 / 40%),
+    rgb(9 6 11 / 40%),
+    rgb(9 6 11 / 40%),
+    rgb(106 70 165 / 24%),
+    rgb(2 144 252 / 26%)
+  );
 }

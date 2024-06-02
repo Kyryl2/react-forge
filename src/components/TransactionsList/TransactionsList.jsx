@@ -5,7 +5,6 @@ import { useEffect } from "react";
 import { getTransactionsThunk } from "../../redux/transactions/operations";
 import s from "./TransactionsList.module.css";
 import useMedia from "../../hooks/useMedia";
-
 const TransactionsList = () => {
   const transactions = useSelector(selectTransactions);
   const dispatch = useDispatch();

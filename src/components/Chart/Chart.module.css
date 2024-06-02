@@ -1,0 +1,18 @@
+.wrapper {
+  width: 336px;
+  height: 336px;
+
+  position: relative;
+}
+
+.balance {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--white);
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

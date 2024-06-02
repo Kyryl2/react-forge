@@ -1,31 +1,103 @@
 .btncontainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
 }
 
 .button {
-    width: 69px;
-    height: 29px;
-    padding: 4px 12px 4px 12px;
-    border-radius: 20px;
-    opacity: 0px;
-    cursor: pointer;
-    background: linear-gradient(96.76deg, #FFC727 -16.42%, #9E40BA 97.04%, #7000FF 150.71%);
-    color: white;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 69px;
+  height: 29px;
+  padding: 4px 12px 4px 12px;
+  border-radius: 20px;
+  opacity: 0px;
+  border: 0px;
+  cursor: pointer;
+  background: linear-gradient(
+    96.76deg,
+    #ffc727 -16.42%,
+    #9e40ba 97.04%,
+    #7000ff 150.71%
+  );
+  color: white;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .carandash {
-    background: none;
-    border: none;
+  background: none;
+  border: none;
 }
 
 tr {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+/* mobile styles */
+
+.card {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: var(--form-color);
+  color: white;
+
+  /* та сама лінія зліва */
+  border-left: 5px solid orange;
+}
+
+.cardRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 20px;
+}
+.cardRow:not(:last-child) {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.534);
+}
+
+.cardLabel {
+  font-weight: bold;
+}
+
+.cardValue {
+  text-align: right;
+}
+
+.cardActions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardActions button {
+  margin: 0px;
+  padding: 0px;
+}
+
+.cardActions {
+  padding: 12px 20px;
+}
+
+.carandash {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: var(--white-60);
+}
+
+.penContainer {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  padding: 4px 12px;
 }

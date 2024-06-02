@@ -1,25 +1,61 @@
 .wrapper thead tr {
-    background-color: #523B7E99;
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    border-radius: 8px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -ms-border-radius: 8px;
-    -o-border-radius: 8px;
+  background-color: #523b7e99;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
 }
 
 table {
-    table-layout: fixed;
-    width: 100%;
-    border-collapse: collapse;
-
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
 }
-
 
 th,
 td {
-    padding: 20px;
-    color: white;
+  padding: 20px;
+  color: white;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card {
+  background: var(--form-color);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+  color: white;
+}
+
+.cardRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.cardLabel {
+  font-weight: bold;
+}
+
+.cardValue {
+  text-align: right;
+}
+
+.cardActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.cardActions button {
+  margin-left: 8px;
 }

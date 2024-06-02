@@ -34,6 +34,7 @@ const Header = () => {
             </div>
           </NavLink>
         )}
+
         <div className={s.userExit}>
           <div className={s.userName}>{userName || "Guest"}</div>
           <button className={s.exitWrapper} onClick={openModal}>

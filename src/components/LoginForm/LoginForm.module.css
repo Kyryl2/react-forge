@@ -24,7 +24,7 @@
 .title {
   font-weight: 400;
   font-size: 19px;
-  color: #fbfbfb;
+  color: var(--white);
 }
 
 .form {
@@ -43,7 +43,7 @@
 }
 
 .wrap {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid var(--white-40);
   display: flex;
   padding-bottom: 8px;
   padding-left: 10.5px;
@@ -62,7 +62,7 @@
   border: none;
   outline: none;
   padding-left: 19px;
-  color: white;
+  color: var(--white);
 }
 
 .btnLogin {

@@ -1,7 +1,7 @@
 .pageContainer {
-  background-image: url("../../images/DashboardPage-IMG/gradient-desktop_1px.webp");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: var(--form-mobile-linear-gradient),
+    var(--form-mobile-radial-gradient);
+  min-height: 100vh;
 }
 
 body {
@@ -48,10 +48,6 @@ body {
     max-width: 336px;
     width: 100%;
     margin-top: 40px;
-  }
-
-  .pageContainer {
-    height: 100vh;
   }
 }
 

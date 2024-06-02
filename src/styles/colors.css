@@ -2,7 +2,7 @@
   --yellow: #ffb627;
   --icon-violet: #734aef;
   --white: rgb(251, 251, 251);
-  --white-smoke: rgb(245, 245, 245);
+  --white-smoke: #f5f5f5;
   --white-40: rgba(255, 255, 255, 0.4);
   --white-60: rgba(255, 255, 255, 0.6);
   --text-button: #623f8b;
@@ -60,10 +60,18 @@
   );
 
   --button-gradient: linear-gradient(
-    167deg,
+    133deg,
     #ffc727 0%,
-    #9e40ba 61.46%,
-    #7000ff 90.54%
+    #bf6e93 61.46%,
+    #a54ab2 90.54%
+  );
+
+  --modal-bg-gradient-mobile: linear-gradient(
+    182deg,
+    rgba(83, 61, 186, 1) 0%,
+    rgb(72 37 145) 43.14%,
+    rgb(85 49 140) 73.27%,
+    rgb(199 180 81 / 37%) 120.03%,
   );
 
 }

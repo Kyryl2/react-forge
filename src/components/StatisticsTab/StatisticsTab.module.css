@@ -7,12 +7,12 @@ p {
   font-weight: 400;
   font-size: 30px;
   color: var(--white);
-
   margin-bottom: 8px;
 }
 
 .tabContainer {
   padding: 0px 20px;
+  margin-top: 12px;
 }
 
 @media only screen and (min-width: 768px) {

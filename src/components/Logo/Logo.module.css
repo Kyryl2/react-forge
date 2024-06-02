@@ -6,7 +6,5 @@
 }
 
 .div .iconLogo {
-  
- 
-  fill: white;
-} 
+  fill: var(--white);
+}

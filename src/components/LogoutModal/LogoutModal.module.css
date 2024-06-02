@@ -7,7 +7,7 @@
   z-index: 150;
   background: var(--modal-bg-gradient-mobile);
 
-  box-shadow: 0px 4px 60px 0px #00000040;
+  box-shadow: 0px 4px 60px 0px var(--box-shadow-modal);
   backdrop-filter: blur(80px);
   overflow: auto;
 }
@@ -46,7 +46,7 @@
   .logOutModal {
     top: 0;
     min-height: 100vh;
-    background: #220d5b3b;
+    background: var(--modal-bg);
     backdrop-filter: blur(10px);
     display: flex;
     justify-content: center;
@@ -54,12 +54,8 @@
   }
 
   .modalContent {
-    background-image: linear-gradient(
-      220deg,
-      rgb(109, 84, 235, 0.4),
-      rgb(100, 35, 144, 0.4)
-    );
-    box-shadow: 0px 4px 60px 0px #00000040;
+    background-image: var(--modal-bg-gradient-tablet);
+    box-shadow: 0px 4px 60px 0px var(--box-shadow-modal);
     border-radius: 8px;
     min-height: fit-content;
     height: 447px;
@@ -83,7 +79,7 @@
   height: 50px;
   cursor: pointer;
 
-  box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 9px 15px 0 var(--box-shadow-modal);
   background: var(--button-gradient);
 
   font-family: var(--font-family);
@@ -102,7 +98,7 @@
   height: 50px;
   cursor: pointer;
 
-  box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 9px 15px 0 var(--box-shadow-modal);
   background: var(--white);
 
   font-family: var(--font-family);

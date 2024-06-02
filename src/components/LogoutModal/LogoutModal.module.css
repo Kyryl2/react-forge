@@ -5,7 +5,8 @@
   height: calc(100vh - 60px);
   width: 100%;
   z-index: 150;
-  background: linear-gradient(0deg, rgba(83, 61, 186, 1) 0%, rgba(80, 48, 154, 1) 43.14%, rgba(106, 70, 165, 1) 73.27%, rgba(133, 93, 175, 1) 120.03%);
+  background: var(--modal-bg-gradient-mobile);
+
   box-shadow: 0px 4px 60px 0px #00000040;
   backdrop-filter: blur(80px);
   overflow: auto;
@@ -26,7 +27,6 @@
   min-height: 100%;
   position: relative;
 }
-
 
 .modalContent .buttonsWrapper {
   display: flex;
@@ -55,10 +55,10 @@
 
   .modalContent {
     background-image: linear-gradient(
-    220deg,
-    rgb(109, 84, 235, 0.4),
-    rgb(100, 35, 144, 0.4)
-  );
+      220deg,
+      rgb(109, 84, 235, 0.4),
+      rgb(100, 35, 144, 0.4)
+    );
     box-shadow: 0px 4px 60px 0px #00000040;
     border-radius: 8px;
     min-height: fit-content;
@@ -84,12 +84,7 @@
   cursor: pointer;
 
   box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
-  background: linear-gradient(
-    167deg,
-    #ffc727 0%,
-    #9e40ba 61.46%,
-    #7000ff 90.54%
-  );
+  background: var(--button-gradient);
 
   font-family: var(--font-family);
   font-weight: 400;
@@ -101,14 +96,14 @@
 }
 
 .btnCancel {
-  border: 1px solid #4a56e2;
+  border: 1px solid var(--btn-border);
   border-radius: 20px;
   width: 280px;
   height: 50px;
   cursor: pointer;
 
   box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
-  background: #fcfcfc;
+  background: var(--white);
 
   font-family: var(--font-family);
   font-weight: 400;
@@ -122,15 +117,15 @@
 .title {
   font-weight: 400;
   font-size: 26px;
-  color: #fbfbfb;
+  color: var(--white);
   text-align: center;
 }
 .p {
   font-weight: 400;
   font-size: 18px;
-  color: #fff;
+  color: var(--white);
   text-align: center;
 }
-.hover{
-  fill:#4a56e2
+.hover {
+  fill: var(--btn-border);
 }

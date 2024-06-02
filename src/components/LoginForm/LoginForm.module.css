@@ -73,12 +73,7 @@
   cursor: pointer;
 
   box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
-  background: linear-gradient(
-    167deg,
-    #ffc727 0%,
-    #9e40ba 61.46%,
-    #7000ff 90.54%
-  );
+  background: var(--button-gradient);
 
   font-family: var(--font-family);
   font-weight: 400;
@@ -91,7 +86,7 @@
 }
 .btnLogin:hover {
   background: #9e40ba;
-  color: whitesmoke;
+  color: var(--white-smoke);
   transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -99,14 +94,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #4a56e2;
+  border: 1px solid var(--btn-border);
   border-radius: 20px;
   width: 280px;
   height: 50px;
   cursor: pointer;
 
   box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
-  background: #fcfcfc;
+  background: var(--white);
 
   font-family: var(--font-family);
   font-weight: 400;
@@ -118,13 +113,13 @@
   transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btnRegister:hover {
-  background-color: #7000ff;
+  background-color: var(--btn-hover);
   transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  color: whitesmoke;
+  color: var(--white-smoke);
 }
 
 .error {
-  color: #ffc727;
+  color: var(--error-yellow);
 }
 
 @media only screen and (min-width: 768px) {

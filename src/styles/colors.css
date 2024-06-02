@@ -1,13 +1,18 @@
 :root {
   --yellow: #ffb627;
   --icon-violet: #734aef;
-  --white: #fbfbfb;
+  --white: rgb(251, 251, 251);
+  --white-smoke: rgb(245, 245, 245);
   --white-40: rgba(255, 255, 255, 0.4);
   --white-60: rgba(255, 255, 255, 0.6);
   --text-button: #623f8b;
   --dashboard-text: #ff868d;
   --form-color: rgba(255, 255, 255, 0.1);
   --box-shadow: #4a56e280;
+  --error-yellow: #ffc727;
+  --btn-border: #4a56e2;
+  --btn-hover: #7000ff;
+  --btn-hover-bg: #9e40ba;
 
   --bg-mobile-linear-gradient: linear-gradient(
     147deg,
@@ -53,4 +58,12 @@
     rgb(106 70 165 / 24%),
     rgb(2 144 252 / 26%)
   );
+
+  --button-gradient: linear-gradient(
+    167deg,
+    #ffc727 0%,
+    #9e40ba 61.46%,
+    #7000ff 90.54%
+  );
+
 }

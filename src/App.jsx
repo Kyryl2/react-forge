@@ -14,6 +14,7 @@ import StatisticsTab from "./components/StatisticsTab/StatisticsTab";
 import { selectIsRefreshing } from "./redux/auth/selectors";
 
 import Loader from "./components/Loader/Loader";
+import Currency from "./components/Currency/Currency";
 
 function App() {
   const isRefreshing = useSelector(selectIsRefreshing);
@@ -38,6 +39,7 @@ function App() {
             <Route index element={<HomeTab />} />
             <Route path="dashboard" element={<DashboardPage />} />
             <Route path="statistics" element={<StatisticsTab />} />
+            <Route path="currency" element={<Currency />} />
           </Route>
 
           <Route

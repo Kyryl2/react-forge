@@ -28,7 +28,7 @@ word = ["Okay"];
 color = "green";
 }
 else{
-  color = "red";
+  color = "grey";
 }
  
 
@@ -102,13 +102,13 @@ else{
                 placeholder="Confirm password"
                 iconID="icon-lock"
               />
-               <PasswordStrengthBar
+               {pass &&<PasswordStrengthBar
           password={pasw}
           minLength={2}
           shortScoreWord={'Not match'}
           scoreWords={[word ]}
           barColors={[color]}
-      />
+      />}
               <div className={s.buttonsWrapper}>
                 <button className={clsx(s.btn, s.btnRegister)} type="submit">
                   Register

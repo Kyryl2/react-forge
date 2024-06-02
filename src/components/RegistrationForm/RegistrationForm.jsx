@@ -1,18 +1,35 @@
 import * as Yup from "yup";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import s from "./RegistrationForm.module.css";
 import { Form, Formik } from "formik";
 
 import { userRegisterThunk } from "../../redux/auth/operations";
-import { Icon } from "../../images/Icon/Icon";
+
 import { Link } from "react-router-dom";
 import clsx from "clsx";
 import { CustomInput } from "../LoginForm/CustomInput";
 import Logo from "../Logo/Logo";
+import { selectConfirm, selectPassword } from "../../redux/progressbar/selectors";
+import PasswordStrengthBar from "react-password-strength-bar";
 
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
+
+  const pass = useSelector( selectPassword);
+  const confirm = useSelector(selectConfirm);
+let pasw = "";
+let word ='';
+let color = ''
+if (pass === confirm){
+pasw = pass;
+word = ["Okay"];
+color = "green";
+}
+else{
+  color = "red";
+}
+ 
 
   const FeedbackSchema = Yup.object().shape({
     username: Yup.string()
@@ -20,8 +37,8 @@ const RegistrationForm = () => {
       .required("Required"),
     email: Yup.string().email("Invalid email address").required("Required"),
     password: Yup.string()
-      .min(6, "Password must be at least 6 characters")
-      .max(12, "Password must be at most 12 characters")
+      .min(8, "Password must be at least 8 characters")
+      .max(20, "Password must be at most 12 characters")
       .required("Required"),
     confirm: Yup.string()
       .oneOf([Yup.ref("password"), null], "Passwords must match")
@@ -84,6 +101,13 @@ const RegistrationForm = () => {
                 placeholder="Confirm password"
                 iconID="icon-lock"
               />
+               <PasswordStrengthBar
+          password={pasw}
+          minLength={2}
+          shortScoreWord={'Not match'}
+          scoreWords={[word ]}
+          barColors={[color]}
+      />
               <div className={s.buttonsWrapper}>
                 <button className={clsx(s.btn, s.btnRegister)} type="submit">
                   Register

@@ -21,17 +21,33 @@ const RegistrationForm = () => {
   const confirm = useSelector(selectConfirm);
 let pasw = "";
 let word ='';
+let wrd=''
 let color = ''
-if (pass !==''&& pass === confirm){
-pasw = pass;
-word = ["Okay"];
-color = "green";
+
+if(pass.length <8 && pass.length >0){
+wrd ="Too short"
+color = "red";
 }
-else{
-  color = "grey";
+if(pass !== confirm && confirm.length >=0 ){
+  color = "yellow";
+  word=["Not match"];
+
+}
+if(pass.length >7 && confirm.length <8&& confirm.length >0 ){
+  // color = "grey";
+  word=["Not match"];
+  wrd ="Not match"
 }
  
-
+if (pass !=='' &&pass.length >7 && pass === confirm){
+  pasw = pass;
+  word = ["Okay"];
+  color = "green";
+  }
+  if (pass !=='' &&pass.length >7 && pass !== confirm){
+    color = "red";
+    wrd ="Not match"
+  }
   const FeedbackSchema = Yup.object().shape({
     username: Yup.string()
       .min(1, "Must be at least 1 character")
@@ -105,7 +121,7 @@ else{
                {pass &&<PasswordStrengthBar
           password={pasw}
           minLength={2}
-          shortScoreWord={'Not match'}
+          shortScoreWord={wrd}
           scoreWords={[word ]}
           barColors={[color]}
       />}

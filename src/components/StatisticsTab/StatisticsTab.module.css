@@ -19,6 +19,10 @@ p {
   .title {
     margin-bottom: 20px;
   }
+
+  .tabContainer {
+    padding: 0px;
+  }
 }
 
 @media only screen and (min-width: 768px) {

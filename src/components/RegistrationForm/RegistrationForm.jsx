@@ -28,13 +28,13 @@ if(pass.length <8 && pass.length >0){
 wrd ="Too short"
 color = "red";
 }
-if(pass !== confirm && confirm.length >=0 ){
+if(pass !== confirm ){
   color = "yellow";
   word=["Not match"];
 
 }
 if(pass.length >7 && confirm.length <8&& confirm.length >0 ){
-  // color = "grey";
+  
   word=["Not match"];
   wrd ="Not match"
 }

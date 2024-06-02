@@ -16,12 +16,13 @@ import PasswordStrengthBar from "react-password-strength-bar";
 const RegistrationForm = () => {
   const dispatch = useDispatch();
 
-  const pass = useSelector( selectPassword);
+  let pass = useSelector( selectPassword);
+  
   const confirm = useSelector(selectConfirm);
 let pasw = "";
 let word ='';
 let color = ''
-if (pass === confirm){
+if (pass !==''&& pass === confirm){
 pasw = pass;
 word = ["Okay"];
 color = "green";

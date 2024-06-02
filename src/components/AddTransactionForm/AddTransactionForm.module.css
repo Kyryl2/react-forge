@@ -1,0 +1,49 @@
+.title{
+  text-align: center;
+  font-size: 30px;
+  color: var(--white);
+}
+.addButton{
+  border: none;
+  border-radius: 20px;
+  width: 280px;
+  height: 50px;
+  cursor: pointer;
+  background: linear-gradient(96.76deg, #ffc727 -16.42%, #9e40ba 97.04%, #7000ff 150.71%);
+  box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--text-button);
+}
+
+
+.inputField, .dateInput, .commentInput{
+  background: transparent;
+  color: #ffffff; 
+  border:none;
+  border-bottom: 1px solid var(--white-40); 
+  width: 100%; 
+
+}
+
+.inputField:focus {
+  outline: none; 
+  border-color: #9e40ba; 
+}
+
+.commentInput{
+  width: 100%;
+}
+.inputs{
+  display: flex;
+  gap: 32px;
+   justify-content: space-between;
+}
+.inputField, .dateInput {
+  flex: 1; 
+  padding: 8px 12px; 
+}

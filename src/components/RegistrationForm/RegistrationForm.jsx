@@ -4,7 +4,7 @@ import s from "./RegistrationForm.module.css";
 import { Form, Formik } from "formik";
 
 import { userRegisterThunk } from "../../redux/auth/operations";
-import { Icon } from "../../images/Icon/Icon";
+// import { Icon } from "../../images/Icon/Icon";
 import { Link } from "react-router-dom";
 import clsx from "clsx";
 import { CustomInput } from "../LoginForm/CustomInput";

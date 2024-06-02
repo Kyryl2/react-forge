@@ -3,9 +3,10 @@
   background-size: cover;
   height: 100vh;
   background-image: linear-gradient(
-    220deg,
-    rgb(109, 84, 235, 0.4),
-    rgb(100, 35, 144, 0.4)
+    147deg,
+    rgba(41, 34, 81, 0),
+    rgba(33, 22, 41, 0.2),
+    rgba(89, 42, 143, 0.26)
   );
 }
 
@@ -14,11 +15,19 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(
-    220deg,
-    rgb(109, 84, 235, 0.4),
-    rgb(100, 35, 144, 0.4)
-  );
+  background: linear-gradient(
+      243deg,
+      rgb(31 28 32 / 71%),
+      rgb(50 31 145 / 30%),
+      rgb(75 52 130 / 78%),
+      rgb(7 1 13 / 23%)
+    ),
+    radial-gradient(
+      circle at center,
+      rgb(87 59 223 / 73%) 0%,
+      rgba(255, 255, 255, 0.1) 90%
+    );
+
   height: 100vh;
 }
 
@@ -136,7 +145,14 @@
 @media only screen and (min-width: 768px) {
   .mainContainer {
     background-image: url("../../images/LoginPage-IMG/login-page-gradient-tablet_1x.webp"),
-      linear-gradient(220deg, rgb(109, 84, 235, 0.4), rgb(100, 35, 144, 0.4));
+      linear-gradient(
+        147deg,
+        rgb(6 5 12 / 0%),
+        rgb(9 6 11 / 40%),
+        rgb(9 6 11 / 78%),
+        rgb(156 70 165 / 21%),
+        rgb(48 24 76 / 26%)
+      );
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -171,9 +187,13 @@
     border-radius: 8px;
     padding: 80px 62px;
     height: 100%;
-    backdrop-filter: blur(100px);
+    backdrop-filter: blur(15px);
     box-shadow: 0 4px 60px 0 rgba(0, 0, 0, 0.25);
-    background: rgba(255, 255, 255, 0.1);
+    background: radial-gradient(
+      circle at center,
+      rgb(63, 46, 133) 40%,
+      rgba(255, 255, 255, 0.1)
+    );
   }
 
   .formContainer {
@@ -192,7 +212,14 @@
 @media only screen and (min-width: 1280px) {
   .mainContainer {
     background-image: url("../../images/LoginPage-IMG/login-page-gradient-dekstop1x.webp"),
-      linear-gradient(220deg, rgb(109, 84, 235, 0.4), rgb(100, 35, 144, 0.4));
+      linear-gradient(
+        157deg,
+        rgb(6 5 12 / 40%),
+        rgb(9 6 11 / 40%),
+        rgb(9 6 11 / 40%),
+        rgb(106 70 165 / 24%),
+        rgb(2 144 252 / 26%)
+      );
   }
 
   .title {

@@ -9,17 +9,25 @@
   background: none;
   background: linear-gradient(96.76deg, #ffc727 -16.42%, #9e40ba 97.04%, #7000ff 150.71%);
   box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
+<<<<<<< Updated upstream
 
 
    position: fixed;
   right: 40px;
   bottom: 40px;
 
+=======
+  position: fixed; 
+  right: 40px;
+  bottom: 40px;
+>>>>>>> Stashed changes
 }
-.wrap{
 
+<<<<<<< Updated upstream
 }
 
+=======
+>>>>>>> Stashed changes
 .btn:hover,
 .btn:focus {
   transform: scale(1.05);
@@ -34,3 +42,7 @@
   border-radius: 100%;
 }
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes

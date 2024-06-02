@@ -50,7 +50,7 @@
       backdrop-filter: blur(10px);
       display: flex;
       justify-content: center;
-      padding: 40px 118px;
+      padding: 40px 73px;
     }
     .modalContent {
         background-image: linear-gradient(
@@ -63,7 +63,7 @@
         min-height: fit-content;
         height: 447px;
         width: 533px;
-        padding: 10px 117px;
+        padding: 10px 73px;
         margin: auto 0;
         gap: 30px;
         backdrop-filter: blur(50px);

@@ -36,7 +36,10 @@
 }
 
 .commentInput{
+  margin-top: 20px;
   width: 100%;
+  padding: 8px 0 8px 9px;
+  font-size: 18px;
 }
 .inputs{
   display: flex;
@@ -46,4 +49,9 @@
 .inputField, .dateInput {
   flex: 1; 
   padding: 8px 12px; 
+}
+.iconClose{
+  position: fixed;
+  top: 16px;
+  right: 27px;
 }

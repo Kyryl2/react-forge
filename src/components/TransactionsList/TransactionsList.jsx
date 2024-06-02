@@ -42,11 +42,13 @@ const TransactionsList = () => {
       )}
 
       {isMobile && (
-        <ul>
-          {transactions?.map((transaction) => (
-            <TransactionsItem key={transaction.id} {...transaction} />
-          ))}
-        </ul>
+        <div className={s.wrapper}>
+          <ul>
+            {transactions?.map((transaction) => (
+              <TransactionsItem key={transaction.id} {...transaction} />
+            ))}
+          </ul>
+        </div>
       )}
     </>
   );

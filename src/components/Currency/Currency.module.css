@@ -7,6 +7,10 @@
   padding: 13px 20px;
 }
 
+.wrapper{
+  margin-top: 12px;
+}
+
 .headContainer p {
   font-family: var(--font-family);
   font-weight: 600;
@@ -56,6 +60,10 @@
     padding: 12px 20px;
   }
 
+  .wrapper{
+    margin: 0px;
+  }
+
   .purchase {
     margin-left: 34px;
   }
@@ -81,5 +89,9 @@
   .valWrapper {
     gap: 24px;
     padding: 24px 131px 0px 85px;
+  }
+
+  .image{
+    width: 479px;
   }
 }

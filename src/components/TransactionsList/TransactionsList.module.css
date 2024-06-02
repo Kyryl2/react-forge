@@ -1,17 +1,7 @@
 .wrapper {
   width: 100%;
-  max-height: 65vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  border-radius: 8px;
   box-sizing: border-box;
-}
-
-.wrapper thead tr {
-  background-color: #523b7e99;
-  width: 100%;
-  padding: 20px;
-  box-sizing: border-box;
+  overflow: hidden;
   border-radius: 8px;
 }
 
@@ -19,6 +9,13 @@ table {
   table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
+
+  overflow: hidden;
+}
+
+thead tr {
+  background-color: #523b7e99;
+  box-sizing: border-box;
 }
 
 th,
@@ -26,6 +23,8 @@ td {
   padding: 20px;
   color: white;
 }
+
+/*  */
 
 ul {
   display: flex;
@@ -64,23 +63,4 @@ ul {
 
 .cardActions button {
   margin-left: 8px;
-}
-
-.wrapper::-webkit-scrollbar {
-  width: 12px;
-}
-
-.wrapper::-webkit-scrollbar-track {
-  background: #523b7e99;
-  border-radius: 8px;
-}
-
-.wrapper::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    96.76deg,
-    #ffc727 -16.42%,
-    #9e40ba 97.04%,
-    #7000ff 150.71%
-  );
-  border-radius: 8px;
 }

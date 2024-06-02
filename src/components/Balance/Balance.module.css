@@ -31,6 +31,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .balanceContainer{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
 }
 
 @media screen and (min-width: 1280px) {

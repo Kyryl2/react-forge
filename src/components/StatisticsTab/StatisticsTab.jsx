@@ -19,7 +19,7 @@ const StatisticsTab = () => {
   }, [dispatch]);
 
   return (
-    <>
+    <div className="container">
       <h2 className={css.title}>Statistics</h2>
       <div className={css.wrapper}>
         <Chart />
@@ -28,7 +28,7 @@ const StatisticsTab = () => {
           <StatisticsTable />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

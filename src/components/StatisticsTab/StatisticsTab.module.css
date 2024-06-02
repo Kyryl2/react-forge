@@ -7,6 +7,14 @@ p {
   font-weight: 400;
   font-size: 30px;
   color: var(--white);
+
+  margin-bottom: 8px;
+}
+
+@media only screen and (min-width: 768px) {
+  .title {
+    margin-bottom: 20px;
+  }
 }
 
 @media only screen and (min-width: 768px) {

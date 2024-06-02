@@ -1,0 +1,55 @@
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 254px;
+}
+
+.toggleLabel {
+  font-size: 16px;
+  color: #9e9e9e;
+}
+
+.toggleLabelActive {
+  color: #ffa000;
+}
+
+.toggleSwitch {
+  width: 80px;
+  height: 40px;
+  background-color: #f0f0f0;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+.toggleCircle {
+  width: 44px;
+  height: 44px;
+  background-color: #ffa000;
+
+  border-radius: 50%;
+  position: absolute;
+  left: 45px;
+  transition: all 0.3s ease;
+}
+
+.toggleCircleActive {
+  left: -5px;
+  background-color: #ffa000;
+}
+.plusToggle {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.minusToggle {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

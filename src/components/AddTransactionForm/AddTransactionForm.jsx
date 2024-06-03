@@ -78,22 +78,7 @@ export const AddTransactionForm = ({ closeModal }) => {
             onChange={(date) => setStartDate(date)}
             dateFormat="dd.MM.yyyy"
             className={s.dateInput}
-            // showIcon
             customInput={<CustomInputCalendar />}
-            // icon={
-            //   <svg
-            //     width="18"
-            //     height="20"
-            //     viewBox="0 0 18 20"
-            //     fill="none"
-            //     xmlns="http://www.w3.org/2000/svg"
-            //   >
-            //     <path
-            //       d="M6 9.00003H4V11H6V9.00003ZM10 9.00003H8V11H10V9.00003ZM14 9.00003H12V11H14V9.00003ZM16 2.00003H15V3.05176e-05H13V2.00003H5V3.05176e-05H3V2.00003H2C0.89 2.00003 0.00999999 2.90003 0.00999999 4.00003L0 18C0 19.1 0.89 20 2 20H16C17.1 20 18 19.1 18 18V4.00003C18 2.90003 17.1 2.00003 16 2.00003ZM16 18H2V7.00003H16V18Z"
-            //       fill="#734AEF"
-            //     />
-            //   </svg>
-            // }
           />
         </div>
         <input placeholder="Comment" className={s.commentInput} />

@@ -32,11 +32,15 @@
 .dateInput,
 .commentInput,
 .categorySelect {
-  background: transparent;
-  color: #ffffff;
+  background: transparent; 
+  color: var(--white-60);
+  font-size: 18px;
   border: none;
   border-bottom: 1px solid var(--white-40);
   width: 100%;
+}
+.inputField{
+  font-weight: 600;
 }
 
 .inputField:focus {

@@ -72,7 +72,7 @@ export const AddTransactionForm = ({ closeModal }) => {
           </div>
         )}
         <div className={s.inputs}>
-          <input type="number" placeholder="0.00" className={s.inputField} />
+          <input placeholder="0.00" className={s.inputField} />
           <ReactDatePicker
             selected={startDate}
             onChange={(date) => setStartDate(date)}

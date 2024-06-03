@@ -1,18 +1,31 @@
 import clsx from "clsx";
 import Select from "react-select";
-import { useSelector } from "react-redux";
-import { useMemo, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useMemo, useRef, useState } from "react";
 import css from "./StatisticsDashboard.module.css";
 import { Icon } from "../../images/Icon/Icon";
 import { styles } from "../../options/selectStyles";
+import { getSummaryThunk } from "../../redux/transactions/operations";
 import { selectTransactions } from "../../redux/transactions/selectors";
-import { getOptions, getOptionsIndex } from "../../helpers/getDates";
+import {
+  getCurrentDate,
+  getNumericMonth,
+  getOptions,
+  getOptionsIndex,
+} from "../../helpers/getDates";
 
 const StatisticsDashboard = () => {
   const [monthSelectIsOpen, setMonthSelectIsOpen] = useState(false);
   const [YearSelectIsOpen, setYearSelectIsOpen] = useState(false);
 
   const transactions = useSelector(selectTransactions);
+
+  const { currentMonth, currentYear } = getCurrentDate();
+
+  const monthRef = useRef(currentMonth);
+  const yearhRef = useRef(currentYear);
+
+  const dispatch = useDispatch();
 
   const { filteredMonthsOptions, filteredYearsOptions } = useMemo(() => {
     return getOptions(transactions);
@@ -53,6 +66,20 @@ const StatisticsDashboard = () => {
     }
   };
 
+  const handleMonthSelectChange = (monthValue) => {
+    const month = getNumericMonth(monthValue);
+
+    monthRef.current = month;
+
+    dispatch(getSummaryThunk({ month, year: yearhRef.current }));
+  };
+
+  const handleYearSelectChange = (yearValue) => {
+    yearhRef.current = yearValue;
+
+    dispatch(getSummaryThunk({ month: monthRef.current, year: yearValue }));
+  };
+
   return (
     <>
       <div className={css.wrapper}>
@@ -65,6 +92,7 @@ const StatisticsDashboard = () => {
             styles={styles}
             onMenuOpen={() => handleMenuOpen("monthSelect")}
             onMenuClose={() => handleMenuClose("monthSelect")}
+            onChange={({ value }) => handleMonthSelectChange(value)}
           />
           <Icon
             id="icon-down-arrow"
@@ -84,6 +112,7 @@ const StatisticsDashboard = () => {
             styles={styles}
             onMenuOpen={() => handleMenuOpen("yearSelect")}
             onMenuClose={() => handleMenuClose("yearSelect")}
+            onChange={({ value }) => handleYearSelectChange(value)}
           />
           <Icon
             id="icon-down-arrow"

@@ -5,12 +5,21 @@ import { Icon } from "../../images/Icon/Icon";
 import Modal from "../Modal/Modal";
 import Toggle from "../Toggle/Toggle";
 import s from "./AddTransactionForm.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { selectCategories } from "../../redux/transactions/selectors";
+import { useDispatch, useSelector } from "react-redux";
+import { getCategoriesThunk } from "../../redux/transactions/operations";
 
 export const AddTransactionForm = ({ closeModal }) => {
   const [startDate, setStartDate] = useState(new Date());
-
   const [transactionType, setTransactionType] = useState(true);
+
+  const dispatch = useDispatch();
+  const categories = useSelector(selectCategories);
+
+  useEffect(() => {
+    dispatch(getCategoriesThunk());
+  }, [dispatch]);
 
   return (
     <div>
@@ -26,15 +35,13 @@ export const AddTransactionForm = ({ closeModal }) => {
         {/* <Toggle /> */}
         <Toggle onChange={setTransactionType} />
         {!transactionType && (
-          // <div>
           <select className={s.categorySelect}>
-            <option value="">Select a category</option>
-
-            <option value="car">Car</option>
-            <option value="food">Food</option>
-            {/*и далее*/}
+            {categories.map((category) => (
+              <option key={category.id} value={category.id}>
+                {category.name}
+              </option>
+            ))}
           </select>
-          // </div>
         )}
         <div className={s.inputs}>
           <input type="number" placeholder="0.00" className={s.inputField} />

@@ -30,10 +30,10 @@ const TransactionsItem = ({ id, transactionDate, comment, type, amount }) => {
         <>
           <tr key={id}>
             <td>{formatDate(transactionDate)}</td>
-            <td>{displayType}</td>
+            <td className={s.type}>{displayType}</td>
             <td>{type}</td>
             <td>{comment}</td>
-            <td>{amount}</td>
+            <td className={s.sum}>{amount}</td>
             <td>
               <div className={s.btncontainer}>
                 <button className={s.carandash} onClick={openModal}>

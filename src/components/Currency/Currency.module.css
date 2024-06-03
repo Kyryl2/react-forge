@@ -7,8 +7,10 @@
   padding: 13px 20px;
 }
 
-.wrapper{
+.wrapper {
   margin-top: 12px;
+  background-color: #4a57e217;
+  box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
 }
 
 .headContainer p {
@@ -60,8 +62,14 @@
     padding: 12px 20px;
   }
 
-  .wrapper{
+  .wrapper {
     margin: 0px;
+    width: 100%;
+    border-radius: 0px 0px 8px 8px;
+  }
+
+  .image{
+    width: 100%;
   }
 
   .purchase {
@@ -86,12 +94,17 @@
     margin-left: 50px;
   }
 
+  .wrapper{
+    border-radius: 0px;
+    box-shadow: none;
+  }
+
   .valWrapper {
     gap: 24px;
     padding: 24px 131px 0px 85px;
   }
 
-  .image{
+  .image {
     width: 479px;
   }
 }

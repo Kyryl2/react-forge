@@ -1,3 +1,4 @@
+import ReactDOM from 'react-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteTransactionThunk } from '../../redux/transactions/operations';
@@ -21,43 +22,35 @@ const TransactionsItem = ({ id, transactionDate, comment, type, amount }) => {
   const displayType = type === 'INCOME' ? '+' : '-';
   const { isMobile } = useMedia();
 
-  const openModal = () => setIsModalOpen(true);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
   const closeModal = () => setIsModalOpen(false);
 
   return (
     <>
       {!isMobile && (
-        <>
-          <tr key={id}>
-            <td>{formatDate(transactionDate)}</td>
-            <td>{displayType}</td>
-            <td>{type}</td>
-            <td>{comment}</td>
-            <td>{amount}</td>
-            <td>
-              <div className={s.btncontainer}>
-                <button className={s.carandash} onClick={openModal}>
-                  <Icon id="icon-pen" height={14} width={14} />
-                </button>
-                <button
-                  className={s.button}
-                  type="button"
-                  onClick={() => dispatch(deleteTransactionThunk(id))}
-                >
-                  Delete
-                </button>
-              </div>
-            </td>
-          </tr>
-          {isModalOpen && (
-            <Modal closeModal={closeModal}>
-              <EditTransactionForm
-                transaction={{ id, transactionDate, comment, type, amount }}
-                closeModal={closeModal}
-              />
-            </Modal>
-          )}
-        </>
+        <tr key={id}>
+          <td>{formatDate(transactionDate)}</td>
+          <td>{displayType}</td>
+          <td>{type}</td>
+          <td>{comment}</td>
+          <td>{type === 'EXPENSE' ? Math.abs(amount) : amount}</td>
+          <td>
+            <div className={s.btncontainer}>
+              <button className={s.carandash} onClick={openModal}>
+                <Icon id="icon-pen" height={14} width={14} />
+              </button>
+              <button
+                className={s.button}
+                type="button"
+                onClick={() => dispatch(deleteTransactionThunk(id))}
+              >
+                Delete
+              </button>
+            </div>
+          </td>
+        </tr>
       )}
       {isMobile && (
         <li className={s.card} key={id}>
@@ -79,7 +72,9 @@ const TransactionsItem = ({ id, transactionDate, comment, type, amount }) => {
           </div>
           <div className={s.cardRow}>
             <span className={s.cardLabel}>Sum</span>
-            <span className={s.cardValue}>{amount}</span>
+            <span className={s.cardValue}>
+              {type === 'EXPENSE' ? Math.abs(amount) : amount}
+            </span>
           </div>
           <div className={s.cardActions}>
             <button
@@ -94,16 +89,19 @@ const TransactionsItem = ({ id, transactionDate, comment, type, amount }) => {
               <p className={s.carandash}>Edit</p>
             </button>
           </div>
-          {isModalOpen && (
-            <Modal closeModal={closeModal}>
-              <EditTransactionForm
-                transaction={{ id, transactionDate, comment, type, amount }}
-                closeModal={closeModal}
-              />
-            </Modal>
-          )}
         </li>
       )}
+
+      {isModalOpen &&
+        ReactDOM.createPortal(
+          <Modal closeModal={closeModal}>
+            <EditTransactionForm
+              transaction={{ id, transactionDate, comment, type, amount }}
+              closeModal={closeModal}
+            />
+          </Modal>,
+          document.body
+        )}
     </>
   );
 };

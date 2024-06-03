@@ -54,4 +54,9 @@
   position: fixed;
   top: 16px;
   right: 27px;
+  cursor: pointer;
 }
+
+.iconClose :hover{
+  color: aqua;
+    }

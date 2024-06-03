@@ -7,7 +7,13 @@ export const AddTransactionForm = ({ closeModal }) => {
   return (
     <div>
       <Modal closeModal={closeModal}>
-        <Icon id="icon-close" width={16} height={16} className={s.iconClose} />
+        <Icon
+          id="icon-close"
+          width={16}
+          height={16}
+          className={s.iconClose}
+          onClick={closeModal}
+        />
         <p className={s.title}>Add transaction</p>
         <Toggle />
         <div className={s.inputs}>

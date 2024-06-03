@@ -29,7 +29,6 @@
   }
 }
 
-
 .icon {
   width: 27px;
   height: 26px;
@@ -66,6 +65,11 @@
   align-items: center;
 }
 
+.wrap:hover {
+  border-bottom-color: var(--btn-hover-bg);
+  transition: border-bottom-color 0.3s ease;
+}
+
 .input {
   font-weight: 400;
   font-size: 18px;
@@ -78,6 +82,7 @@
   padding-left: 19px;
   color: var(--white);
 }
+
 .input::placeholder {
   color: var(--white-60);
 }
@@ -154,8 +159,8 @@
   }
   @media (min-resolution: 2dppx) {
     .mainContainer {
-    background-image: url("../../images/LoginPage-IMG/login-page-gradient-tablet_2x.webp"),
-      var(--bg-tablet-linear-gradient);
+      background-image: url("../../images/LoginPage-IMG/login-page-gradient-tablet_2x.webp"),
+        var(--bg-tablet-linear-gradient);
     }
   }
   .input {
@@ -213,8 +218,8 @@
 
   @media (min-resolution: 2dppx) {
     .mainContainer {
-    background-image: url("../../images/LoginPage-IMG/login-page-gradient-dekstop2x.webp"),
-      var(--bg-tablet-linear-gradient);
+      background-image: url("../../images/LoginPage-IMG/login-page-gradient-dekstop2x.webp"),
+        var(--bg-tablet-linear-gradient);
     }
   }
   .title {
@@ -222,7 +227,4 @@
   }
 }
 
-
 /*  */
-
-

@@ -7,7 +7,7 @@ export const styles = {
     borderRadius: 0,
     fontFamily: "Poppins",
     fontWeight: 400,
-    fontSize: 16,
+    fontSize: 18,
     backgroundColor: "transparent",
   }),
   dropdownIndicator: () => ({

@@ -1,25 +1,26 @@
-import ReactDOM from 'react-dom';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { deleteTransactionThunk } from '../../redux/transactions/operations';
-import { Icon } from '../../images/Icon/Icon';
-import s from './TransactionsItem.module.css';
-import useMedia from '../../hooks/useMedia';
-import Modal from '../Modal/Modal';
-import EditTransactionForm from '../EditTransactionForm/EditTransactionForm';
+import ReactDOM from "react-dom";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteTransactionThunk } from "../../redux/transactions/operations";
+import { Icon } from "../../images/Icon/Icon";
+import s from "./TransactionsItem.module.css";
+import useMedia from "../../hooks/useMedia";
+import Modal from "../Modal/Modal";
+import EditTransactionForm from "../EditTransactionForm/EditTransactionForm";
+import { selectCategories } from "../../redux/transactions/selectors";
 
 const formatDate = (dateString) => {
   const date = new Date(dateString);
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, "0");
+  const month = String(date.getMonth() + 1).padStart(2, "0");
   const year = String(date.getFullYear()).slice(-2);
   return `${day}.${month}.${year}`;
 };
 
-const TransactionsItem = ({ id, transactionDate, comment, type, amount }) => {
+const TransactionsItem = ({ transaction }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
-  const displayType = type === 'INCOME' ? '+' : '-';
+  const displayType = transaction.type === "INCOME" ? "+" : "-";
   const { isMobile } = useMedia();
 
   const openModal = () => {
@@ -27,16 +28,22 @@ const TransactionsItem = ({ id, transactionDate, comment, type, amount }) => {
   };
   const closeModal = () => setIsModalOpen(false);
 
+  const categories = useSelector(selectCategories);
+  const category = categories.find(
+    (item) => item.id === transaction.categoryId
+  );
+  const categoryName = category ? category.name : "Unknown";
+
   return (
     <>
       {!isMobile && (
         <>
-          <tr key={id}>
-            <td>{formatDate(transactionDate)}</td>
+          <tr key={transaction.id}>
+            <td>{formatDate(transaction.transactionDate)}</td>
             <td className={s.type}>{displayType}</td>
-            <td>{type}</td>
-            <td>{comment}</td>
-            <td className={s.sum}>{amount}</td>
+            <td>{categoryName}</td>
+            <td>{transaction.comment}</td>
+            <td className={s.sum}>{transaction.amount}</td>
             <td>
               <div className={s.btncontainer}>
                 <button className={s.carandash} onClick={openModal}>
@@ -45,7 +52,9 @@ const TransactionsItem = ({ id, transactionDate, comment, type, amount }) => {
                 <button
                   className={s.button}
                   type="button"
-                  onClick={() => dispatch(deleteTransactionThunk(id))}
+                  onClick={() =>
+                    dispatch(deleteTransactionThunk(transaction.id))
+                  }
                 >
                   Delete
                 </button>
@@ -55,7 +64,7 @@ const TransactionsItem = ({ id, transactionDate, comment, type, amount }) => {
           {isModalOpen && (
             <Modal closeModal={closeModal}>
               <EditTransactionForm
-                transaction={{ id, transactionDate, comment, type, amount }}
+                transaction={transaction}
                 closeModal={closeModal}
               />
             </Modal>
@@ -63,10 +72,10 @@ const TransactionsItem = ({ id, transactionDate, comment, type, amount }) => {
         </>
       )}
       {isMobile && (
-        <li className={s.card} key={id}>
+        <li className={s.card} key={transaction.id}>
           <div className={s.cardRow}>
             <span className={s.cardLabel}>Date</span>
-            <span className={s.cardValue}>{transactionDate}</span>
+            <span className={s.cardValue}>{transaction.transactionDate}</span>
           </div>
           <div className={s.cardRow}>
             <span className={s.cardLabel}>Type</span>
@@ -74,23 +83,25 @@ const TransactionsItem = ({ id, transactionDate, comment, type, amount }) => {
           </div>
           <div className={s.cardRow}>
             <span className={s.cardLabel}>Category</span>
-            <span className={s.cardValue}>{type}</span>
+            <span className={s.cardValue}>{categoryName}</span>
           </div>
           <div className={s.cardRow}>
             <span className={s.cardLabel}>Comment</span>
-            <span className={s.cardValue}>{comment}</span>
+            <span className={s.cardValue}>{transaction.comment}</span>
           </div>
           <div className={s.cardRow}>
             <span className={s.cardLabel}>Sum</span>
             <span className={s.cardValue}>
-              {type === 'EXPENSE' ? Math.abs(amount) : amount}
+              {transaction.type === "EXPENSE"
+                ? Math.abs(transaction.amount)
+                : transaction.amount}
             </span>
           </div>
           <div className={s.cardActions}>
             <button
               className={s.button}
               type="button"
-              onClick={() => dispatch(deleteTransactionThunk(id))}
+              onClick={() => dispatch(deleteTransactionThunk(transaction.id))}
             >
               Delete
             </button>
@@ -106,7 +117,7 @@ const TransactionsItem = ({ id, transactionDate, comment, type, amount }) => {
         ReactDOM.createPortal(
           <Modal closeModal={closeModal}>
             <EditTransactionForm
-              transaction={{ id, transactionDate, comment, type, amount }}
+              categoryName={categoryName}
               closeModal={closeModal}
             />
           </Modal>,

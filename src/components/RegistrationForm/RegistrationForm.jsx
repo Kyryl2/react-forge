@@ -15,6 +15,9 @@ import {
 } from "../../redux/progressbar/selectors";
 import PasswordStrengthBar from "react-password-strength-bar";
 
+import toast, { Toaster } from "react-hot-toast";
+import { IoWarningOutline } from "react-icons/io5";
+
 const RegistrationForm = () => {
   const dispatch = useDispatch();
 
@@ -77,12 +80,23 @@ const RegistrationForm = () => {
         actions.resetForm();
       })
       .catch((error) => {
+        toast.error(`${error.message}`, {
+          icon: <IoWarningOutline style={{ width: "40px", height: "40px" }} />,
+          position: "top-right",
+          style: {
+            backgroundImage:
+              "linear-gradient(133deg,#ffc727 0%,#bf6e93 61.46%,#a54ab2 90.54%)",
+
+            color: "white",
+          },
+        });
         console.error("Registration error:", error);
       });
   };
 
   return (
     <div className={s.mainContainer}>
+      <Toaster position="top-right" reverseOrder={false} pauseOnHover />
       <div className={s.formContainer}>
         <div className={s.container}>
           <Logo className={s.title} width={36} height={36} />

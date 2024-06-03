@@ -60,7 +60,7 @@
     min-height: fit-content;
     /* height: 447px; */
     width: 533px;
-    padding: 80px 117px;
+    padding: 40px 117px;
     margin: auto 0;
     gap: 30px;
     backdrop-filter: blur(50px);
@@ -106,8 +106,6 @@
 }
 
 .btnCancel:hover {
-  color: var(--white);
-  background: var(--btn-hover-bg);
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(10, 10, 10, 0.1);
 }

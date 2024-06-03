@@ -1,3 +1,6 @@
+.addModal{
+/* margin: 40px 0; */
+}
 .title{
   text-align: center;
   font-size: 30px;
@@ -17,11 +20,11 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-align: center;
-  color: var(--text-button);
+  color: var( --white-smoke);
 }
 
 
-.inputField, .dateInput, .commentInput{
+.inputField, .dateInput, .commentInput,  .categorySelect{
   background: transparent;
   color: #ffffff; 
   border:none;
@@ -40,6 +43,7 @@
   width: 100%;
   padding: 8px 0 8px 9px;
   font-size: 18px;
+
 }
 .inputs{
   display: flex;
@@ -60,3 +64,10 @@
 .iconClose :hover{
   color: aqua;
     }
+
+.categorySelect{
+  margin-top: 20px; 
+  width: 100%;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 18px;
+  }

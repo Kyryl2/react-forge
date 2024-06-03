@@ -12,7 +12,6 @@ export default function HomeTab() {
   const [isModalOpen, setModalOpen] = useState(false);
   const toggleModal = () => {
     setModalOpen(!isModalOpen);
-    console.log("ddddd");
   };
   return (
     <div className={s.tab}>

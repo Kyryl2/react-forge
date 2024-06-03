@@ -1,0 +1,22 @@
+.customInput {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  padding: 10px;
+  background-color: transparent;  
+  color: var( --white-smoke);
+  border: none;
+  border-bottom: 1px solid var(--white-40);
+  font-size: 18px;
+  cursor: pointer; 
+}
+
+.calendarIcon {
+  margin-left: 10px; 
+}
+
+.calendarIcon {
+  /* transition: fill 0.25s cubic-bezier(0.4, 0, 0.2, 1); */
+  fill:  #734aef;;
+  stroke:  #734aef;
+}

@@ -1,10 +1,10 @@
-import { useDispatch, useSelector } from 'react-redux';
-import TransactionsItem from '../TransactionsItem/TransactionsItem';
-import { selectTransactions } from '../../redux/transactions/selectors';
-import { useEffect } from 'react';
-import { getTransactionsThunk } from '../../redux/transactions/operations';
-import s from './TransactionsList.module.css';
-import useMedia from '../../hooks/useMedia';
+import { useDispatch, useSelector } from "react-redux";
+import TransactionsItem from "../TransactionsItem/TransactionsItem";
+import { selectTransactions } from "../../redux/transactions/selectors";
+import { useEffect } from "react";
+import { getTransactionsThunk } from "../../redux/transactions/operations";
+import s from "./TransactionsList.module.css";
+import useMedia from "../../hooks/useMedia";
 
 const TransactionsList = () => {
   const transactions = useSelector(selectTransactions);

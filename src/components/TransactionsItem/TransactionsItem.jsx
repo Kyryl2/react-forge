@@ -30,27 +30,37 @@ const TransactionsItem = ({ id, transactionDate, comment, type, amount }) => {
   return (
     <>
       {!isMobile && (
-        <tr key={id}>
-          <td>{formatDate(transactionDate)}</td>
-          <td>{displayType}</td>
-          <td>{type}</td>
-          <td>{comment}</td>
-          <td>{type === 'EXPENSE' ? Math.abs(amount) : amount}</td>
-          <td>
-            <div className={s.btncontainer}>
-              <button className={s.carandash} onClick={openModal}>
-                <Icon id="icon-pen" height={14} width={14} />
-              </button>
-              <button
-                className={s.button}
-                type="button"
-                onClick={() => dispatch(deleteTransactionThunk(id))}
-              >
-                Delete
-              </button>
-            </div>
-          </td>
-        </tr>
+        <>
+          <tr key={id}>
+            <td>{formatDate(transactionDate)}</td>
+            <td className={s.type}>{displayType}</td>
+            <td>{type}</td>
+            <td>{comment}</td>
+            <td className={s.sum}>{amount}</td>
+            <td>
+              <div className={s.btncontainer}>
+                <button className={s.carandash} onClick={openModal}>
+                  <Icon id="icon-pen" height={14} width={14} />
+                </button>
+                <button
+                  className={s.button}
+                  type="button"
+                  onClick={() => dispatch(deleteTransactionThunk(id))}
+                >
+                  Delete
+                </button>
+              </div>
+            </td>
+          </tr>
+          {isModalOpen && (
+            <Modal closeModal={closeModal}>
+              <EditTransactionForm
+                transaction={{ id, transactionDate, comment, type, amount }}
+                closeModal={closeModal}
+              />
+            </Modal>
+          )}
+        </>
       )}
       {isMobile && (
         <li className={s.card} key={id}>

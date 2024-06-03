@@ -14,7 +14,21 @@
     var(--form-mobile-radial-gradient);
 
   height: 100vh;
+
+  animation: slide-in 1.2s ease;
 }
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 .icon {
   width: 27px;
@@ -65,7 +79,7 @@
   color: var(--white);
 }
 .input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--white-60);
 }
 
 .btnLogin {
@@ -88,8 +102,9 @@
 
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
+
 .btnLogin:hover {
-  background: #9e40ba;
+  background: var(--btn-hover-bg);
   color: var(--white-smoke);
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(10, 10, 10, 0.1);
@@ -99,7 +114,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--btn-border);
   border-radius: 20px;
   width: 280px;
   height: 50px;
@@ -115,10 +129,12 @@
   text-transform: uppercase;
   text-align: center;
   color: var(--text-button);
+
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
+
 .btnRegister:hover {
-  background-color: var(--btn-hover);
+  background: var(--btn-hover-bg);
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(10, 10, 10, 0.1);
   color: var(--white-smoke);
@@ -205,3 +221,8 @@
     font-size: 26px;
   }
 }
+
+
+/*  */
+
+

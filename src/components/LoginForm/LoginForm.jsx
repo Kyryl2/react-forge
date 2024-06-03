@@ -33,7 +33,8 @@ const LoginForm = () => {
           position: "top-right",
           style: {
             backgroundImage:
-              "linear-gradient(167deg, #ffc727 0%, #9e40ba 61.46%, #7000ff 90.54%)",
+              "linear-gradient(133deg,#ffc727 0%,#bf6e93 61.46%,#a54ab2 90.54%)",
+
             color: "white",
           },
         })
@@ -45,7 +46,7 @@ const LoginForm = () => {
       <Toaster position="top-right" reverseOrder={false} />
       <div className={s.formContainer}>
         <div className={s.container}>
-          <div style={{ marginBottom: 52 }}>
+          <div>
             <Logo className={s.title} width={36} height={36} />
           </div>
           <Formik

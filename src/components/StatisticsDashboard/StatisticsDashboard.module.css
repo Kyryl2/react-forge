@@ -3,6 +3,8 @@
   flex-direction: column;
   gap: 20px;
   width: 280px;
+
+  margin-bottom: 20px;
 }
 
 @media only screen and (min-width: 768px) {

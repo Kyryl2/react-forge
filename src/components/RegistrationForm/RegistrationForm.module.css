@@ -2,11 +2,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-  background-image: linear-gradient(
-    220deg,
-    rgb(109, 84, 235, 0.4),
-    rgb(100, 35, 144, 0.4)
-  );
+  background-image: var(--bg-mobile-linear-gradient);
 }
 
 .container {
@@ -14,11 +10,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(
-    220deg,
-    rgb(109, 84, 235, 0.4),
-    rgb(100, 35, 144, 0.4)
-  );
+  background-image: var(--form-mobile-linear-gradient),
+  var(--form-mobile-radial-gradient);
   height: 100vh;
 }
 
@@ -30,7 +23,7 @@
 .title {
   font-weight: 400;
   font-size: 19px;
-  color: #fbfbfb;
+  color: var(--white);
 }
 
 .form {
@@ -49,7 +42,7 @@
 }
 
 .wrap {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid var(--white-40);
   display: flex;
   padding-bottom: 8px;
   padding-left: 10.5px;
@@ -67,18 +60,18 @@
   border: none;
   outline: none;
   padding-left: 19px;
-  color: white;
+  color: var(--white);
 }
 
 .btnLogin {
-  border: 1px solid #4a56e2;
+  border: 1px solid var(--btn-border);
   border-radius: 20px;
   width: 280px;
   height: 50px;
   cursor: pointer;
 
   box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
-  background: #fcfcfc;
+  background: var(--white);
 
   font-family: var(--font-family);
   font-weight: 400;
@@ -89,9 +82,9 @@
   color: var(--text-button);
 }
 .btnLogin:hover {
-  background: #7000ff;
+  background: var(--btn-hover);
   transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  color: whitesmoke;
+  color: var(--white-smoke);
 }
 .btnRegister {
   border-radius: 20px;
@@ -101,12 +94,7 @@
   cursor: pointer;
 
   box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
-  background: linear-gradient(
-    167deg,
-    #ffc727 0%,
-    #9e40ba 61.46%,
-    #7000ff 90.54%
-  );
+  background: var(--button-gradient);
 
   font-family: var(--font-family);
   font-weight: 400;
@@ -117,23 +105,30 @@
   color: var(--white);
 }
 .btnRegister:hover {
-  background: #9e40ba;
-  color: whitesmoke;
+  background: var(--btn-hover-bg);
+  color: var(--white-smoke);
   transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .error {
-  color: #ffc727;
+  color: var(--error-yellow);
 }
 
 @media only screen and (min-width: 768px) {
   .mainContainer {
-    background-image: url("../../images/RegistrationPage-IMG/registr-page-gradient-tablet_1x.webp");
+    background-image: url("../../images/RegistrationPage-IMG/registr-page-gradient-tablet_1x.webp"),
+    var(--bg-tablet-linear-gradient);
 
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
   }
-  /* linear-gradient(220deg, rgb(109, 84, 235, 0.4), rgb(100, 35, 144, 0.4)); */
+  @media (min-resolution: 2dppx) {
+    .mainContainer {
+    background-image: url("../../images/RegistrationPage-IMG/registr-page-gradient-tablet_2x.webp"),
+      var(--bg-tablet-linear-gradient);
+    }
+  }
+  
   .input {
     width: 409px;
     height: 35px;
@@ -161,11 +156,11 @@
 
   .container {
     border-radius: 8px;
-    padding: 20px 62px;
+    padding: 40px 62px;
     height: 100%;
-    backdrop-filter: blur(100px);
+    backdrop-filter: blur(25px);
     box-shadow: 0 4px 60px 0 rgba(0, 0, 0, 0.25);
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--form-tablet-desktop-radial-gradient);
   }
 
   .formContainer {
@@ -185,9 +180,17 @@
 
 @media only screen and (min-width: 1280px) {
   .mainContainer {
-    background-image: url("../../images/RegistrationPage-IMG/registr-page-gradient-dekstop_1x.webp");
+    background-image: url("../../images/RegistrationPage-IMG/registr-page-gradient-dekstop_1x.webp"),
+    var(--bg-desktop-linear-gradient);
   }
   /* linear-gradient(220deg, rgb(109, 84, 235, 0.4), rgb(100, 35, 144, 0.4)); */
+
+  @media (min-resolution: 2dppx) {
+    .mainContainer {
+    background-image: url("../../images/RegistrationPage-IMG/registr-page-gradient-dekstop_2x.webp"),
+      var(--bg-tablet-linear-gradient);
+    }
+  }
 
   .title {
     font-size: 26px;

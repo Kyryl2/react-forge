@@ -1,104 +1,128 @@
+import clsx from "clsx";
 import Select from "react-select";
+import { useDispatch, useSelector } from "react-redux";
+import { useMemo, useRef, useState } from "react";
 import css from "./StatisticsDashboard.module.css";
+import { Icon } from "../../images/Icon/Icon";
+import { styles } from "../../options/selectStyles";
+import { getSummaryThunk } from "../../redux/transactions/operations";
+import { selectTransactions } from "../../redux/transactions/selectors";
+import {
+  getCurrentDate,
+  getNumericMonth,
+  getOptions,
+  getOptionsIndex,
+} from "../../helpers/getDates";
 
 const StatisticsDashboard = () => {
-  const options = [
-    {
-      value: "january",
-      label: "January",
-      color: "#FFC400",
-    },
-    { value: "february", label: "February" },
-    { value: "march", label: "March" },
-    { value: "april", label: "April" },
-    { value: "may", label: "May" },
-    { value: "june", label: "June" },
-    { value: "july", label: "July" },
-    { value: "august", label: "August" },
-    { value: "september", label: "September" },
-    { value: "october", label: "October" },
-    { value: "november", label: "November" },
-    { value: "december", label: "December" },
-  ];
+  const [monthSelectIsOpen, setMonthSelectIsOpen] = useState(false);
+  const [YearSelectIsOpen, setYearSelectIsOpen] = useState(false);
 
-  const styles = {
-    control: () => ({}),
-    container: (baseStyles) => ({
-      ...baseStyles,
-      border: "1px solid rgba(255, 255, 255, 0.6)",
-      borderRadius: 8,
-      width: 280,
-      height: 50,
-      fontFamily: "Poppins",
-      fontWeight: 400,
-      fontSize: 16,
-      backgroundColor: "rgba(74, 86, 226, 0.1)",
-    }),
-    dropdownIndicator: () => ({
-      display: "none",
-    }),
-    indicatorsContainer: () => ({
-      display: "none",
-    }),
-    singleValue: (baseStyles) => ({
-      ...baseStyles,
-      fontFamily: "Poppins",
-      fontWeight: 400,
-      fontSize: 16,
-      color: "#fbfbfb",
-    }),
-    input: (baseStyles) => ({
-      ...baseStyles,
-      caretColor: "#fbfbfb",
-      fontFamily: "Poppins",
-      fontWeight: 400,
-      fontSize: 16,
-      color: "#fbfbfb",
-    }),
-    valueContainer: (baseStyles) => ({
-      ...baseStyles,
-      padding: "12px 20px",
-    }),
-    menu: (baseStyles) => ({
-      ...baseStyles,
-      backgroundColor: "rgba(74, 86, 226, 1)",
-      borderRadius: 8,
-      cursor: "pointer",
-      overflow: "hidden",
-    }),
-    menuList: (baseStyles) => ({
-      ...baseStyles,
-      display: "flex",
-      flexDirection: "column",
-      height: 158,
-      padding: 0,
-      "::-webkit-scrollbar": {
-        display: "none",
-      },
-    }),
-    option: (baseStyles, state) => ({
-      ...baseStyles,
-      backgroundColor: state.isFocused && "rgba(255, 255, 255, 0.1)",
-      color: state.isFocused ? "#ff868d" : "#fbfbfb",
-      cursor: "pointer",
-      padding: "8px 20px",
-      display: "block",
-      ":active": {
-        backgroundColor: "rgba(255, 255, 255, 0.1)",
-      },
-    }),
+  const transactions = useSelector(selectTransactions);
+
+  const { currentMonth, currentYear } = getCurrentDate();
+
+  const monthRef = useRef(currentMonth);
+  const yearhRef = useRef(currentYear);
+
+  const dispatch = useDispatch();
+
+  const { filteredMonthsOptions, filteredYearsOptions } = useMemo(() => {
+    return getOptions(transactions);
+  }, [transactions]);
+
+  const { monthIndex, yearIndex } = useMemo(() => {
+    return getOptionsIndex(filteredMonthsOptions, filteredYearsOptions);
+  }, [filteredMonthsOptions, filteredYearsOptions]);
+
+  const handleMenuOpen = (id) => {
+    switch (id) {
+      case "monthSelect":
+        {
+          setMonthSelectIsOpen(!monthSelectIsOpen);
+        }
+        break;
+      case "yearSelect":
+        {
+          setYearSelectIsOpen(!YearSelectIsOpen);
+        }
+        break;
+      default:
+    }
+  };
+  const handleMenuClose = (id) => {
+    switch (id) {
+      case "monthSelect":
+        {
+          setMonthSelectIsOpen(!monthSelectIsOpen);
+        }
+        break;
+      case "yearSelect":
+        {
+          setYearSelectIsOpen(!YearSelectIsOpen);
+        }
+        break;
+      default:
+    }
+  };
+
+  const handleMonthSelectChange = (monthValue) => {
+    const month = getNumericMonth(monthValue);
+
+    monthRef.current = month;
+
+    dispatch(getSummaryThunk({ month, year: yearhRef.current }));
+  };
+
+  const handleYearSelectChange = (yearValue) => {
+    yearhRef.current = yearValue;
+
+    dispatch(getSummaryThunk({ month: monthRef.current, year: yearValue }));
   };
 
   return (
     <>
       <div className={css.wrapper}>
-        <Select
-          className={css.select}
-          options={options}
-          defaultValue={options[0]}
-          styles={styles}
-        />
-        <Select options={options} defaultValue={options[0]} styles={styles} />
+        <div className={css.select_wrapper}>
+          <Select
+            id="monthSelect"
+            className={css.select}
+            options={filteredMonthsOptions}
+            defaultValue={filteredMonthsOptions[monthIndex]}
+            styles={styles}
+            onMenuOpen={() => handleMenuOpen("monthSelect")}
+            onMenuClose={() => handleMenuClose("monthSelect")}
+            onChange={({ value }) => handleMonthSelectChange(value)}
+          />
+          <Icon
+            id="icon-down-arrow"
+            className={clsx(css.icon, {
+              [css.is_active]: monthSelectIsOpen,
+            })}
+            width="20px"
+            height="11px"
+          />
+        </div>
+        <div className={css.select_wrapper}>
+          <Select
+            id="yearSelect"
+            className={css.select}
+            options={filteredYearsOptions}
+            defaultValue={filteredYearsOptions[yearIndex]}
+            styles={styles}
+            onMenuOpen={() => handleMenuOpen("yearSelect")}
+            onMenuClose={() => handleMenuClose("yearSelect")}
+            onChange={({ value }) => handleYearSelectChange(value)}
+          />
+          <Icon
+            id="icon-down-arrow"
+            className={clsx(css.icon, {
+              [css.is_active]: YearSelectIsOpen,
+            })}
+            width="20px"
+            height="11px"
+          />
+        </div>
       </div>
     </>
   );

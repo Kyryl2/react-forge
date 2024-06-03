@@ -1,10 +1,14 @@
 .headContainer {
   width: 100%;
-  background-color: #fff;
-  background: rgba(255, 255, 255, 0.2);
+  background-color: var(--white);
+  background: var(--white-20);
 
   display: flex;
   padding: 13px 20px;
+}
+
+.wrapper{
+  margin-top: 12px;
 }
 
 .headContainer p {
@@ -12,7 +16,7 @@
   font-weight: 600;
   font-size: 16px;
   text-align: center;
-  color: #fff;
+  color: var(--white);
   height: 24px;
 
   display: flex;
@@ -41,7 +45,7 @@
   font-weight: 400;
   font-size: 16px;
   text-align: center;
-  color: #fff;
+  color: var(--white);
 }
 
 .valWrapper {
@@ -54,6 +58,10 @@
 @media screen and (min-width: 768px) {
   .headContainer {
     padding: 12px 20px;
+  }
+
+  .wrapper{
+    margin: 0px;
   }
 
   .purchase {
@@ -81,5 +89,9 @@
   .valWrapper {
     gap: 24px;
     padding: 24px 131px 0px 85px;
+  }
+
+  .image{
+    width: 479px;
   }
 }

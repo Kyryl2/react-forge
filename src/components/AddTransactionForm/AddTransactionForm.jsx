@@ -19,7 +19,7 @@ import CustomInputCalendar from "./CustomInputCalendar";
 export const AddTransactionForm = ({ closeModal }) => {
   const [monthSelectIsOpen, setMonthSelectIsOpen] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
-  const [transactionType, setTransactionType] = useState(true); // Default to INCOME
+  const [transactionType, setTransactionType] = useState(true); 
   const [amount, setAmount] = useState("");
   const [comment, setComment] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -73,8 +73,6 @@ export const AddTransactionForm = ({ closeModal }) => {
       comment,
       amount: transactionType ? parseFloat(amount) : -parseFloat(amount),
     };
-
-    console.log("Payload:", newTransaction); // Log the payload
 
     dispatch(postTransactionThunk(newTransaction))
       .unwrap()

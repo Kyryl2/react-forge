@@ -66,7 +66,6 @@ export const getOptionsIndex = (
 ) => {
   const date = new Date();
   const currentMonth = format(date, "MM");
-  console.log(currentMonth);
   const currentYear = format(date, "yyyy");
 
   const getNumericMonth = (month) => {

@@ -116,31 +116,20 @@
 
   /* #region dashboard page gradient */
 
-  --bg-db-linear-gradient-mobile: linear-gradient(
-    28deg,
-    rgba(31, 28, 32, 0.51),
-    rgb(50 31 145 / 44%),
-    rgb(74 87 227 / 35%),
-    rgb(31 28 32 / 43%)
-  );
-
-  --bg-db-linear-gradient-tablet: linear-gradient(
-    143deg,
-    rgb(77 49 241 / 46%),
-    rgba(33, 108, 166, 0.11),
-    #1a3db847,
-    rgb(131 42 248 / 30%),
-    rgb(33 108 166 / 20%)
-  );
-
   --bg-db-linear-gradient-desktop: linear-gradient(
     314deg,
     rgba(160, 26, 184, 0.149),
     rgb(77 49 241 / 21%),
-    rgb(24 25 58),
-    rgba(26, 61, 184, 0.149),
-    rgb(115 74 239 / 39%),
-    rgb(22 6 41 / 94%)
+    rgb(28 12 65 / 83%),
+    rgb(28 13 61),
+    rgb(69 24 168 / 40%),
+    rgb(157 40 207 / 39%)
+  );
+
+  --bg-db-radial-gradient-desktop: radial-gradient(
+    circle at center,
+    rgb(0 0 0) 40%,
+    rgb(198 46 191 / 19%)
   );
 }
 

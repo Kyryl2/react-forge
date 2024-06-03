@@ -1,5 +1,6 @@
 .pageContainer {
-  background: var(--bg-db-linear-gradient-mobile);
+  background: var(--bg-db-linear-gradient-desktop),
+  var(--bg-db-radial-gradient-desktop);
   min-height: 100vh;
 }
 
@@ -26,9 +27,6 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-  .pageContainer {
-    background: var(--bg-db-linear-gradient-tablet);
-  }
 
   .customContainer {
     padding: 0 32px;
@@ -55,9 +53,6 @@ body {
 }
 
 @media screen and (min-width: 1280px) {
-  .pageContainer {
-    background: var(--bg-db-linear-gradient-desktop);
-  }
 
   .customContainer {
     padding: 0px;

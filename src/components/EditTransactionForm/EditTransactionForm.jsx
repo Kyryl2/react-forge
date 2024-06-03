@@ -17,7 +17,7 @@ const EditTransactionForm = ({ transaction, closeModal }) => {
 
   const formik = useFormik({
     initialValues: {
-      sum: transaction.amount,
+      sum: Math.abs(transaction.amount),
       date: new Date(transaction.transactionDate),
       comment: transaction.comment,
     },
@@ -26,7 +26,10 @@ const EditTransactionForm = ({ transaction, closeModal }) => {
       try {
         const updatedTransaction = {
           ...transaction,
-          amount: values.sum,
+          amount:
+            transaction.type === 'EXPENSE'
+              ? -Math.abs(values.sum)
+              : Math.abs(values.sum), // Сумма отрицательная для расходов и положительная для доходов
           transactionDate: values.date.toISOString(),
           comment: values.comment,
         };
@@ -41,38 +44,55 @@ const EditTransactionForm = ({ transaction, closeModal }) => {
   });
 
   return (
-    <form className={s.form} onSubmit={formik.handleSubmit}>
-      <div className={s.field}>
-        <label htmlFor="sum">Sum</label>
-        <input id="sum" type="number" {...formik.getFieldProps('sum')} />
-        {formik.touched.sum && formik.errors.sum ? (
-          <div className={s.error}>{formik.errors.sum}</div>
-        ) : null}
-      </div>
-      <div className={s.field}>
-        <label htmlFor="date">Date</label>
-        <DatePicker
-          selected={formik.values.date}
-          onChange={(date) => formik.setFieldValue('date', date)}
-        />
-        {formik.touched.date && formik.errors.date ? (
-          <div className={s.error}>{formik.errors.date}</div>
-        ) : null}
-      </div>
-      <div className={s.field}>
-        <label htmlFor="comment">Comment</label>
-        <input id="comment" type="text" {...formik.getFieldProps('comment')} />
-        {formik.touched.comment && formik.errors.comment ? (
-          <div className={s.error}>{formik.errors.comment}</div>
-        ) : null}
-      </div>
-      {formik.errors.submit && (
-        <div className={s.error}>{formik.errors.submit}</div>
-      )}
-      <button type="submit" disabled={formik.isSubmitting}>
-        Save
-      </button>
-    </form>
+    <>
+      <h2>Edit transaction</h2>
+      <h3>Income / Exspence</h3>
+
+      <form className={s.form} onSubmit={formik.handleSubmit}>
+        <div className={s.field}>
+          <label htmlFor="sum"></label>
+          <input
+            className={s.inputData}
+            id="sum"
+            type="number"
+            value={formik.values.sum}
+            onChange={(e) => formik.setFieldValue('sum', e.target.value)}
+          />
+          {formik.touched.sum && formik.errors.sum ? (
+            <div className={s.error}>{formik.errors.sum}</div>
+          ) : null}
+        </div>
+        <div className={s.field}>
+          <label htmlFor="date"></label>
+          <DatePicker
+            className={s.inputData}
+            selected={formik.values.date}
+            onChange={(date) => formik.setFieldValue('date', date)}
+          />
+          {formik.touched.date && formik.errors.date ? (
+            <div className={s.error}>{formik.errors.date}</div>
+          ) : null}
+        </div>
+        <div className={s.field}>
+          <label htmlFor="comment"></label>
+          <input
+            className={s.commentFild}
+            id="comment"
+            type="text"
+            {...formik.getFieldProps('comment')}
+          />
+          {formik.touched.comment && formik.errors.comment ? (
+            <div className={s.error}>{formik.errors.comment}</div>
+          ) : null}
+        </div>
+        {formik.errors.submit && (
+          <div className={s.error}>{formik.errors.submit}</div>
+        )}
+        <button type="submit" disabled={formik.isSubmitting} className={s.save}>
+          Save
+        </button>
+      </form>
+    </>
   );
 };
 

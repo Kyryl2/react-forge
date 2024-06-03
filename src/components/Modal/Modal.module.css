@@ -74,7 +74,7 @@
 }
 
 .btnCancel {
-  border: 1px solid var(--btn-border);
+  border: none;
   border-radius: 20px;
   width: 280px;
   height: 50px;
@@ -90,6 +90,14 @@
   text-transform: uppercase;
   text-align: center;
   color: var(--text-button);
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.btnCancel:hover {
+  color: var(--white);
+  background-color: var(--btn-hover);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(10, 10, 10, 0.1);
 }
 
 .title {

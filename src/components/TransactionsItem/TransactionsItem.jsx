@@ -131,6 +131,7 @@ const TransactionsItem = ({ transaction }) => {
             <EditTransactionForm
               categoryName={categoryName}
               closeModal={closeModal}
+              transaction={transaction}
             />
           </Modal>,
           document.body

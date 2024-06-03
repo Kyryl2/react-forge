@@ -105,6 +105,7 @@ const RegistrationForm = () => {
             onSubmit={handleSubmit}
             validationSchema={FeedbackSchema}
           >
+            
             <Form className={s.form}>
               <CustomInput
                 name="username"

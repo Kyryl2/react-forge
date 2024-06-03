@@ -1,70 +1,108 @@
-/* Общие стили */
-.modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
 /* Стили для мобильных устройств */
 @media (max-width: 767px) {
-    .modal {
-        width: 90%;
-    }
+  .modal {
+    width: 90%;
+  }
 }
 
 /* Стили для планшетов */
 @media (min-width: 768px) and (max-width: 1023px) {
-    .modal {
-        width: 70%;
-    }
+  .modal {
+    width: 70%;
+  }
 }
 
 /* Стили для компьютеров */
 @media (min-width: 1024px) {
-    .modal {
-        width: 50%;
-    }
-}
-
-.save {
-
-    border: 1px solid #4a56e2;
-    border-radius: 20px;
-    width: 280px;
-    height: 50px;
-    cursor: pointer;
-
-    box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
-
-    background: linear-gradient(96.76deg, #FFC727 -16.42%, #9E40BA 97.04%, #7000FF 150.71%);
-
-    font-family: var(--font-family);
-    font-weight: 400;
-    font-size: 18px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-align: center;
-    color: #FFFFFF;
+  .modal {
+    width: 50%;
+  }
 }
 
 .commentFild {
-    width: 394px;
-    border: none;
-    border-bottom: 1px solid #FBFBFB;
-
-    background-color: transparent;
-
+  width: 394px;
+  border: none;
+  border-bottom: 1px solid var(--white-40);
+  color: var(--white-smoke);
+  background-color: transparent;
 }
 
 .inputData {
-    width: 181px;
-    border: none;
-    border-bottom: 1px solid #FBFBFB;
+  width: 181px;
+  border: none;
+  border-bottom: 1px solid var(--white-40);
+  color: var(--white-smoke);
+  background-color: transparent;
+}
+.iconClose {
+  position: fixed;
+  top: 16px;
+  right: 27px;
+  cursor: pointer;
+}
+.title {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 30px;
+  color: var(--white);
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.active {
+  color: #ffc727;
+}
 
-    background-color: transparent;
+.calendar {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.div {
+  flex-direction: column;
+  display: flex;
+  gap: 40px;
+  font-weight: 600;
+  font-size: 16px;
+  color: #e0e0e0;
+}
+.type {
+  margin: 0 auto;
+}
+.span {
+  font-weight: 600;
+  font-size: 16px;
+  color: #e0e0e0;
+}
+.save {
+  border-radius: 20px;
+  border: none;
+  width: 280px;
+  height: 50px;
+  cursor: pointer;
+  margin: 0 auto;
+  box-shadow: 1px 9px 15px 0 var(--box-shadow-modal);
+  
+background: var(--button-gradient);
+
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--white);
+
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.save:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(10, 10, 10, 0.1);
+}
+.category {
+  border-bottom: 1px solid grey;
+  width: 300px;
 }

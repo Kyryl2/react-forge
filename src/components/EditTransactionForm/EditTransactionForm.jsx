@@ -6,13 +6,17 @@ import { useDispatch } from 'react-redux';
 import { patchTransactionThunk } from '../../redux/transactions/operations';
 import s from './EditTransactionForm.module.css';
 
+import { Icon } from '../../images/Icon/Icon';
+import clsx from 'clsx';
+
+
 const validationSchema = yup.object().shape({
   sum: yup.number().required('Sum is required'),
   date: yup.date().required('Date is required'),
   comment: yup.string().required('Comment is required'),
 });
 
-const EditTransactionForm = ({ transaction, closeModal }) => {
+const EditTransactionForm = ({ transaction, closeModal,categoryName}) => {
   const dispatch = useDispatch();
 
   const formik = useFormik({
@@ -44,17 +48,33 @@ const EditTransactionForm = ({ transaction, closeModal }) => {
   });
 
   return (
-    <>
-      <h2>Edit transaction</h2>
-      <h3>Income / Exspence</h3>
+    <div className={s.div}>
+      <div onClick={closeModal}>
+          <Icon
+            id="icon-close"
+            width={16}
+            height={16}
+            className={s.iconClose}
+          />
+        </div>
+        <p className={s.title}>Add transaction</p>
+        <div className={s.type}> <span className={clsx(transaction.type === 'INCOME' && s.active)}>Income </span>
+              /
+                <span className={clsx(transaction.type === 'EXPENSE'&&  s.active)}>
+                  Expense
+                </span></div>
+             
 
       <form className={s.form} onSubmit={formik.handleSubmit}>
+      {transaction.type === 'EXPENSE' && <p className={s.category}>{categoryName}</p>}
+        <div className={s.calendar}>
         <div className={s.field}>
           <label htmlFor="sum"></label>
           <input
             className={s.inputData}
             id="sum"
-            type="number"
+            type="text"
+            placeholder='0.0'
             value={formik.values.sum}
             onChange={(e) => formik.setFieldValue('sum', e.target.value)}
           />
@@ -73,12 +93,14 @@ const EditTransactionForm = ({ transaction, closeModal }) => {
             <div className={s.error}>{formik.errors.date}</div>
           ) : null}
         </div>
+        </div>
         <div className={s.field}>
           <label htmlFor="comment"></label>
           <input
             className={s.commentFild}
             id="comment"
             type="text"
+            placeholder='Comment'
             {...formik.getFieldProps('comment')}
           />
           {formik.touched.comment && formik.errors.comment ? (
@@ -92,7 +114,8 @@ const EditTransactionForm = ({ transaction, closeModal }) => {
           Save
         </button>
       </form>
-    </>
+    
+    </div>
   );
 };
 

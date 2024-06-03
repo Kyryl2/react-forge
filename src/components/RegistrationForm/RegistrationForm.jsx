@@ -9,44 +9,47 @@ import { Link } from "react-router-dom";
 import clsx from "clsx";
 import { CustomInput } from "../LoginForm/CustomInput";
 import Logo from "../Logo/Logo";
-import { selectConfirm, selectPassword } from "../../redux/progressbar/selectors";
+import {
+  selectConfirm,
+  selectPassword,
+} from "../../redux/progressbar/selectors";
 import PasswordStrengthBar from "react-password-strength-bar";
 
+import toast, { Toaster } from "react-hot-toast";
+import { IoWarningOutline } from "react-icons/io5";
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
 
-  let pass = useSelector( selectPassword);
-  
+  let pass = useSelector(selectPassword);
+
   const confirm = useSelector(selectConfirm);
-let pasw = "";
-let word ='';
-let wrd=''
-let color = ''
+  let pasw = "";
+  let word = "";
+  let wrd = "";
+  let color = "";
 
-if(pass.length <8 && pass.length >0){
-wrd ="Too short"
-color = "red";
-}
-if(pass !== confirm ){
-  color = "yellow";
-  word=["Not match"];
-
-}
-if(pass.length >7 && confirm.length <8&& confirm.length >0 ){
-  
-  word=["Not match"];
-  wrd ="Not match"
-}
- 
-if (pass !=='' &&pass.length >7 && pass === confirm){
-  pasw = pass;
-  word = ["Okay"];
-  color = "green";
-  }
-  if (pass !=='' &&pass.length >7 && pass !== confirm){
+  if (pass.length < 8 && pass.length > 0) {
+    wrd = "Too short";
     color = "red";
-    wrd ="Not match"
+  }
+  if (pass !== confirm) {
+    color = "yellow";
+    word = ["Not match"];
+  }
+  if (pass.length > 7 && confirm.length < 8 && confirm.length > 0) {
+    word = ["Not match"];
+    wrd = "Not match";
+  }
+
+  if (pass !== "" && pass.length > 7 && pass === confirm) {
+    pasw = pass;
+    word = ["Okay"];
+    color = "green";
+  }
+  if (pass !== "" && pass.length > 7 && pass !== confirm) {
+    color = "red";
+    wrd = "Not match";
   }
   const FeedbackSchema = Yup.object().shape({
     username: Yup.string()
@@ -77,17 +80,26 @@ if (pass !=='' &&pass.length >7 && pass === confirm){
         actions.resetForm();
       })
       .catch((error) => {
+        toast.error(`${error.message}`, {
+          icon: <IoWarningOutline style={{ width: "40px", height: "40px" }} />,
+          position: "top-right",
+          style: {
+            backgroundImage:
+              "linear-gradient(133deg,#ffc727 0%,#bf6e93 61.46%,#a54ab2 90.54%)",
+
+            color: "white",
+          },
+        });
         console.error("Registration error:", error);
       });
   };
 
   return (
     <div className={s.mainContainer}>
+      <Toaster position="top-right" reverseOrder={false} pauseOnHover />
       <div className={s.formContainer}>
         <div className={s.container}>
-        <div style={{ marginBottom: 40 }}>
-            <Logo className={s.title} width={36} height={36} />
-          </div>
+          <Logo className={s.title} width={36} height={36} />
           <Formik
             initialValues={initialValues}
             onSubmit={handleSubmit}
@@ -118,13 +130,15 @@ if (pass !=='' &&pass.length >7 && pass === confirm){
                 placeholder="Confirm password"
                 iconID="icon-lock"
               />
-               {pass &&<PasswordStrengthBar
-          password={pasw}
-          minLength={2}
-          shortScoreWord={wrd}
-          scoreWords={[word ]}
-          barColors={[color]}
-      />}
+              {pass && (
+                <PasswordStrengthBar
+                  password={pasw}
+                  minLength={2}
+                  shortScoreWord={wrd}
+                  scoreWords={[word]}
+                  barColors={[color]}
+                />
+              )}
               <div className={s.buttonsWrapper}>
                 <button className={clsx(s.btn, s.btnRegister)} type="submit">
                   Register

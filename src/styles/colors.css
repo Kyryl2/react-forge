@@ -113,4 +113,24 @@
   );
 
   /* #endregion modal gradients */
+
+  /* #region dashboard page gradient */
+
+  --bg-db-linear-gradient-desktop: linear-gradient(
+    314deg,
+    rgba(160, 26, 184, 0.149),
+    rgb(73 58 156 / 21%),
+    rgb(26 15 51 / 83%),
+    rgb(28 13 61),
+    rgb(109 50 238 / 40%),
+    rgb(112 31 146 / 39%)
+  );
+
+  --bg-db-radial-gradient-desktop: radial-gradient(
+    circle at center,
+    rgb(0 0 0) 40%,
+    rgb(198 46 191 / 19%)
+  );
 }
+
+/* #endregion dashboard page gradient */

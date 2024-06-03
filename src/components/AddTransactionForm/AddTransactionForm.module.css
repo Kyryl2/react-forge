@@ -1,15 +1,23 @@
-.title{
+/* .div {
+  padding: 40px 0;
+} */
+.title {
   text-align: center;
   font-size: 30px;
   color: var(--white);
 }
-.addButton{
+.addButton {
   border: none;
   border-radius: 20px;
   width: 280px;
   height: 50px;
   cursor: pointer;
-  background: linear-gradient(96.76deg, #ffc727 -16.42%, #9e40ba 97.04%, #7000ff 150.71%);
+  background: linear-gradient(
+    96.76deg,
+    #ffc727 -16.42%,
+    #9e40ba 97.04%,
+    #7000ff 150.71%
+  );
   box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
   font-family: var(--font-family);
   font-weight: 400;
@@ -17,33 +25,91 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-align: center;
-  color: var(--text-button);
+  color: var(--white-smoke);
 }
 
-
-.inputField, .dateInput, .commentInput{
-  background: transparent;
-  color: #ffffff; 
-  border:none;
-  border-bottom: 1px solid var(--white-40); 
-  width: 100%; 
-
+.inputField,
+.dateInput,
+.commentInput,
+.categorySelect {
+  background: transparent; 
+  color: var(--white-60);
+  font-size: 18px;
+  border: none;
+  border-bottom: 1px solid var(--white-40);
+  width: 100%;
+}
+.inputField{
+  font-weight: 600;
 }
 
 .inputField:focus {
-  outline: none; 
-  border-color: #9e40ba; 
+  outline: none;
+  border-color: #9e40ba;
 }
 
-.commentInput{
+.commentInput {
+  margin-top: 20px;
   width: 100%;
+  padding: 8px 0 8px 9px;
+  font-size: 18px;
 }
-.inputs{
+.inputs {
   display: flex;
   gap: 32px;
-   justify-content: space-between;
+  justify-content: space-between;
 }
-.inputField, .dateInput {
-  flex: 1; 
-  padding: 8px 12px; 
+
+.inputField,
+.dateInput {
+  flex: 1;
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.iconClose {
+  position: fixed;
+  top: 16px;
+  right: 27px;
+  cursor: pointer;
+}
+
+.iconClose :hover {
+  color: aqua;
+}
+
+.categorySelect {
+  margin-top: 20px;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 18px;
+}
+
+.select_wrapper {
+  width: 280px;
+  height: 50px;
+  position: relative;
+}
+
+@media only screen and (min-width: 768px) {
+  .select_wrapper {
+    width: 300px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .select_wrapper {
+    width: 300px;
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  pointer-events: none;
+}
+
+.icon.is_active {
+  transform: rotate(180deg);
 }

@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
   background-image: var(--form-mobile-linear-gradient),
-  var(--form-mobile-radial-gradient);
+    var(--form-mobile-radial-gradient);
   height: 100vh;
 }
 
@@ -31,7 +31,7 @@
   flex-direction: column;
   min-height: auto;
   gap: 40px;
-  margin-top: 52px;
+  margin-top: 40px;
 }
 
 .buttonsWrapper {
@@ -64,7 +64,7 @@
 }
 
 .btnLogin {
-  border: 1px solid var(--btn-border);
+  border: none;
   border-radius: 20px;
   width: 280px;
   height: 50px;
@@ -80,12 +80,17 @@
   text-transform: uppercase;
   text-align: center;
   color: var(--text-button);
+
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
+
 .btnLogin:hover {
-  background: var(--btn-hover);
-  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--btn-hover-bg);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(10, 10, 10, 0.1);
   color: var(--white-smoke);
 }
+
 .btnRegister {
   border-radius: 20px;
   border: none;
@@ -103,12 +108,17 @@
   text-transform: uppercase;
   text-align: center;
   color: var(--white);
+
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
+
 .btnRegister:hover {
   background: var(--btn-hover-bg);
   color: var(--white-smoke);
-  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(10, 10, 10, 0.1);
 }
+
 .error {
   color: var(--error-yellow);
 }
@@ -116,7 +126,7 @@
 @media only screen and (min-width: 768px) {
   .mainContainer {
     background-image: url("../../images/RegistrationPage-IMG/registr-page-gradient-tablet_1x.webp"),
-    var(--bg-tablet-linear-gradient);
+      var(--bg-tablet-linear-gradient);
 
     background-repeat: no-repeat;
     background-size: cover;
@@ -124,11 +134,26 @@
   }
   @media (min-resolution: 2dppx) {
     .mainContainer {
-    background-image: url("../../images/RegistrationPage-IMG/registr-page-gradient-tablet_2x.webp"),
-      var(--bg-tablet-linear-gradient);
+      background-image: url("../../images/RegistrationPage-IMG/registr-page-gradient-tablet_2x.webp"),
+        var(--bg-tablet-linear-gradient);
     }
   }
-  
+
+  .container {
+    animation: slide-in 1.2s ease;
+  }
+
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   .input {
     width: 409px;
     height: 35px;
@@ -152,6 +177,16 @@
 
   .title {
     font-size: 26px;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: scale-in 1.2s ease-out forwards;
+  }
+  
+  @keyframes scale-in {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 
   .container {
@@ -181,18 +216,14 @@
 @media only screen and (min-width: 1280px) {
   .mainContainer {
     background-image: url("../../images/RegistrationPage-IMG/registr-page-gradient-dekstop_1x.webp"),
-    var(--bg-desktop-linear-gradient);
+      var(--bg-desktop-linear-gradient);
   }
   /* linear-gradient(220deg, rgb(109, 84, 235, 0.4), rgb(100, 35, 144, 0.4)); */
 
   @media (min-resolution: 2dppx) {
     .mainContainer {
-    background-image: url("../../images/RegistrationPage-IMG/registr-page-gradient-dekstop_2x.webp"),
-      var(--bg-tablet-linear-gradient);
+      background-image: url("../../images/RegistrationPage-IMG/registr-page-gradient-dekstop_2x.webp"),
+        var(--bg-tablet-linear-gradient);
     }
-  }
-
-  .title {
-    font-size: 26px;
   }
 }

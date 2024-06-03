@@ -9,44 +9,44 @@ import { Link } from "react-router-dom";
 import clsx from "clsx";
 import { CustomInput } from "../LoginForm/CustomInput";
 import Logo from "../Logo/Logo";
-import { selectConfirm, selectPassword } from "../../redux/progressbar/selectors";
+import {
+  selectConfirm,
+  selectPassword,
+} from "../../redux/progressbar/selectors";
 import PasswordStrengthBar from "react-password-strength-bar";
-
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
 
-  let pass = useSelector( selectPassword);
-  
+  let pass = useSelector(selectPassword);
+
   const confirm = useSelector(selectConfirm);
-let pasw = "";
-let word ='';
-let wrd=''
-let color = ''
+  let pasw = "";
+  let word = "";
+  let wrd = "";
+  let color = "";
 
-if(pass.length <8 && pass.length >0){
-wrd ="Too short"
-color = "red";
-}
-if(pass !== confirm ){
-  color = "yellow";
-  word=["Not match"];
-
-}
-if(pass.length >7 && confirm.length <8&& confirm.length >0 ){
-  
-  word=["Not match"];
-  wrd ="Not match"
-}
- 
-if (pass !=='' &&pass.length >7 && pass === confirm){
-  pasw = pass;
-  word = ["Okay"];
-  color = "green";
-  }
-  if (pass !=='' &&pass.length >7 && pass !== confirm){
+  if (pass.length < 8 && pass.length > 0) {
+    wrd = "Too short";
     color = "red";
-    wrd ="Not match"
+  }
+  if (pass !== confirm) {
+    color = "yellow";
+    word = ["Not match"];
+  }
+  if (pass.length > 7 && confirm.length < 8 && confirm.length > 0) {
+    word = ["Not match"];
+    wrd = "Not match";
+  }
+
+  if (pass !== "" && pass.length > 7 && pass === confirm) {
+    pasw = pass;
+    word = ["Okay"];
+    color = "green";
+  }
+  if (pass !== "" && pass.length > 7 && pass !== confirm) {
+    color = "red";
+    wrd = "Not match";
   }
   const FeedbackSchema = Yup.object().shape({
     username: Yup.string()
@@ -85,9 +85,7 @@ if (pass !=='' &&pass.length >7 && pass === confirm){
     <div className={s.mainContainer}>
       <div className={s.formContainer}>
         <div className={s.container}>
-        <div style={{ marginBottom: 40 }}>
-            <Logo className={s.title} width={36} height={36} />
-          </div>
+          <Logo className={s.title} width={36} height={36} />
           <Formik
             initialValues={initialValues}
             onSubmit={handleSubmit}
@@ -118,13 +116,15 @@ if (pass !=='' &&pass.length >7 && pass === confirm){
                 placeholder="Confirm password"
                 iconID="icon-lock"
               />
-               {pass &&<PasswordStrengthBar
-          password={pasw}
-          minLength={2}
-          shortScoreWord={wrd}
-          scoreWords={[word ]}
-          barColors={[color]}
-      />}
+              {pass && (
+                <PasswordStrengthBar
+                  password={pasw}
+                  minLength={2}
+                  shortScoreWord={wrd}
+                  scoreWords={[word]}
+                  barColors={[color]}
+                />
+              )}
               <div className={s.buttonsWrapper}>
                 <button className={clsx(s.btn, s.btnRegister)} type="submit">
                   Register

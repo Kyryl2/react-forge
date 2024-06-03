@@ -7,10 +7,7 @@ import { patchTransactionThunk } from '../../redux/transactions/operations';
 import s from './EditTransactionForm.module.css';
 
 const validationSchema = yup.object().shape({
-  sum: yup
-    .number()
-    .required('Sum is required')
-    .positive('Sum must be positive'),
+  sum: yup.number().required('Sum is required'),
   date: yup.date().required('Date is required'),
   comment: yup.string().required('Comment is required'),
 });

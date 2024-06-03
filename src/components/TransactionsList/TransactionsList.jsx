@@ -47,10 +47,7 @@ const TransactionsList = () => {
       {isMobile && (
         <ul>
           {transactions?.map((transaction) => (
-            <TransactionsItem
-              key={transaction.id}
-              transaction={transaction}
-            />
+            <TransactionsItem key={transaction.id} transaction={transaction} />
           ))}
         </ul>
       )}

@@ -1,7 +1,10 @@
 import ReactDOM from "react-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteTransactionThunk } from "../../redux/transactions/operations";
+import {
+  deleteTransactionThunk,
+  getCategoriesThunk,
+} from "../../redux/transactions/operations";
 import { Icon } from "../../images/Icon/Icon";
 import s from "./TransactionsItem.module.css";
 import useMedia from "../../hooks/useMedia";
@@ -29,6 +32,13 @@ const TransactionsItem = ({ transaction }) => {
   const closeModal = () => setIsModalOpen(false);
 
   const categories = useSelector(selectCategories);
+
+  useEffect(() => {
+    if (categories.length === 0) {
+      dispatch(getCategoriesThunk());
+    }
+  }, [categories.length, dispatch]);
+
   const category = categories.find(
     (item) => item.id === transaction.categoryId
   );
@@ -75,7 +85,9 @@ const TransactionsItem = ({ transaction }) => {
         <li className={s.card} key={transaction.id}>
           <div className={s.cardRow}>
             <span className={s.cardLabel}>Date</span>
-            <span className={s.cardValue}>{transaction.transactionDate}</span>
+            <span className={s.cardValue}>
+              {formatDate(transaction.transactionDate)}
+            </span>
           </div>
           <div className={s.cardRow}>
             <span className={s.cardLabel}>Type</span>

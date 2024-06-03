@@ -113,4 +113,16 @@
   );
 
   /* #endregion modal gradients */
+
+/* #region dashboard page gradient */
+
+--bg-db-linear-gradient-desktop: linear-gradient(
+  294deg,
+  rgb(77 49 241 / 47%),
+  rgba(33, 108, 166, 0.11),
+  #3b4a7e47,
+  rgb(131 42 248 / 42%),
+  rgb(33 108 166 / 20%)
+);
+
 }

@@ -1,6 +1,12 @@
 .pageContainer {
-  background: var(--form-mobile-linear-gradient),
-    var(--form-mobile-radial-gradient);
+  background: linear-gradient(
+    219deg,
+    rgba(31, 28, 32, 0.51),
+    rgb(50 31 145 / 72%),
+    rgba(74, 87, 227, 0.431),
+    rgb(238 130 255 / 18%),
+    rgb(31 28 32 / 43%)
+  );
   min-height: 100vh;
 }
 
@@ -27,6 +33,17 @@ body {
 }
 
 @media screen and (min-width: 768px) {
+  .pageContainer {
+    background: linear-gradient(
+      143deg,
+      rgb(77 49 241 / 46%),
+      rgba(33, 108, 166, 0.11),
+      #1a3db847,
+      rgb(131 42 248 / 30%),
+      rgb(33 108 166 / 20%)
+    );
+  }
+
   .customContainer {
     padding: 0 32px;
     max-width: 768px;
@@ -52,6 +69,10 @@ body {
 }
 
 @media screen and (min-width: 1280px) {
+  .pageContainer {
+    background: var(--bg-db-linear-gradient-desktop);
+  }
+
   .customContainer {
     padding: 0px;
     max-width: 1280px;

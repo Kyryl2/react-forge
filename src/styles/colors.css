@@ -99,9 +99,17 @@
   );
 
   --modal-bg-gradient-tablet: linear-gradient(
-    220deg,
-    rgb(109, 84, 235, 0.4),
-    rgb(100, 35, 144, 0.4)
+    85deg,
+    rgb(52 42 87),
+    rgb(50 31 145 / 30%),
+    rgb(75 52 130 / 78%),
+    rgb(7 1 13 / 23%)
+  );
+
+  --modal-bg-radial-gradient-tablet: radial-gradient(
+    circle at center,
+    rgb(63, 46, 133) 40%,
+    rgba(255, 255, 255, 0.1)
   );
 
   /* #endregion modal gradients */

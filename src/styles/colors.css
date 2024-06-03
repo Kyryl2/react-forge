@@ -119,11 +119,11 @@
   --bg-db-linear-gradient-desktop: linear-gradient(
     314deg,
     rgba(160, 26, 184, 0.149),
-    rgb(77 49 241 / 21%),
-    rgb(28 12 65 / 83%),
+    rgb(73 58 156 / 21%),
+    rgb(26 15 51 / 83%),
     rgb(28 13 61),
-    rgb(69 24 168 / 40%),
-    rgb(157 40 207 / 39%)
+    rgb(109 50 238 / 40%),
+    rgb(112 31 146 / 39%)
   );
 
   --bg-db-radial-gradient-desktop: radial-gradient(

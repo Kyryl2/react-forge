@@ -4,8 +4,6 @@ export const styles = {
     ...baseStyles,
     border: "1px solid rgba(255, 255, 255, 0.6)",
     borderRadius: 8,
-    width: 280,
-    height: 50,
     fontFamily: "Poppins",
     fontWeight: 400,
     fontSize: 16,

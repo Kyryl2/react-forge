@@ -64,6 +64,9 @@
   padding-left: 19px;
   color: var(--white);
 }
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
 
 .btnLogin {
   border-radius: 20px;

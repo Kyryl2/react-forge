@@ -39,8 +39,9 @@ export const AddTransactionForm = ({ closeModal }) => {
   }));
 
   return (
-    <div className={s.div}>
-      <Modal closeModal={closeModal}>
+    
+    <Modal closeModal={closeModal}>
+      {/* <div className={s.div}> */}
         <div onClick={closeModal}>
           <Icon
             id="icon-close"
@@ -83,7 +84,7 @@ export const AddTransactionForm = ({ closeModal }) => {
         </div>
         <input placeholder="Comment" className={s.commentInput} />
         <button className={s.addButton}>ADD</button>
+        {/* </div> */}
       </Modal>
-    </div>
   );
 };

@@ -46,13 +46,15 @@
     top: 0;
     min-height: 100vh;
     background: var(--modal-bg);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
     display: flex;
     justify-content: center;
     padding: 40px 118px;
   }
+
   .modalContent {
-    background-image: var(--modal-bg-gradient-tablet);
+    background: var(--modal-bg-radial-gradient-tablet),
+      var(--modal-bg-gradient-tablet);
     box-shadow: 0px 4px 60px 0px var(--box-shadow-modal);
     border-radius: 8px;
     min-height: fit-content;

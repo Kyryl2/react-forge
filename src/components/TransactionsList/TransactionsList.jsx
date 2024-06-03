@@ -26,7 +26,7 @@ const TransactionsList = () => {
               <tr>
                 <th>Date</th>
                 <th className={s.type}>Type</th>
-                <th>Category</th>
+                <th>Amount</th>
                 <th>Comment</th>
                 <th className={s.sum}>Sum</th>
                 <th></th>
@@ -34,10 +34,7 @@ const TransactionsList = () => {
             </thead>
             <tbody>
               {transactions?.map((transaction) => (
-                <TransactionsItem
-                  key={transaction.id}
-                  transaction={transaction}
-                />
+                <TransactionsItem key={transaction.id} {...transaction} />
               ))}
             </tbody>
           </table>
@@ -47,10 +44,7 @@ const TransactionsList = () => {
       {isMobile && (
         <ul>
           {transactions?.map((transaction) => (
-            <TransactionsItem
-              key={transaction.id}
-              transaction={transaction}
-            />
+            <TransactionsItem key={transaction.id} {...transaction} />
           ))}
         </ul>
       )}

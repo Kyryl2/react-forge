@@ -11,6 +11,7 @@ import useMedia from "../../hooks/useMedia";
 import Modal from "../Modal/Modal";
 import EditTransactionForm from "../EditTransactionForm/EditTransactionForm";
 import { selectCategories } from "../../redux/transactions/selectors";
+import clsx from "clsx";
 
 const formatDate = (dateString) => {
   const date = new Date(dateString);
@@ -43,6 +44,7 @@ const TransactionsItem = ({ transaction }) => {
     (item) => item.id === transaction.categoryId
   );
   const categoryName = category ? category.name : "Unknown";
+  const displayAmount = Math.abs(transaction.amount);
 
   return (
     <>
@@ -53,7 +55,14 @@ const TransactionsItem = ({ transaction }) => {
             <td className={s.type}>{displayType}</td>
             <td>{categoryName}</td>
             <td>{transaction.comment}</td>
-            <td className={s.sum}>{transaction.amount}</td>
+            <td
+              className={clsx(s.sum, {
+                [s.income]: transaction.type === "INCOME",
+                [s.expense]: transaction.type === "EXPENSE",
+              })}
+            >
+              {displayAmount}
+            </td>
             <td>
               <div className={s.btncontainer}>
                 <button className={s.carandash} onClick={openModal}>
@@ -82,7 +91,13 @@ const TransactionsItem = ({ transaction }) => {
         </>
       )}
       {isMobile && (
-        <li className={s.card} key={transaction.id}>
+        <li
+          className={clsx(s.card, {
+            [s.cardIncome]: transaction.type === "INCOME",
+            [s.cardExpense]: transaction.type === "EXPENSE",
+          })}
+          key={transaction.id}
+        >
           <div className={s.cardRow}>
             <span className={s.cardLabel}>Date</span>
             <span className={s.cardValue}>
@@ -103,10 +118,13 @@ const TransactionsItem = ({ transaction }) => {
           </div>
           <div className={s.cardRow}>
             <span className={s.cardLabel}>Sum</span>
-            <span className={s.cardValue}>
-              {transaction.type === "EXPENSE"
-                ? Math.abs(transaction.amount)
-                : transaction.amount}
+            <span
+              className={clsx(s.cardSum, {
+                [s.income]: transaction.type === "INCOME",
+                [s.expense]: transaction.type === "EXPENSE",
+              })}
+            >
+              {displayAmount}
             </span>
           </div>
           <div className={s.cardActions}>

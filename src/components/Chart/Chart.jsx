@@ -1,42 +1,89 @@
 import css from "./Chart.module.css";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { useSelector } from "react-redux";
-import { selectUserBalance } from "../../redux/auth/selectors";
+import { useDispatch, useSelector } from "react-redux";
+import { selectSummary } from "../../redux/transactions/selectors";
+import { getCategoriesThunk } from "../../redux/transactions/operations";
+import { useEffect } from "react";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const Chart = () => {
-  const userBalance = useSelector(selectUserBalance);
+  const { categoriesSummary, periodTotal } = useSelector(selectSummary);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCategoriesThunk());
+  }, [dispatch]);
+
+  const getCategoryColor = (categoryName) => {
+    switch (categoryName) {
+      case "Main expenses":
+        return "#fed057";
+      case "Products":
+        return "#ffd8d0";
+      case "Car":
+        return "#fd9498";
+      case "Self care":
+        return "#c5baff";
+      case "Child care":
+        return "#6e78e8";
+      case "Household products":
+        return "#4a56e2";
+      case "Education":
+        return "#81e1ff";
+      case "Leisure":
+        return "#24cca7";
+      case "Other expenses":
+        return "#00ad84";
+      case "Entertainment":
+        return "#ffbf00";
+      case "Income":
+        return "#00c853";
+      default:
+        return "#ffffff";
+    }
+  };
+
+  const categoriesTotal = categoriesSummary?.map((category) => category.total);
+  const categoryColors = categoriesSummary?.map((category) =>
+    getCategoryColor(category.name)
+  );
 
   const data = {
     datasets: [
       {
-        label: "# of Votes",
-        data: [
-          8700.0, 3800.74, 1500.0, 800.0, 2208.5, 300.0, 3400.0, 1230.0, 610.0,
-        ],
-        backgroundColor: [
-          "#fed057",
-          "#ffd8d0",
-          "#fd9498",
-          "#c5baff",
-          "#6e78e8",
-          "#4a56e2",
-          "#81e1ff",
-          "#24cca7",
-          "#00ad84",
-        ],
+        data: categoriesTotal,
+        backgroundColor: categoryColors,
         borderColor: "transparent",
         cutout: "70%",
       },
     ],
   };
 
+  const options = {
+    plugins: {
+      tooltip: {
+        callbacks: {
+          label: (context) => {
+            const category = categoriesSummary[context.dataIndex].name;
+            const value = context.raw;
+            return `${category}: ${value}`;
+          },
+        },
+        displayColors: false,
+        backgroundColor: "",
+        borderColor: "rgba(0, 0, 0, 0)",
+        borderRadius: 5,
+        padding: 10,
+      },
+    },
+  };
+
   return (
     <div className={css.wrapper}>
-      <Doughnut data={data} />
-      <span className={css.balance}>&#8372; {userBalance}</span>
+      <Doughnut data={data} options={options} />
+      <span className={css.balance}>&#8372; {periodTotal}</span>
     </div>
   );
 };

@@ -7,7 +7,6 @@ const StatisticsTable = () => {
   const isLoading = useSelector(selectIsLoading);
 
   const { categoriesSummary } = useSelector(selectSummary);
-  console.log(categoriesSummary);
 
   return (
     <>

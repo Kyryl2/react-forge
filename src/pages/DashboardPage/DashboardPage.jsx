@@ -36,7 +36,6 @@ const DashboardPage = () => {
               <div className={s.navbalcur}>
                 <div className={s.navbal}>
                   <Navigation />
-                  <Balance />
                 </div>
               </div>
             </div>

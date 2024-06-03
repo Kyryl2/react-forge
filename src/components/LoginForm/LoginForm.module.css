@@ -2,11 +2,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
-  background-image: linear-gradient(
-    220deg,
-    rgb(109, 84, 235, 0.4),
-    rgb(100, 35, 144, 0.4)
-  );
+  background-image: var(--bg-mobile-linear-gradient);
 }
 
 .container {
@@ -14,11 +10,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: linear-gradient(
-    220deg,
-    rgb(109, 84, 235, 0.4),
-    rgb(100, 35, 144, 0.4)
-  );
+  background: var(--form-mobile-linear-gradient),
+    var(--form-mobile-radial-gradient);
+
   height: 100vh;
 }
 
@@ -30,7 +24,7 @@
 .title {
   font-weight: 400;
   font-size: 19px;
-  color: #fbfbfb;
+  color: var(--white);
 }
 
 .form {
@@ -49,13 +43,18 @@
 }
 
 .wrap {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid var(--white-40);
   display: flex;
   padding-bottom: 8px;
   padding-left: 10.5px;
   margin-bottom: 16px;
   width: 280px;
   align-items: center;
+}
+
+.wrap:hover {
+  border-bottom-color: var(--btn-hover-bg);
+  transition: border-bottom-color 0.3s ease;
 }
 
 .input {
@@ -68,7 +67,11 @@
   border: none;
   outline: none;
   padding-left: 19px;
-  color: white;
+  color: var(--white);
+}
+
+.input::placeholder {
+  color: var(--white-60);
 }
 
 .btnLogin {
@@ -79,12 +82,7 @@
   cursor: pointer;
 
   box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
-  background: linear-gradient(
-    167deg,
-    #ffc727 0%,
-    #9e40ba 61.46%,
-    #7000ff 90.54%
-  );
+  background: var(--button-gradient);
 
   font-family: var(--font-family);
   font-weight: 400;
@@ -93,26 +91,28 @@
   text-transform: uppercase;
   text-align: center;
   color: var(--white);
-  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
+
 .btnLogin:hover {
-  background: #9e40ba;
-  color: whitesmoke;
-  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--btn-hover-bg);
+  color: var(--white-smoke);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(10, 10, 10, 0.1);
 }
 
 .btnRegister {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #4a56e2;
   border-radius: 20px;
   width: 280px;
   height: 50px;
   cursor: pointer;
 
   box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
-  background: #fcfcfc;
+  background: var(--white);
 
   font-family: var(--font-family);
   font-weight: 400;
@@ -121,26 +121,51 @@
   text-transform: uppercase;
   text-align: center;
   color: var(--text-button);
-  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
+
 .btnRegister:hover {
-  background-color: #7000ff;
-  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  color: whitesmoke;
+  background: var(--btn-hover-bg);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(10, 10, 10, 0.1);
+  color: var(--white-smoke);
 }
 
 .error {
-  color: #ffc727;
+  color: var(--error-yellow);
 }
 
 @media only screen and (min-width: 768px) {
   .mainContainer {
     background-image: url("../../images/LoginPage-IMG/login-page-gradient-tablet_1x.webp"),
-      linear-gradient(220deg, rgb(109, 84, 235, 0.4), rgb(100, 35, 144, 0.4));
+      var(--bg-tablet-linear-gradient);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
   }
+  @media (min-resolution: 2dppx) {
+    .mainContainer {
+      background-image: url("../../images/LoginPage-IMG/login-page-gradient-tablet_2x.webp"),
+        var(--bg-tablet-linear-gradient);
+    }
+  }
+
+  .container {
+    animation: slide-in 1.2s ease;
+  }
+
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
 
   .input {
     width: 409px;
@@ -165,15 +190,26 @@
 
   .title {
     font-size: 26px;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: scale-in 1.2s ease-out forwards;
   }
+  
+  @keyframes scale-in {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
 
   .container {
     border-radius: 8px;
     padding: 80px 62px;
     height: 100%;
-    backdrop-filter: blur(100px);
+    backdrop-filter: blur(25px);
     box-shadow: 0 4px 60px 0 rgba(0, 0, 0, 0.25);
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--form-tablet-desktop-radial-gradient);
   }
 
   .formContainer {
@@ -189,13 +225,17 @@
   }
 }
 
+
 @media only screen and (min-width: 1280px) {
   .mainContainer {
     background-image: url("../../images/LoginPage-IMG/login-page-gradient-dekstop1x.webp"),
-      linear-gradient(220deg, rgb(109, 84, 235, 0.4), rgb(100, 35, 144, 0.4));
+      var(--bg-desktop-linear-gradient);
   }
 
-  .title {
-    font-size: 26px;
+  @media (min-resolution: 2dppx) {
+    .mainContainer {
+      background-image: url("../../images/LoginPage-IMG/login-page-gradient-dekstop2x.webp"),
+        var(--bg-tablet-linear-gradient);
+    }
   }
 }

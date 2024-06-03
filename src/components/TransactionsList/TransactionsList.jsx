@@ -17,7 +17,7 @@ const TransactionsList = () => {
 
   return (
     <>
-      {!transactions && <p>You don’t have any transactions now...</p>}
+      {!transactions.length && <p>You don’t have any transactions now...</p>}
 
       {!isMobile && (
         <div className={s.wrapper}>
@@ -25,10 +25,10 @@ const TransactionsList = () => {
             <thead>
               <tr>
                 <th>Date</th>
-                <th>Type</th>
+                <th className={s.type}>Type</th>
                 <th>Amount</th>
                 <th>Comment</th>
-                <th>Sum</th>
+                <th className={s.sum}>Sum</th>
                 <th></th>
               </tr>
             </thead>
@@ -40,14 +40,13 @@ const TransactionsList = () => {
           </table>
         </div>
       )}
+
       {isMobile && (
-        <div className={s.wrapper}>
-          <ul>
-            {transactions?.map((transaction) => (
-              <TransactionsItem key={transaction.id} {...transaction} />
-            ))}
-          </ul>
-        </div>
+        <ul>
+          {transactions?.map((transaction) => (
+            <TransactionsItem key={transaction.id} {...transaction} />
+          ))}
+        </ul>
       )}
     </>
   );

@@ -13,6 +13,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { authReducer } from "./auth/slice";
 import { transactionsReducer } from "./transactions/slice";
 import { statusReducer } from "./status/slice";
+import { formReducers } from "./progressbar/slice";
 
 const persistConfig = {
   key: "auth",
@@ -26,6 +27,7 @@ export const store = configureStore({
     status: statusReducer,
     transactions: transactionsReducer,
     auth: persistReducer(persistConfig, authReducer),
+    form: formReducers,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

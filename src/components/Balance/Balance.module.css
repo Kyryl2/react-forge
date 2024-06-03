@@ -4,6 +4,7 @@
   color: #fff;
 
   border-radius: 8px;
+  margin: 0 20px;
   margin-bottom: 32px;
   padding: 13px 32px 12px 32px;
   height: 80px;
@@ -30,12 +31,16 @@
 }
 
 @media screen and (min-width: 768px) {
+  .balanceContainer{
+    margin-left: 0px;
+    margin-right: 0px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
   .balanceContainer {
     border-radius: 0px;
-    width: 100%;
-      padding: 13px 56px 12px 56px;
+    width: 479px;
+    padding: 13px 56px 12px 56px;
   }
 }

@@ -1,27 +1,61 @@
 import * as Yup from "yup";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import s from "./RegistrationForm.module.css";
 import { Form, Formik } from "formik";
 
 import { userRegisterThunk } from "../../redux/auth/operations";
-// import { Icon } from "../../images/Icon/Icon";
+
 import { Link } from "react-router-dom";
 import clsx from "clsx";
 import { CustomInput } from "../LoginForm/CustomInput";
 import Logo from "../Logo/Logo";
-
+import {
+  selectConfirm,
+  selectPassword,
+} from "../../redux/progressbar/selectors";
+import PasswordStrengthBar from "react-password-strength-bar";
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
 
+  let pass = useSelector(selectPassword);
+
+  const confirm = useSelector(selectConfirm);
+  let pasw = "";
+  let word = "";
+  let wrd = "";
+  let color = "";
+
+  if (pass.length < 8 && pass.length > 0) {
+    wrd = "Too short";
+    color = "red";
+  }
+  if (pass !== confirm) {
+    color = "yellow";
+    word = ["Not match"];
+  }
+  if (pass.length > 7 && confirm.length < 8 && confirm.length > 0) {
+    word = ["Not match"];
+    wrd = "Not match";
+  }
+
+  if (pass !== "" && pass.length > 7 && pass === confirm) {
+    pasw = pass;
+    word = ["Okay"];
+    color = "green";
+  }
+  if (pass !== "" && pass.length > 7 && pass !== confirm) {
+    color = "red";
+    wrd = "Not match";
+  }
   const FeedbackSchema = Yup.object().shape({
     username: Yup.string()
       .min(1, "Must be at least 1 character")
       .required("Required"),
     email: Yup.string().email("Invalid email address").required("Required"),
     password: Yup.string()
-      .min(6, "Password must be at least 6 characters")
-      .max(12, "Password must be at most 12 characters")
+      .min(8, "Password must be at least 8 characters")
+      .max(20, "Password must be at most 12 characters")
       .required("Required"),
     confirm: Yup.string()
       .oneOf([Yup.ref("password"), null], "Passwords must match")
@@ -51,9 +85,7 @@ const RegistrationForm = () => {
     <div className={s.mainContainer}>
       <div className={s.formContainer}>
         <div className={s.container}>
-        <div style={{ marginBottom: 40 }}>
-            <Logo className={s.title} width={36} height={36} />
-          </div>
+          <Logo className={s.title} width={36} height={36} />
           <Formik
             initialValues={initialValues}
             onSubmit={handleSubmit}
@@ -84,6 +116,15 @@ const RegistrationForm = () => {
                 placeholder="Confirm password"
                 iconID="icon-lock"
               />
+              {pass && (
+                <PasswordStrengthBar
+                  password={pasw}
+                  minLength={2}
+                  shortScoreWord={wrd}
+                  scoreWords={[word]}
+                  barColors={[color]}
+                />
+              )}
               <div className={s.buttonsWrapper}>
                 <button className={clsx(s.btn, s.btnRegister)} type="submit">
                   Register

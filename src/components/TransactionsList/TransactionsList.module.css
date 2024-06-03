@@ -1,19 +1,52 @@
-.wrapper thead tr {
-  background-color: #523b7e99;
+.wrapper {
   width: 100%;
-  padding: 20px;
+
+  overflow: hidden;
+  border-radius: 8px 8px 0px 0px;
   box-sizing: border-box;
-  border-radius: 8px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
+  margin-bottom: 32px;
 }
 
 table {
   table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
+}
+
+thead,
+tbody {
+  display: block;
+}
+
+thead {
+  width: 100%;
+  background-color: #523b7e99;
+}
+
+thead tr {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.type {
+  text-align: center;
+}
+
+.sum {
+  text-align: right;
+}
+
+tbody {
+  width: 100%;
+  height: 480px;
+  overflow-y: auto;
+}
+
+tbody tr {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
 }
 
 th,
@@ -26,6 +59,7 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  margin: 0px 20px;
 }
 
 .card {
@@ -58,4 +92,23 @@ ul {
 
 .cardActions button {
   margin-left: 8px;
+}
+
+tbody::-webkit-scrollbar {
+  width: 8px;
+}
+
+tbody::-webkit-scrollbar-track {
+  background: #523b7e99;
+  border-radius: 8px;
+}
+
+tbody::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    96.76deg,
+    #ffc727 -16.42%,
+    #9e40ba 97.04%,
+    #7000ff 150.71%
+  );
+  border-radius: 8px;
 }

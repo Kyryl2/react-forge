@@ -1,0 +1,39 @@
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 100%;
+  border: none;
+  background: none;
+  background: linear-gradient(
+    96.76deg,
+    #ffc727 -16.42%,
+    #9e40ba 97.04%,
+    #7000ff 150.71%
+  );
+  box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
+  position: fixed;
+  right: 40px;
+  bottom: 40px; 
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus {
+  transform: scale(1.05);
+  background: linear-gradient(
+    96.76deg,
+    #ffc727 -16.42%,
+    #9e40ba 97.04%,
+    #7000ff 150.71%
+  );
+  transition: all 1s ease 0s;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+}

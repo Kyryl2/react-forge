@@ -1,0 +1,50 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 280px;
+}
+
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    flex-direction: row;
+    gap: 16px;
+    width: 336px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .wrapper {
+    gap: 32px;
+    width: 395px;
+  }
+}
+
+.select_wrapper {
+  width: 280px;
+  height: 50px;
+  position: relative;
+}
+
+@media only screen and (min-width: 768px) {
+  .select_wrapper {
+    width: 160px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .select_wrapper {
+    width: 182px;
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  pointer-events: none;
+}
+
+.icon.is_active {
+  transform: rotate(180deg);
+}

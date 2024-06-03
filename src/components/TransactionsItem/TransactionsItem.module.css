@@ -156,7 +156,7 @@ ul {
   padding: 4px 12px;
 }
 
-.income {
+/* .income {
   color: #FFB627;
 }
 
@@ -164,7 +164,6 @@ ul {
   color: #FF868D;
 }
 
-/* Add these new classes to TransactionsItem.module.css */
 .incomeBorder {
   border-left: 5px solid #FFB627;
 }
@@ -173,7 +172,6 @@ ul {
   border-left: 5px solid #FF868D;
 }
 
-/* Existing card styles, unchanged */
 .card {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -229,4 +227,4 @@ ul {
   background-color: transparent;
   border: none;
   padding: 4px 12px;
-}
+} */

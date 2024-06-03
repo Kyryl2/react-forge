@@ -1,13 +1,16 @@
 import ReactDOM from "react-dom";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { deleteTransactionThunk } from "../../redux/transactions/operations";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  deleteTransactionThunk,
+  getCategoriesThunk,
+} from "../../redux/transactions/operations";
 import { Icon } from "../../images/Icon/Icon";
-import clsx from "clsx";
 import s from "./TransactionsItem.module.css";
 import useMedia from "../../hooks/useMedia";
 import Modal from "../Modal/Modal";
 import EditTransactionForm from "../EditTransactionForm/EditTransactionForm";
+import { selectCategories } from "../../redux/transactions/selectors";
 
 const formatDate = (dateString) => {
   const date = new Date(dateString);
@@ -17,10 +20,10 @@ const formatDate = (dateString) => {
   return `${day}.${month}.${year}`;
 };
 
-const TransactionsItem = ({ id, transactionDate, comment, type, amount }) => {
+const TransactionsItem = ({ transaction }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
-  const displayType = type === "INCOME" ? "+" : "-";
+  const displayType = transaction.type === "INCOME" ? "+" : "-";
   const { isMobile } = useMedia();
 
   const openModal = () => {
@@ -28,29 +31,29 @@ const TransactionsItem = ({ id, transactionDate, comment, type, amount }) => {
   };
   const closeModal = () => setIsModalOpen(false);
 
+  const categories = useSelector(selectCategories);
+
+  useEffect(() => {
+    if (categories.length === 0) {
+      dispatch(getCategoriesThunk());
+    }
+  }, [categories.length, dispatch]);
+
+  const category = categories.find(
+    (item) => item.id === transaction.categoryId
+  );
+  const categoryName = category ? category.name : "Unknown";
+
   return (
     <>
       {!isMobile && (
         <>
-          <tr
-            key={id}
-            className={clsx({
-              [s.income]: type === "INCOME",
-              [s.expense]: type === "EXPENSE",
-            })}
-          >
-            <td>{formatDate(transactionDate)}</td>
-            <td>{displayType}</td>
-            <td>{type}</td>
-            <td>{comment}</td>
-            <td
-              className={clsx(s.sum, {
-                [s.income]: type === "INCOME",
-                [s.expense]: type === "EXPENSE",
-              })}
-            >
-              {amount}
-            </td>
+          <tr key={transaction.id}>
+            <td>{formatDate(transaction.transactionDate)}</td>
+            <td className={s.type}>{displayType}</td>
+            <td>{categoryName}</td>
+            <td>{transaction.comment}</td>
+            <td className={s.sum}>{transaction.amount}</td>
             <td>
               <div className={s.btncontainer}>
                 <button className={s.carandash} onClick={openModal}>
@@ -59,7 +62,9 @@ const TransactionsItem = ({ id, transactionDate, comment, type, amount }) => {
                 <button
                   className={s.button}
                   type="button"
-                  onClick={() => dispatch(deleteTransactionThunk(id))}
+                  onClick={() =>
+                    dispatch(deleteTransactionThunk(transaction.id))
+                  }
                 >
                   Delete
                 </button>
@@ -69,7 +74,7 @@ const TransactionsItem = ({ id, transactionDate, comment, type, amount }) => {
           {isModalOpen && (
             <Modal closeModal={closeModal}>
               <EditTransactionForm
-                transaction={{ id, transactionDate, comment, type, amount }}
+                transaction={transaction}
                 closeModal={closeModal}
               />
             </Modal>
@@ -77,16 +82,12 @@ const TransactionsItem = ({ id, transactionDate, comment, type, amount }) => {
         </>
       )}
       {isMobile && (
-        <li
-          className={clsx(s.card, {
-            [s.incomeBorder]: type === "INCOME",
-            [s.expenseBorder]: type === "EXPENSE",
-          })}
-          key={id}
-        >
+        <li className={s.card} key={transaction.id}>
           <div className={s.cardRow}>
             <span className={s.cardLabel}>Date</span>
-            <span className={s.cardValue}>{transactionDate}</span>
+            <span className={s.cardValue}>
+              {formatDate(transaction.transactionDate)}
+            </span>
           </div>
           <div className={s.cardRow}>
             <span className={s.cardLabel}>Type</span>
@@ -94,23 +95,25 @@ const TransactionsItem = ({ id, transactionDate, comment, type, amount }) => {
           </div>
           <div className={s.cardRow}>
             <span className={s.cardLabel}>Category</span>
-            <span className={s.cardValue}>{type}</span>
+            <span className={s.cardValue}>{categoryName}</span>
           </div>
           <div className={s.cardRow}>
             <span className={s.cardLabel}>Comment</span>
-            <span className={s.cardValue}>{comment}</span>
+            <span className={s.cardValue}>{transaction.comment}</span>
           </div>
           <div className={s.cardRow}>
             <span className={s.cardLabel}>Sum</span>
             <span className={s.cardValue}>
-              {type === "EXPENSE" ? Math.abs(amount) : amount}
+              {transaction.type === "EXPENSE"
+                ? Math.abs(transaction.amount)
+                : transaction.amount}
             </span>
           </div>
           <div className={s.cardActions}>
             <button
               className={s.button}
               type="button"
-              onClick={() => dispatch(deleteTransactionThunk(id))}
+              onClick={() => dispatch(deleteTransactionThunk(transaction.id))}
             >
               Delete
             </button>
@@ -126,7 +129,7 @@ const TransactionsItem = ({ id, transactionDate, comment, type, amount }) => {
         ReactDOM.createPortal(
           <Modal closeModal={closeModal}>
             <EditTransactionForm
-              transaction={{ id, transactionDate, comment, type, amount }}
+              categoryName={categoryName}
               closeModal={closeModal}
             />
           </Modal>,

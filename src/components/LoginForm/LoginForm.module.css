@@ -135,7 +135,12 @@
     background-size: cover;
     height: 100vh;
   }
-
+  @media (min-resolution: 2dppx) {
+    .mainContainer {
+    background-image: url("../../images/LoginPage-IMG/login-page-gradient-tablet_2x.webp"),
+      var(--bg-tablet-linear-gradient);
+    }
+  }
   .input {
     width: 409px;
     height: 35px;
@@ -189,6 +194,12 @@
       var(--bg-desktop-linear-gradient);
   }
 
+  @media (min-resolution: 2dppx) {
+    .mainContainer {
+    background-image: url("../../images/LoginPage-IMG/login-page-gradient-dekstop2x.webp"),
+      var(--bg-tablet-linear-gradient);
+    }
+  }
   .title {
     font-size: 26px;
   }

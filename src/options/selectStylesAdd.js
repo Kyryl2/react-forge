@@ -9,6 +9,7 @@ export const styles = {
     fontWeight: 400,
     fontSize: 18,
     backgroundColor: "transparent",
+    color: 'red',
   }),
   dropdownIndicator: () => ({
     display: "none",

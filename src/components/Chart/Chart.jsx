@@ -1,10 +1,12 @@
 import { Doughnut } from "react-chartjs-2";
 import { useSelector } from "react-redux";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import css from "./Chart.module.css";
+
 import { getData, getOptions } from "../../helpers/chartOptions";
 import { selectSummary } from "../../redux/transactions/selectors";
 import { getCategoryColor } from "../../helpers/getCategoryColor";
+
+import css from "./Chart.module.css";
 import { useMemo } from "react";
 
 ChartJS.register(ArcElement, Tooltip, Legend);

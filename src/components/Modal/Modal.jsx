@@ -1,13 +1,8 @@
-
 import s from "./Modal.module.css";
 import { useEffect } from "react";
-
 import useMedia from "../../hooks/useMedia";
 
-
-
-const Modal = ({ closeModal,children }) => {
-  
+const Modal = ({ closeModal, children }) => {
   const { isMobile } = useMedia();
 
   useEffect(() => {
@@ -19,7 +14,7 @@ const Modal = ({ closeModal,children }) => {
     return () => {
       document.removeEventListener("keydown", addCloseEvent);
     };
-  });
+  }, [closeModal]);
 
   const closeOnClickOutside = (event) => {
     event.currentTarget === event.target && closeModal();
@@ -36,17 +31,16 @@ const Modal = ({ closeModal,children }) => {
             }}
           />
         )}
-
-       {children}
-       
-        
-         
-          <button className={s.btnCancel} onClick={() => closeModal()}>
-            CANCEL
-          </button>
-        </div>
+        {children}
+        <button
+          className={s.btnCancel}
+          type="button"
+          onClick={() => closeModal()}
+        >
+          CANCEL
+        </button>
       </div>
-    
+    </div>
   );
 };
 

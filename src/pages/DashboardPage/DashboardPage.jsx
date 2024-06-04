@@ -6,9 +6,17 @@ import Navigation from "../../components/Navigation/Navigation";
 import useMedia from "../../hooks/useMedia";
 
 import s from "./DashboardPage.module.css";
+import { useEffect } from "react";
+import { getCategoriesThunk, getTransactionsThunk } from "../../redux/transactions/operations";
+import { useDispatch } from "react-redux";
 
 const DashboardPage = () => {
+  const dispatch = useDispatch()
   const { isMobile } = useMedia();
+  useEffect(() => {
+    dispatch(getTransactionsThunk());
+        dispatch(getCategoriesThunk());
+  }, [dispatch]);
 
   return (
     <div className={s.pageContainer}>

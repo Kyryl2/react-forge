@@ -38,7 +38,9 @@
   right: 27px;
   cursor: pointer;
 }
-
+.error {
+  color: #e91d1d;
+}
 .title {
   text-align: center;
   margin: 0 auto;
@@ -99,7 +101,6 @@
   text-transform: uppercase;
   text-align: center;
   color: var(--white);
-
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 
@@ -130,4 +131,31 @@
 
 .toggleContainer .active {
   color: #ff6b6b; /* color for the active state, adjust as needed */
+}
+.inputField,
+.dateInput,
+.commentInput,
+.categorySelect {
+  background: transparent;
+  color: var(--white-60);
+  font-size: 18px;
+  border: none;
+  border-bottom: 1px solid var(--white-40);
+  width: 100%;
+}
+.inputField:focus {
+  outline: none;
+}
+.commentInput:focus {
+  outline: none;
+}
+.inputs {
+  display: flex;
+  flex-direction: row;
+  gap: 40px 20px;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }

@@ -9,7 +9,8 @@
   border-bottom: 1px solid var(--white-40);
   font-size: 18px;
   font-family: "Poppins", sans-serif;
-  cursor: pointer; 
+  cursor: pointer;   
+  width: 100%;
 }
 
 .calendarIcon {

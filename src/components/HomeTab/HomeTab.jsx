@@ -3,7 +3,6 @@ import s from "./HomeTab.module.css";
 
 import TransactionsList from "../TransactionsList/TransactionsList";
 import { ButtonAddTransactions } from "../ButtonAddTransactions/ButtonAddTransactions";
-import { AddTransactionForm } from "../AddTransactionForm/AddTransactionForm";
 import Balance from "../Balance/Balance";
 import useMedia from "../../hooks/useMedia";
 import ModalAddTransaction from "../ModalAddTransaction/ModalAddTransaction";

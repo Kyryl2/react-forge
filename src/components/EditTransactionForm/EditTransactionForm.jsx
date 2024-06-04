@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import ReactDatePicker from "react-datepicker";
+
 import "react-datepicker/dist/react-datepicker.css";
 import { Icon } from "../../images/Icon/Icon";
 import Modal from "../Modal/Modal";
 import s from "./EditTransactionForm.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCategories } from "../../redux/transactions/selectors";
-import {
-  getCategoriesThunk,
-  patchTransactionThunk,
-} from "../../redux/transactions/operations";
+import { patchTransactionThunk } from "../../redux/transactions/operations";
 import CustomInputCalendar from "../AddTransactionForm/CustomInputCalendar";
 import * as Yup from "yup";
 
@@ -23,10 +21,6 @@ const EditTransactionForm = ({ transaction, closeModal }) => {
 
   const dispatch = useDispatch();
   const categories = useSelector(selectCategories);
-
-  useEffect(() => {
-    dispatch(getCategoriesThunk());
-  }, [dispatch]);
 
   useEffect(() => {
     if (categories.length > 0) {
@@ -94,38 +88,43 @@ const EditTransactionForm = ({ transaction, closeModal }) => {
   };
 
   return (
-    // <div className={s.div}>
-      <Modal closeModal={closeModal}>
-        <div onClick={closeModal}>
-          <Icon
-            id="icon-close"
-            width={16}
-            height={16}
-            className={s.iconClose}
-          />
-        </div>
-        <p className={s.title}>Edit transaction</p>
-        <div className={s.toggleContainer}>
-          <span className={transactionType === "INCOME" ? s.active : ""}>
-            Income
-          </span>
-          <span className={s.separator}>/</span>
-          <span className={transactionType === "EXPENSE" ? s.active : ""}>
-            Expense
-          </span>
-        </div>
-        <Formik
-          initialValues={{
-            amount: transaction ? Math.abs(transaction.amount) : "",
-            comment: transaction ? transaction.comment : "",
-            category: categoryName,
-            transactionType: transactionType,
-          }}
-          validationSchema={validationSchema}
-          onSubmit={handleSubmit}
-        >
-          {({ isSubmitting, setFieldValue }) => (
-            <Form>
+    <Modal closeModal={closeModal}>
+      <div onClick={closeModal}>
+        <Icon id="icon-close" width={16} height={16} className={s.iconClose} />
+      </div>
+      <p className={s.title}>Edit transaction</p>
+      <div className={s.toggleContainer}>
+        <span className={transactionType === "INCOME" ? s.active : ""}>
+          Income
+        </span>
+        <span className={s.separator}>/</span>
+        <span className={transactionType === "EXPENSE" ? s.active : ""}>
+          Expense
+        </span>
+      </div>
+      <Formik
+        initialValues={{
+          amount: transaction ? Math.abs(transaction.amount) : "",
+          comment: transaction ? transaction.comment : "",
+          category: categoryName,
+          transactionType: transactionType,
+        }}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
+      >
+        {({ isSubmitting, setFieldValue }) => (
+          <Form className={s.form}>
+            {transactionType === "EXPENSE" && (
+              <Field
+                type="text"
+                name="category"
+                placeholder="Category"
+                className={s.inputField}
+                readOnly
+                value={categoryName}
+              />
+            )}
+            <div className={s.column}>
               <div className={s.inputs}>
                 <Field
                   type="number"
@@ -148,17 +147,8 @@ const EditTransactionForm = ({ transaction, closeModal }) => {
                   className={s.dateInput}
                   customInput={<CustomInputCalendar />}
                 />
-                {transactionType === "EXPENSE" && (
-                  <Field
-                    type="text"
-                    name="category"
-                    placeholder="Category"
-                    className={s.inputField}
-                    readOnly
-                    value={categoryName}
-                  />
-                )}
               </div>
+
               <Field
                 type="text"
                 name="comment"
@@ -170,18 +160,14 @@ const EditTransactionForm = ({ transaction, closeModal }) => {
                 component="div"
                 className={s.error}
               />
-              <button
-                type="submit"
-                className={s.addButton}
-                disabled={isSubmitting}
-              >
-                SAVE
-              </button>
-            </Form>
-          )}
-        </Formik>
-      </Modal>
-    // </div>
+            </div>
+            <button type="submit" className={s.save} disabled={isSubmitting}>
+              SAVE
+            </button>
+          </Form>
+        )}
+      </Formik>
+    </Modal>
   );
 };
 

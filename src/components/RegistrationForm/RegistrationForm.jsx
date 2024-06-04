@@ -1,5 +1,5 @@
 import * as Yup from "yup";
-import { useDispatch  } from "react-redux";
+import { useDispatch } from "react-redux";
 import s from "./RegistrationForm.module.css";
 import { Form, Formik } from "formik";
 
@@ -16,7 +16,6 @@ import { Bar } from "./Bar";
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
-
 
   const FeedbackSchema = Yup.object().shape({
     username: Yup.string()
@@ -72,48 +71,45 @@ const RegistrationForm = () => {
             onSubmit={handleSubmit}
             validationSchema={FeedbackSchema}
           >
-            
-           {({values:{password, confirm}})=> <Form className={s.form}>
-              <CustomInput
-                name="username"
-                type="text"
-                placeholder="Username"
-                iconID="icon-user"
-              />
-              <CustomInput
-                name="email"
-                type="email"
-                placeholder="E-mail"
-                iconID="icon-email"
-              />
-              <CustomInput
-                name="password"
-                type="password"
-                placeholder="Password"
-                iconID="icon-lock"
-              />
-              <CustomInput
-                name="confirm"
-                type="password"
-                placeholder="Confirm password"
-                iconID="icon-lock"
-              />
-              {password && (
-               <Bar pass={password} confirm={confirm}/>
-              )}
-              <div className={s.buttonsWrapper}>
-                <button className={clsx(s.btn, s.btnRegister)} type="submit">
-                  Register
-                </button>
-                <Link to="/login">
-                  <button className={clsx(s.btn, s.btnLogin)} type="button">
-                    Log in
+            {({ values: { password, confirm } }) => (
+              <Form className={s.form}>
+                <CustomInput
+                  name="username"
+                  type="text"
+                  placeholder="Username"
+                  iconID="icon-user"
+                />
+                <CustomInput
+                  name="email"
+                  type="email"
+                  placeholder="E-mail"
+                  iconID="icon-email"
+                />
+                <CustomInput
+                  name="password"
+                  type="password"
+                  placeholder="Password"
+                  iconID="icon-lock"
+                />
+                <CustomInput
+                  name="confirm"
+                  type="password"
+                  placeholder="Confirm password"
+                  iconID="icon-lock"
+                />
+                {password && <Bar pass={password} confirm={confirm} />}
+                <div className={s.buttonsWrapper}>
+                  <button className={clsx(s.btn, s.btnRegister)} type="submit">
+                    Register
                   </button>
-                </Link>
-              </div>
-            </Form>
-            
-           }
+                  <Link to="/login">
+                    <button className={clsx(s.btn, s.btnLogin)} type="button">
+                      Log in
+                    </button>
+                  </Link>
+                </div>
+              </Form>
+            )}
           </Formik>
         </div>
       </div>

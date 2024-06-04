@@ -1,14 +1,11 @@
 import ReactDOM from "react-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  deleteTransactionThunk,
-  getCategoriesThunk,
-} from "../../redux/transactions/operations";
+import { deleteTransactionThunk } from "../../redux/transactions/operations";
 import { Icon } from "../../images/Icon/Icon";
 import s from "./TransactionsItem.module.css";
 import useMedia from "../../hooks/useMedia";
-import Modal from "../Modal/Modal";
+
 import EditTransactionForm from "../EditTransactionForm/EditTransactionForm";
 import { selectCategories } from "../../redux/transactions/selectors";
 import clsx from "clsx";
@@ -33,12 +30,6 @@ const TransactionsItem = ({ transaction }) => {
   const closeModal = () => setIsModalOpen(false);
 
   const categories = useSelector(selectCategories);
-
-  useEffect(() => {
-    if (categories.length === 0) {
-      dispatch(getCategoriesThunk());
-    }
-  }, [categories.length, dispatch]);
 
   const category = categories.find(
     (item) => item.id === transaction.categoryId
@@ -135,13 +126,11 @@ const TransactionsItem = ({ transaction }) => {
       {!isMobile ? transactionRow : transactionCard}
       {isModalOpen &&
         ReactDOM.createPortal(
-          <Modal closeModal={closeModal}>
-            <EditTransactionForm
-              categoryName={categoryName}
-              closeModal={closeModal}
-              transaction={transaction}
-            />
-          </Modal>,
+          <EditTransactionForm
+            categoryName={categoryName}
+            closeModal={closeModal}
+            transaction={transaction}
+          />,
           document.body
         )}
     </>

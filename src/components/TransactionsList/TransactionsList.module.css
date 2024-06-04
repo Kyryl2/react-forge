@@ -118,10 +118,19 @@ tbody::-webkit-scrollbar-thumb {
   justify-content: center;
   align-items: center;
   width: 100%;
+  color: white;
 }
 
 .filler p {
   font-weight: 400;
   font-size: 20px;
   text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+
+}
+
+@media screen and (min-width: 1280px) {
+
 }

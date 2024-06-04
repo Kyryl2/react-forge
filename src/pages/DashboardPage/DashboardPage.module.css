@@ -1,6 +1,6 @@
 .pageContainer {
-  background: var(--form-mobile-linear-gradient),
-    var(--form-mobile-radial-gradient);
+  background: var(--bg-db-linear-gradient-desktop),
+    var(--bg-db-radial-gradient-desktop);
   min-height: 100vh;
 }
 

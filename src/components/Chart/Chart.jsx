@@ -1,42 +1,39 @@
-import css from "./Chart.module.css";
 import { Doughnut } from "react-chartjs-2";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { useSelector } from "react-redux";
-import { selectUserBalance } from "../../redux/auth/selectors";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import css from "./Chart.module.css";
+import { getData, getOptions } from "../../helpers/chartOptions";
+import { selectSummary } from "../../redux/transactions/selectors";
+import { getCategoryColor } from "../../helpers/getCategoryColor";
+import { useMemo } from "react";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const Chart = () => {
-  const userBalance = useSelector(selectUserBalance);
+  const { categoriesSummary, periodTotal } = useSelector(selectSummary);
 
-  const data = {
-    datasets: [
-      {
-        label: "# of Votes",
-        data: [
-          8700.0, 3800.74, 1500.0, 800.0, 2208.5, 300.0, 3400.0, 1230.0, 610.0,
-        ],
-        backgroundColor: [
-          "#fed057",
-          "#ffd8d0",
-          "#fd9498",
-          "#c5baff",
-          "#6e78e8",
-          "#4a56e2",
-          "#81e1ff",
-          "#24cca7",
-          "#00ad84",
-        ],
-        borderColor: "transparent",
-        cutout: "70%",
-      },
-    ],
-  };
+  const categoriesTotal = useMemo(() => {
+    return categoriesSummary?.map((category) => {
+      return category.total;
+    });
+  }, [categoriesSummary]);
+  const categoryColors = useMemo(() => {
+    return categoriesSummary?.map((category) => {
+      return getCategoryColor(category.name);
+    });
+  }, [categoriesSummary]);
+
+  const data = getData(categoriesTotal, categoryColors);
+  const options = getOptions(categoriesSummary);
 
   return (
     <div className={css.wrapper}>
-      <Doughnut data={data} />
-      <span className={css.balance}>&#8372; {userBalance}</span>
+      <Doughnut data={data} options={options} />
+      <span className={css.balance}>
+        {categoriesSummary?.length > 0
+          ? `₴ ${periodTotal} `
+          : "No transactions"}
+      </span>
     </div>
   );
 };

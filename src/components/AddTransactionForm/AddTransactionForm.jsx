@@ -8,7 +8,10 @@ import Toggle from "../Toggle/Toggle";
 import s from "./AddTransactionForm.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCategories } from "../../redux/transactions/selectors";
-import { getCategoriesThunk } from "../../redux/transactions/operations";
+import {
+  getCategoriesThunk,
+  postTransactionThunk,
+} from "../../redux/transactions/operations";
 import { styles } from "../../options/selectStylesAdd";
 import clsx from "clsx";
 import CustomInputCalendar from "./CustomInputCalendar";
@@ -16,7 +19,11 @@ import CustomInputCalendar from "./CustomInputCalendar";
 export const AddTransactionForm = ({ closeModal }) => {
   const [monthSelectIsOpen, setMonthSelectIsOpen] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
-  const [transactionType, setTransactionType] = useState(true);
+  const [transactionType, setTransactionType] = useState(true); 
+  const [amount, setAmount] = useState("");
+  const [comment, setComment] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [defaultIncomeCategory, setDefaultIncomeCategory] = useState(null);
 
   const dispatch = useDispatch();
   const categories = useSelector(selectCategories);
@@ -33,10 +40,50 @@ export const AddTransactionForm = ({ closeModal }) => {
     dispatch(getCategoriesThunk());
   }, [dispatch]);
 
-  const categoryOptions = categories.map((category) => ({
-    value: category.id,
-    label: category.name,
-  }));
+  useEffect(() => {
+    if (categories.length > 0) {
+      const defaultCategory = categories.find(
+        (category) => category.type === "INCOME"
+      );
+      setDefaultIncomeCategory(defaultCategory ? defaultCategory.id : null);
+    }
+  }, [categories]);
+
+  const categoryOptions = categories
+    .filter(
+      (category) => category.type === (transactionType ? "INCOME" : "EXPENSE")
+    )
+    .map((category) => ({
+      value: category.id,
+      label: category.name,
+    }));
+
+  const handleAddTransaction = () => {
+    if (!amount || (!transactionType && !selectedCategory)) {
+      console.error("Validation error: Amount and category are required.");
+      return;
+    }
+
+    const newTransaction = {
+      transactionDate: startDate.toISOString(),
+      type: transactionType ? "INCOME" : "EXPENSE",
+      categoryId: transactionType
+        ? defaultIncomeCategory
+        : selectedCategory.value,
+      comment,
+      amount: transactionType ? parseFloat(amount) : -parseFloat(amount),
+    };
+
+    dispatch(postTransactionThunk(newTransaction))
+      .unwrap()
+      .then(() => closeModal())
+      .catch((error) => {
+        console.error(
+          "Failed to add transaction:",
+          error.response?.data || error.message
+        );
+      });
+  };
 
   return (
     <div className={s.div}>
@@ -60,6 +107,7 @@ export const AddTransactionForm = ({ closeModal }) => {
               onMenuOpen={() => handleMenuOpen("monthSelect")}
               onMenuClose={() => handleMenuClose("monthSelect")}
               styles={styles}
+              onChange={setSelectedCategory}
             />
             <Icon
               id="icon-down-arrow"
@@ -72,7 +120,13 @@ export const AddTransactionForm = ({ closeModal }) => {
           </div>
         )}
         <div className={s.inputs}>
-          <input placeholder="0.00" className={s.inputField} />
+          <input
+            type="number"
+            placeholder="0.00"
+            className={s.inputField}
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+          />
           <ReactDatePicker
             selected={startDate}
             onChange={(date) => setStartDate(date)}
@@ -81,8 +135,16 @@ export const AddTransactionForm = ({ closeModal }) => {
             customInput={<CustomInputCalendar />}
           />
         </div>
-        <input placeholder="Comment" className={s.commentInput} />
-        <button className={s.addButton}>ADD</button>
+        <input
+          type="text"
+          placeholder="Comment"
+          className={s.commentInput}
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
+        />
+        <button className={s.addButton} onClick={handleAddTransaction}>
+          ADD
+        </button>
       </Modal>
     </div>
   );

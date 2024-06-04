@@ -38,7 +38,6 @@
 }
 
 .btnLogout:hover {
-  background: var(--btn-hover-bg);
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(10, 10, 10, 0.1);
 }

@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {
+  getBalance,
   userLoginThunk,
   userLogoutThunk,
   userRefreshThunk,
   userRegisterThunk,
 } from "./operations";
+import { postTransactionThunk } from "../transactions/operations";
 
 const initialState = {
   user: {
@@ -31,6 +33,12 @@ const authSlice = createSlice({
         state.user = payload.user;
         state.token = payload.token;
         state.isLoggedIn = true;
+      })
+      .addCase(getBalance.fulfilled, (state, {payload}) => {
+        state.user.balance = payload
+      })
+      .addCase(postTransactionThunk.fulfilled, (state, {payload}) => {
+        state.user.balance = payload.balanceAfter
       })
       .addCase(userLogoutThunk.fulfilled, () => {
         return initialState;

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import s from "./Currency.module.css";
 import getCurrency from "../../config/currencyApi";
 import Loader from "../../components/Loader/Loader";

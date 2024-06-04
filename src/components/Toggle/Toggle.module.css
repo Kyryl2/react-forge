@@ -29,27 +29,33 @@
 .toggleCircle {
   width: 44px;
   height: 44px;
-  background-color: var(--toggle-color);
+  background-color: var(--dashboard-text);
 
   border-radius: 50%;
   position: absolute;
   left: 45px;
   transition: all 0.3s ease;
+  box-shadow: 0px 6px 15px 0px rgba(255, 134, 141, 0.5);
 }
 
 .toggleCircleActive {
   left: -5px;
   background-color: var(--toggle-color);
+  transition: all 0.3s ease;
+  box-shadow: 0px 6px 15px 0px rgba(255, 199, 39, 0.5);
 }
+
 .plusToggle {
   position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .minusToggle {
   position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+

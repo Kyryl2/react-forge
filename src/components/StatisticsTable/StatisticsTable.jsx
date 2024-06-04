@@ -26,8 +26,8 @@ const StatisticsTable = () => {
           </thead>
           <tbody className={css.table_body}>
             {categoriesSummary?.map((category, index) => (
-              <>
-                <tr key={index} className={css.table_row}>
+              <div key={index}>
+                <tr className={css.table_row}>
                   <td className={css.table_data}>
                     <span
                       className={clsx(
@@ -37,25 +37,27 @@ const StatisticsTable = () => {
                     ></span>
                     {category.name}
                   </td>
-                  <td className={css.table_data}>{`${category.total}.00`}</td>
+                  <td className={css.table_data}>{`${category.total.toFixed(
+                    2
+                  )}`}</td>
                 </tr>
-              </>
+              </div>
             ))}
             <tr className={css.bottom_row}>
               <td className={css.bottom_data}>Expenses:</td>
               <td className={css.bottom_data}>
                 <span
                   className={css.expenses_summary}
-                >{`${expenseSummary}.00`}</span>
+                >{`${expenseSummary?.toFixed(2)}`}</span>
               </td>
             </tr>
 
             <tr className={css.bottom_row}>
               <td className={css.bottom_data}>Income:</td>
               <td className={css.bottom_data}>
-                <span
-                  className={css.income_summary}
-                >{`${incomeSummary}.00`}</span>
+                <span className={css.income_summary}>{`${incomeSummary?.toFixed(
+                  2
+                )}`}</span>
               </td>
             </tr>
           </tbody>

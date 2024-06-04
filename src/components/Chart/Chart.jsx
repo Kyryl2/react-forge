@@ -33,7 +33,7 @@ export const Chart = () => {
       <Doughnut data={data} options={options} />
       <span className={css.balance}>
         {categoriesSummary?.length > 0
-          ? `₴ ${periodTotal}.00`
+          ? `₴ ${periodTotal?.toFixed(2)}`
           : "There was no Transactions In this period..."}
       </span>
     </div>

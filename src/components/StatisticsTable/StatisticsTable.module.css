@@ -1,3 +1,8 @@
+.blank {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
 .table {
   width: 280px;
 }
@@ -8,6 +13,22 @@
   background: rgba(82, 59, 126, 0.6);
   border-radius: 8px;
   height: 56px;
+}
+
+.table_row.head {
+  border: none;
+}
+
+.table_heading {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.table_body {
+  font-weight: 400;
+  font-size: 14px;
+  height: auto;
+  margin-bottom: 20px;
 }
 
 .table_row {
@@ -73,4 +94,28 @@
 
 .income {
   background-color: #00c853;
+}
+
+.bottom_row {
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottom_data {
+  font-weight: 600;
+  font-size: 14px;
+  padding: 16px;
+  padding-bottom: 0;
+}
+
+.expenses_summary {
+  color: #ff868d;
+}
+
+.income_summary {
+  color: #ffb627;
 }

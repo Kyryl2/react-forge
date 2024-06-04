@@ -10,9 +10,7 @@ import Toggle from "../Toggle/Toggle";
 import { Icon } from "../../images/Icon/Icon";
 
 import { selectCategories } from "../../redux/transactions/selectors";
-import {
-  postTransactionThunk,
-} from "../../redux/transactions/operations";
+import { postTransactionThunk } from "../../redux/transactions/operations";
 import { styles } from "../../options/selectStylesAdd";
 import s from "./AddTransactionForm.module.css";
 import "react-datepicker/dist/react-datepicker.css";
@@ -20,7 +18,7 @@ import "react-datepicker/dist/react-datepicker.css";
 export const AddTransactionForm = ({ closeModal }) => {
   const [monthSelectIsOpen, setMonthSelectIsOpen] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
-  const [transactionType, setTransactionType] = useState(true); 
+  const [transactionType, setTransactionType] = useState(true);
   const [amount, setAmount] = useState("");
   const [comment, setComment] = useState("");
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -36,8 +34,6 @@ export const AddTransactionForm = ({ closeModal }) => {
   const handleMenuClose = (id) => {
     if (id === "monthSelect") setMonthSelectIsOpen(false);
   };
-
-
 
   useEffect(() => {
     if (categories.length > 0) {
@@ -118,29 +114,31 @@ export const AddTransactionForm = ({ closeModal }) => {
             />
           </div>
         )}
-        <div className={s.inputs}>
+        <div className={s.inputContainer}>
+          <div className={s.inputs}>
+            <input
+              type="number"
+              placeholder="0.00"
+              className={s.inputField}
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+            />
+            <ReactDatePicker
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              dateFormat="dd.MM.yyyy"
+              className={s.dateInput}
+              customInput={<CustomInputCalendar />}
+            />
+          </div>
           <input
-            type="number"
-            placeholder="0.00"
-            className={s.inputField}
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-          />
-          <ReactDatePicker
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
-            dateFormat="dd.MM.yyyy"
-            className={s.dateInput}
-            customInput={<CustomInputCalendar />}
+            type="text"
+            placeholder="Comment"
+            className={s.commentInput}
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
           />
         </div>
-        <input
-          type="text"
-          placeholder="Comment"
-          className={s.commentInput}
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-        />
         <button className={s.addButton} onClick={handleAddTransaction}>
           ADD
         </button>

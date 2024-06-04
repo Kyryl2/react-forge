@@ -1,18 +1,15 @@
-/* Стили для мобильных устройств */
 @media (max-width: 767px) {
   .modal {
     width: 90%;
   }
 }
 
-/* Стили для планшетов */
 @media (min-width: 768px) and (max-width: 1023px) {
   .modal {
     width: 70%;
   }
 }
 
-/* Стили для компьютеров */
 @media (min-width: 1024px) {
   .modal {
     width: 50%;
@@ -34,23 +31,27 @@
   color: var(--white-smoke);
   background-color: transparent;
 }
+
 .iconClose {
   position: fixed;
   top: 16px;
   right: 27px;
   cursor: pointer;
 }
+
 .title {
   text-align: center;
   margin: 0 auto;
   font-size: 30px;
   color: var(--white);
 }
+
 .form {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
+
 .active {
   color: #ffc727;
 }
@@ -60,6 +61,7 @@
   flex-direction: row;
   gap: 10px;
 }
+
 .div {
   flex-direction: column;
   display: flex;
@@ -68,14 +70,17 @@
   font-size: 16px;
   color: #e0e0e0;
 }
+
 .type {
   margin: 0 auto;
 }
+
 .span {
   font-weight: 600;
   font-size: 16px;
   color: #e0e0e0;
 }
+
 .save {
   border-radius: 20px;
   border: none;
@@ -84,8 +89,8 @@
   cursor: pointer;
   margin: 0 auto;
   box-shadow: 1px 9px 15px 0 var(--box-shadow-modal);
-  
-background: var(--button-gradient);
+
+  background: var(--button-gradient);
 
   font-family: var(--font-family);
   font-weight: 400;
@@ -102,7 +107,27 @@ background: var(--button-gradient);
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(10, 10, 10, 0.1);
 }
+
 .category {
   border-bottom: 1px solid grey;
   width: 300px;
+}
+
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #ffffff; /* default color */
+}
+
+.separator {
+  margin: 0 10px;
+}
+
+.toggleContainer span {
+  cursor: default; /* No interaction */
+}
+
+.toggleContainer .active {
+  color: #ff6b6b; /* color for the active state, adjust as needed */
 }

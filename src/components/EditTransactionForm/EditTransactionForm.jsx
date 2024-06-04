@@ -1,55 +1,102 @@
-import { useFormik } from 'formik';
-import * as yup from 'yup';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import { useDispatch } from 'react-redux';
-import { patchTransactionThunk } from '../../redux/transactions/operations';
-import s from './EditTransactionForm.module.css';
+import { useEffect, useState } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import ReactDatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { Icon } from "../../images/Icon/Icon";
+import Modal from "../Modal/Modal";
+import s from "./EditTransactionForm.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCategories } from "../../redux/transactions/selectors";
+import {
+  getCategoriesThunk,
+  patchTransactionThunk,
+} from "../../redux/transactions/operations";
+import CustomInputCalendar from "../AddTransactionForm/CustomInputCalendar";
+import * as Yup from "yup";
 
-import { Icon } from '../../images/Icon/Icon';
-import clsx from 'clsx';
+const EditTransactionForm = ({ transaction, closeModal }) => {
+  const [startDate, setStartDate] = useState(
+    transaction ? new Date(transaction.transactionDate) : new Date()
+  );
+  const [transactionType] = useState(transaction.type);
+  const [defaultIncomeCategory, setDefaultIncomeCategory] = useState(null);
 
-
-const validationSchema = yup.object().shape({
-  sum: yup.number().required('Sum is required'),
-  date: yup.date().required('Date is required'),
-  comment: yup.string().required('Comment is required'),
-});
-
-const EditTransactionForm = ({ transaction, closeModal,categoryName}) => {
   const dispatch = useDispatch();
+  const categories = useSelector(selectCategories);
 
-  const formik = useFormik({
-    initialValues: {
-      sum: Math.abs(transaction.amount),
-      date: new Date(transaction.transactionDate),
-      comment: transaction.comment,
-    },
-    validationSchema,
-    onSubmit: async (values, { setSubmitting, setErrors }) => {
-      try {
-        const updatedTransaction = {
-          ...transaction,
-          amount:
-            transaction.type === 'EXPENSE'
-              ? -Math.abs(values.sum)
-              : Math.abs(values.sum), // Сумма отрицательная для расходов и положительная для доходов
-          transactionDate: values.date.toISOString(),
-          comment: values.comment,
-        };
-        await dispatch(patchTransactionThunk(updatedTransaction));
-        closeModal();
-      } catch (error) {
-        setErrors({ submit: error.message });
-      } finally {
-        setSubmitting(false);
-      }
-    },
+  useEffect(() => {
+    dispatch(getCategoriesThunk());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (categories.length > 0) {
+      const defaultCategory = categories.find(
+        (category) => category.type === "INCOME"
+      );
+      setDefaultIncomeCategory(defaultCategory ? defaultCategory.id : null);
+    }
+  }, [categories]);
+
+  const categoryName = transaction
+    ? categories.find((category) => category.id === transaction.categoryId)
+        ?.name
+    : "";
+
+  const validationSchema = Yup.object({
+    amount: Yup.number()
+      .required("Amount is required")
+      .positive("Amount must be positive"),
+    comment: Yup.string().required("Comment is required"),
+    category: Yup.string().when("transactionType", {
+      is: "EXPENSE",
+      then: (schema) => schema.required("Category is required").nullable(),
+    }),
   });
+
+  const handleSubmit = (values, { setSubmitting }) => {
+    const updatedTransaction = {
+      id: transaction.id,
+      transactionDate: startDate.toISOString(),
+      type: transactionType, // Use the type from the state
+      categoryId:
+        transactionType === "INCOME"
+          ? defaultIncomeCategory
+          : transaction.categoryId,
+      comment: values.comment,
+      amount:
+        transactionType === "INCOME"
+          ? parseFloat(values.amount)
+          : -parseFloat(values.amount),
+    };
+
+    if (
+      updatedTransaction.categoryId === null &&
+      transactionType === "EXPENSE"
+    ) {
+      console.error("Category is required for EXPENSE transactions");
+      setSubmitting(false);
+      return;
+    }
+
+    dispatch(patchTransactionThunk(updatedTransaction))
+      .unwrap()
+      .then(() => {
+        closeModal();
+        setSubmitting(false);
+      })
+      .catch((error) => {
+        console.error(
+          "Failed to update transaction:",
+          error.response?.data || error.message
+        );
+        setSubmitting(false);
+      });
+  };
 
   return (
     <div className={s.div}>
-      <div onClick={closeModal}>
+      <Modal closeModal={closeModal}>
+        <div onClick={closeModal}>
           <Icon
             id="icon-close"
             width={16}
@@ -57,64 +104,83 @@ const EditTransactionForm = ({ transaction, closeModal,categoryName}) => {
             className={s.iconClose}
           />
         </div>
-        <p className={s.title}>Add transaction</p>
-        <div className={s.type}> <span className={clsx(transaction.type === 'INCOME' && s.active)}>Income </span>
-              /
-                <span className={clsx(transaction.type === 'EXPENSE'&&  s.active)}>
-                  Expense
-                </span></div>
-             
-
-      <form className={s.form} onSubmit={formik.handleSubmit}>
-      {transaction.type === 'EXPENSE' && <p className={s.category}>{categoryName}</p>}
-        <div className={s.calendar}>
-        <div className={s.field}>
-          <label htmlFor="sum"></label>
-          <input
-            className={s.inputData}
-            id="sum"
-            type="text"
-            placeholder='0.0'
-            value={formik.values.sum}
-            onChange={(e) => formik.setFieldValue('sum', e.target.value)}
-          />
-          {formik.touched.sum && formik.errors.sum ? (
-            <div className={s.error}>{formik.errors.sum}</div>
-          ) : null}
+        <p className={s.title}>Edit transaction</p>
+        <div className={s.toggleContainer}>
+          <span className={transactionType === "INCOME" ? s.active : ""}>
+            Income
+          </span>
+          <span className={s.separator}>/</span>
+          <span className={transactionType === "EXPENSE" ? s.active : ""}>
+            Expense
+          </span>
         </div>
-        <div className={s.field}>
-          <label htmlFor="date"></label>
-          <DatePicker
-            className={s.inputData}
-            selected={formik.values.date}
-            onChange={(date) => formik.setFieldValue('date', date)}
-          />
-          {formik.touched.date && formik.errors.date ? (
-            <div className={s.error}>{formik.errors.date}</div>
-          ) : null}
-        </div>
-        </div>
-        <div className={s.field}>
-          <label htmlFor="comment"></label>
-          <input
-            className={s.commentFild}
-            id="comment"
-            type="text"
-            placeholder='Comment'
-            {...formik.getFieldProps('comment')}
-          />
-          {formik.touched.comment && formik.errors.comment ? (
-            <div className={s.error}>{formik.errors.comment}</div>
-          ) : null}
-        </div>
-        {formik.errors.submit && (
-          <div className={s.error}>{formik.errors.submit}</div>
-        )}
-        <button type="submit" disabled={formik.isSubmitting} className={s.save}>
-          Save
-        </button>
-      </form>
-    
+        <Formik
+          initialValues={{
+            amount: transaction ? Math.abs(transaction.amount) : "",
+            comment: transaction ? transaction.comment : "",
+            category: categoryName,
+            transactionType: transactionType,
+          }}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ isSubmitting, setFieldValue }) => (
+            <Form>
+              <div className={s.inputs}>
+                <Field
+                  type="number"
+                  name="amount"
+                  placeholder="0.00"
+                  className={s.inputField}
+                />
+                <ErrorMessage
+                  name="amount"
+                  component="div"
+                  className={s.error}
+                />
+                <ReactDatePicker
+                  selected={startDate}
+                  onChange={(date) => {
+                    setStartDate(date);
+                    setFieldValue("transactionDate", date);
+                  }}
+                  dateFormat="dd.MM.yyyy"
+                  className={s.dateInput}
+                  customInput={<CustomInputCalendar />}
+                />
+                {transactionType === "EXPENSE" && (
+                  <Field
+                    type="text"
+                    name="category"
+                    placeholder="Category"
+                    className={s.inputField}
+                    readOnly
+                    value={categoryName}
+                  />
+                )}
+              </div>
+              <Field
+                type="text"
+                name="comment"
+                placeholder="Comment"
+                className={s.commentInput}
+              />
+              <ErrorMessage
+                name="comment"
+                component="div"
+                className={s.error}
+              />
+              <button
+                type="submit"
+                className={s.addButton}
+                disabled={isSubmitting}
+              >
+                SAVE
+              </button>
+            </Form>
+          )}
+        </Formik>
+      </Modal>
     </div>
   );
 };

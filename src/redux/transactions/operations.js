@@ -62,16 +62,17 @@ export const postTransactionThunk = createAsyncThunk(
   async (body, thunkAPI) => {
     try {
       const { auth } = thunkAPI.getState();
+
       updateAuthHeader(auth.token);
+
       const { data } = await goitApi.post("transactions", body);
+
       return data;
     } catch (error) {
-      console.error("Error details:", error.response?.data || error.message);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
-
 
 export const patchTransactionThunk = createAsyncThunk(
   "transaction/patchTransaction",

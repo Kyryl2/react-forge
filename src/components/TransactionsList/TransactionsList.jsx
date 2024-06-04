@@ -19,7 +19,7 @@ const TransactionsList = () => {
     <>
       {!transactions.length && <p>You don’t have any transactions now...</p>}
 
-      {!isMobile && (
+      {!isMobile ? (
         <div className={s.wrapper}>
           <table>
             <thead>
@@ -42,9 +42,7 @@ const TransactionsList = () => {
             </tbody>
           </table>
         </div>
-      )}
-
-      {isMobile && (
+      ) : (
         <ul>
           {transactions?.map((transaction) => (
             <TransactionsItem key={transaction.id} transaction={transaction} />

@@ -1,0 +1,76 @@
+.table {
+  width: 280px;
+}
+
+.table_head {
+  backdrop-filter: blur(100px);
+  box-shadow: 0 4px 60px 0 rgba(0, 0, 0, 0.25);
+  background: rgba(82, 59, 126, 0.6);
+  border-radius: 8px;
+  height: 56px;
+}
+
+.table_row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.table_data {
+  padding: 18px 16px 16px 52px;
+}
+
+.label {
+  width: 24px;
+  height: 24px;
+  background-color: #fff;
+  display: block;
+  position: absolute;
+  top: 14px;
+  left: 14px;
+}
+
+.label.main_expenses {
+  background-color: #fed057;
+}
+
+.label.products {
+  background-color: #ffd8d0;
+}
+
+.label.car {
+  background-color: #fd9498;
+}
+
+.label.self_care {
+  background-color: #c5baff;
+}
+
+.label.child_care {
+  background-color: #6e78e8;
+}
+
+.label.household_products {
+  background-color: #4a56e2;
+}
+
+.label.education {
+  background-color: #81e1ff;
+}
+
+.label.leisure {
+  background-color: #24cca7;
+}
+
+.label.other_expenses {
+  background-color: #00ad84;
+}
+
+.label.entertainment {
+  background-color: #ffbf00;
+}
+
+.income {
+  background-color: #00c853;
+}

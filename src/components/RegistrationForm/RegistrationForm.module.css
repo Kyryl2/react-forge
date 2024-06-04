@@ -70,7 +70,7 @@
   height: 50px;
   cursor: pointer;
 
-  box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 9px 15px 0 var(--box-shadow-modal);
   background: var(--white);
 
   font-family: var(--font-family);
@@ -86,7 +86,8 @@
 
 .btnLogin:hover {
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(10, 10, 10, 0.1);
+  box-shadow: 0 15px 25px var(--box-shadow-modal),
+    0 0 20px var(--box-shadow-modal);
 }
 
 .btnRegister {
@@ -96,7 +97,7 @@
   height: 50px;
   cursor: pointer;
 
-  box-shadow: 1px 9px 15px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 9px 15px 0 var(--box-shadow-modal);
   background: var(--button-gradient);
 
   font-family: var(--font-family);
@@ -113,7 +114,8 @@
 .btnRegister:hover {
   color: var(--white-smoke);
   transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(10, 10, 10, 0.1);
+  box-shadow: 0 15px 25px var(--box-shadow-modal),
+    0 0 20px var(--box-shadow-modal);
 }
 
 .error {
@@ -178,7 +180,7 @@
     transform: scale(0.5);
     animation: scale-in 1.2s ease-out forwards;
   }
-  
+
   @keyframes scale-in {
     to {
       opacity: 1;
@@ -191,7 +193,7 @@
     padding: 40px 62px;
     height: 100%;
     backdrop-filter: blur(25px);
-    box-shadow: 0 4px 60px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 60px 0 var(--box-shadow-modal);
     background: var(--form-tablet-desktop-radial-gradient);
   }
 
@@ -215,7 +217,6 @@
     background-image: url("../../images/RegistrationPage-IMG/registr-page-gradient-dekstop_1x.webp"),
       var(--bg-desktop-linear-gradient);
   }
-  /* linear-gradient(220deg, rgb(109, 84, 235, 0.4), rgb(100, 35, 144, 0.4)); */
 
   @media (min-resolution: 2dppx) {
     .mainContainer {

@@ -88,6 +88,7 @@ tr {
 
 .sum {
   text-align: right;
+  font-weight: 600;
 }
 
 ul {
@@ -124,6 +125,11 @@ ul {
   text-align: right;
 }
 
+.cardSum {
+  text-align: right;
+  font-weight: 600;
+}
+
 .cardActions {
   display: flex;
   justify-content: space-between;
@@ -156,75 +162,18 @@ ul {
   padding: 4px 12px;
 }
 
-/* .income {
-  color: #FFB627;
+.income {
+  color: #ffb627;
 }
 
 .expense {
-  color: #FF868D;
+  color: #ff868d;
 }
 
-.incomeBorder {
-  border-left: 5px solid #FFB627;
+.cardIncome {
+  border-left: 4px solid #ffb627;
 }
 
-.expenseBorder {
-  border-left: 5px solid #FF868D;
+.cardExpense {
+  border-left: 4px solid #ff868d;
 }
-
-.card {
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background: var(--form-color);
-  color: white;
-}
-
-.cardRow {
-  display: flex;
-  justify-content: space-between;
-  padding: 12px 20px;
-}
-
-.cardRow:not(:last-child) {
-  border-bottom: 1px solid rgba(128, 128, 128, 0.534);
-}
-
-.cardLabel {
-  font-weight: bold;
-}
-
-.cardValue {
-  text-align: right;
-}
-
-.cardActions {
-  display: flex;
-  justify-content: space-between;
-}
-
-.cardActions button {
-  margin: 0px;
-  padding: 0px;
-}
-
-.cardActions {
-  padding: 12px 20px;
-}
-
-.carandash {
-  font-family: var(--font-family);
-  font-weight: 400;
-  font-size: 16px;
-  letter-spacing: 0.02em;
-  text-align: center;
-  color: var(--white-60);
-}
-
-.penContainer {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-  background-color: transparent;
-  border: none;
-  padding: 4px 12px;
-} */

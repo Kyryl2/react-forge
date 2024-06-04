@@ -1,7 +1,10 @@
 import { NavLink } from "react-router-dom";
-import s from "./Navigation.module.css";
+
 import { Icon } from "../../images/Icon/Icon";
+
 import useMedia from "../../hooks/useMedia";
+
+import s from "./Navigation.module.css";
 
 const Navigation = () => {
   const { isMobile } = useMedia();
@@ -35,7 +38,7 @@ const Navigation = () => {
       {navLinks
         .filter((link) => link.visible)
         .map((link) => (
-          <NavLink key={link.title} to={link.path} className={getClasses}>
+          <NavLink key={link.title} to={link.path} className={getClasses} aria-label="link">
             <div className={s.linkIcon}>
               <Icon id={link.icon} className={s.navIcon} />
             </div>

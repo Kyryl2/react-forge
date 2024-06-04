@@ -1,13 +1,15 @@
-import s from "./Header.module.css";
-import "../../styles/container.css";
-import { Icon } from "../../images/Icon/Icon";
+import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectUsername } from "../../redux/auth/selectors";
-import { useToggle } from "../../hooks/useToggle";
+
+import { Icon } from "../../images/Icon/Icon";
 import LogOutModal from "../LogoutModal/LogoutModal";
 
 import useMedia from "../../hooks/useMedia";
-import { NavLink } from "react-router-dom";
+import { selectUsername } from "../../redux/auth/selectors";
+import { useToggle } from "../../hooks/useToggle";
+
+import s from "./Header.module.css";
+import "../../styles/container.css";
 
 const Header = () => {
   const { openModal, isOpen, closeModal } = useToggle();

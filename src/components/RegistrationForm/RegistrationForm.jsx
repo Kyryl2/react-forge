@@ -1,18 +1,18 @@
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
-import s from "./RegistrationForm.module.css";
+import { Link } from "react-router-dom";
+import clsx from "clsx";
 import { Form, Formik } from "formik";
+import toast, { Toaster } from "react-hot-toast";
+import { IoWarningOutline } from "react-icons/io5";
+
+import { CustomInput } from "../LoginForm/CustomInput";
+import Logo from "../Logo/Logo";
+import { Bar } from "./Bar";
 
 import { userRegisterThunk } from "../../redux/auth/operations";
 
-import { Link } from "react-router-dom";
-import clsx from "clsx";
-import { CustomInput } from "../LoginForm/CustomInput";
-import Logo from "../Logo/Logo";
-
-import toast, { Toaster } from "react-hot-toast";
-import { IoWarningOutline } from "react-icons/io5";
-import { Bar } from "./Bar";
+import s from "./RegistrationForm.module.css";
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();

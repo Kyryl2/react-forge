@@ -2,8 +2,9 @@ import clsx from "clsx";
 import Select from "react-select";
 import { useDispatch, useSelector } from "react-redux";
 import { useMemo, useRef, useState } from "react";
-import css from "./StatisticsDashboard.module.css";
+
 import { Icon } from "../../images/Icon/Icon";
+
 import { styles } from "../../options/selectStyles";
 import { getSummaryThunk } from "../../redux/transactions/operations";
 import { selectTransactions } from "../../redux/transactions/selectors";
@@ -13,6 +14,8 @@ import {
   getOptions,
   getOptionsIndex,
 } from "../../helpers/getDates";
+
+import css from "./StatisticsDashboard.module.css";
 
 const StatisticsDashboard = () => {
   const [monthSelectIsOpen, setMonthSelectIsOpen] = useState(false);

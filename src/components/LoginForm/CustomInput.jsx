@@ -1,9 +1,9 @@
 import { ErrorMessage, Field } from "formik";
+import { useId } from "react";
 
 import { Icon } from "../../images/Icon/Icon";
 
 import s from "./LoginForm.module.css";
-import { useId } from "react";
 
 export const CustomInput = ({ iconID, type = "text", name, placeholder }) => {
   const id = useId();

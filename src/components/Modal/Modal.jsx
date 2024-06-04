@@ -1,6 +1,8 @@
-import s from "./Modal.module.css";
 import { useEffect } from "react";
+
 import useMedia from "../../hooks/useMedia";
+
+import s from "./Modal.module.css";
 
 const Modal = ({ closeModal, children }) => {
   const { isMobile } = useMedia();

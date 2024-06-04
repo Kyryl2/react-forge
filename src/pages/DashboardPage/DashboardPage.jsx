@@ -1,21 +1,26 @@
 import { Outlet } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+
 import Balance from "../../components/Balance/Balance";
 import CurrencyTab from "../../components/CurrencyTab/CurrencyTab";
 import Header from "../../components/Header/Header";
 import Navigation from "../../components/Navigation/Navigation";
+
 import useMedia from "../../hooks/useMedia";
+import {
+  getCategoriesThunk,
+  getTransactionsThunk,
+} from "../../redux/transactions/operations";
 
 import s from "./DashboardPage.module.css";
-import { useEffect } from "react";
-import { getCategoriesThunk, getTransactionsThunk } from "../../redux/transactions/operations";
-import { useDispatch } from "react-redux";
 
 const DashboardPage = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const { isMobile } = useMedia();
   useEffect(() => {
     dispatch(getTransactionsThunk());
-        dispatch(getCategoriesThunk());
+    dispatch(getCategoriesThunk());
   }, [dispatch]);
 
   return (

@@ -1,12 +1,13 @@
 import { useState } from "react";
-import s from "./HomeTab.module.css";
 
 import TransactionsList from "../TransactionsList/TransactionsList";
 import { ButtonAddTransactions } from "../ButtonAddTransactions/ButtonAddTransactions";
 import Balance from "../Balance/Balance";
+import AddTransactionForm from "../AddTransactionForm/AddTransactionForm";
+
 import useMedia from "../../hooks/useMedia";
 
-import AddTransactionForm from "../AddTransactionForm/AddTransactionForm";
+import s from "./HomeTab.module.css";
 
 export default function HomeTab() {
   const { isMobile } = useMedia();

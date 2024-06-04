@@ -4,12 +4,10 @@ import { Icon } from "../../images/Icon/Icon";
 
 import s from "./Toggle.module.css";
 
-const Toggle = ({ onChange }) => {
-  const [isActive, setIsActive] = useState(true);
+const Toggle = ({ onChange, defaultActive }) => {
+  const [isActive, setIsActive] = useState(defaultActive);
 
   const handleToggle = () => {
-    setIsActive(!isActive);
-
     const newActiveState = !isActive;
     setIsActive(newActiveState);
     onChange(newActiveState);

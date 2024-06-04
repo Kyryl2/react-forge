@@ -3,6 +3,7 @@ import ReactDatePicker from "react-datepicker";
 import Select from "react-select";
 import clsx from "clsx";
 import { useDispatch, useSelector } from "react-redux";
+import toast from "react-hot-toast";
 
 import CustomInputCalendar from "./CustomInputCalendar";
 import Modal from "../Modal/Modal";
@@ -12,10 +13,10 @@ import { Icon } from "../../images/Icon/Icon";
 import { selectCategories } from "../../redux/transactions/selectors";
 import { postTransactionThunk } from "../../redux/transactions/operations";
 import { styles } from "../../options/selectStylesAdd";
+import useMedia from "../../hooks/useMedia";
+
 import s from "./AddTransactionForm.module.css";
 import "react-datepicker/dist/react-datepicker.css";
-import useMedia from "../../hooks/useMedia";
-import toast from "react-hot-toast";
 
 const AddTransactionForm = ({ closeModal }) => {
   const { isMobile } = useMedia();
@@ -140,7 +141,6 @@ const AddTransactionForm = ({ closeModal }) => {
               customInput={<CustomInputCalendar />}
             />
           </div>
-
         </div>
         <input
           type="text"
@@ -150,7 +150,11 @@ const AddTransactionForm = ({ closeModal }) => {
           onChange={(e) => setComment(e.target.value)}
         />
       </div>
-      <button className={s.addButton} onClick={handleAddTransaction} aria-label="add button"> 
+      <button
+        className={s.addButton}
+        onClick={handleAddTransaction}
+        aria-label="add button"
+      >
         ADD
       </button>
     </Modal>

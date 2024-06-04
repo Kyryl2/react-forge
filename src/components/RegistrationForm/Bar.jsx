@@ -1,4 +1,5 @@
 import PasswordStrengthBar from "react-password-strength-bar";
+
 export const Bar = ({ pass, confirm }) => {
   let pasw = "";
   let word = "";

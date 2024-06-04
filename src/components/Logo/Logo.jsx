@@ -1,5 +1,5 @@
-
 import { Icon } from "../../images/Icon/Icon";
+
 import s from "./Logo.module.css";
 
 const Logo = ({ width, height, className, classLogo }) => {
@@ -9,7 +9,6 @@ const Logo = ({ width, height, className, classLogo }) => {
         id="icon-logo"
         width={width}
         height={height}
-   
         className={`${classLogo} ${s.iconLogo}`}
       />
       <p className={className}>Money Guard</p>

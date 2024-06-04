@@ -1,9 +1,11 @@
 import { useSelector } from "react-redux";
+
 import TransactionsItem from "../TransactionsItem/TransactionsItem";
+
 import { selectTransactions } from "../../redux/transactions/selectors";
+import useMedia from "../../hooks/useMedia";
 
 import s from "./TransactionsList.module.css";
-import useMedia from "../../hooks/useMedia";
 
 const TransactionsList = () => {
   const transactions = useSelector(selectTransactions);

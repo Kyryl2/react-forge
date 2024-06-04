@@ -1,4 +1,5 @@
 import Currency from "../Currency/Currency";
+
 import s from "./CurrencyTab.module.css";
 
 const CurrencyTab = () => {

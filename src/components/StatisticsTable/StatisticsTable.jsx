@@ -1,9 +1,12 @@
 import { useSelector } from "react-redux";
+import clsx from "clsx";
+
+import Loader from "../Loader/Loader";
+
 import { selectSummary } from "../../redux/transactions/selectors";
 import { selectIsLoading } from "../../redux/status/selectors";
-import Loader from "../Loader/Loader";
+
 import css from "./StatisticsTable.module.css";
-import clsx from "clsx";
 
 const StatisticsTable = () => {
   const isLoading = useSelector(selectIsLoading);

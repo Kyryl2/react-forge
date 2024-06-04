@@ -1,4 +1,3 @@
-import s from "./LogoutModal.module.css";
 import { useDispatch } from "react-redux";
 
 import { userLogoutThunk } from "../../redux/auth/operations";
@@ -6,6 +5,8 @@ import useMedia from "../../hooks/useMedia";
 
 import Logo from "../Logo/Logo";
 import Modal from "../Modal/Modal";
+
+import s from "./LogoutModal.module.css";
 
 const LogOutModal = ({ closeModal }) => {
   const dispatch = useDispatch();

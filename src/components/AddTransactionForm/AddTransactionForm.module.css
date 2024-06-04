@@ -148,3 +148,33 @@
 
 @media screen and (min-width: 1280px) {
 }
+
+:global .react-datepicker__header {
+  text-align: center;
+  background-color:  rgba(82, 59, 126, 0.6);
+  border-bottom: 1px solid #aeaeae;
+  border-top-left-radius: 0.3rem;
+  padding: 8px 0;
+  position: relative;
+}
+
+:global .react-datepicker__month {
+
+  background:  var(--modal-bg-radial-gradient-tablet), var(--modal-bg-gradient-tablet);
+}
+
+:global .react-datepicker__month-container {
+
+  background:  var(--modal-bg-radial-gradient-tablet), var(--modal-bg-gradient-tablet);
+}
+
+
+:global  .react-datepicker__day {
+  color: var(--white-40);
+}
+:global .react-datepicker__current-month {
+  color: var(--white-smoke);
+}
+:global .react-datepicker__day:hover{
+  background: var(--white-60);
+}

@@ -145,11 +145,7 @@ const AddTransactionForm = ({ closeModal }) => {
                   required
                   className={s.inputField}
                 />
-                <ErrorMessage
-                  name="amount"
-                  component="div"
-                  className={s.error}
-                />
+
                 <div>
                   <ReactDatePicker
                     selected={values.startDate}
@@ -161,6 +157,7 @@ const AddTransactionForm = ({ closeModal }) => {
                   />
                 </div>
               </div>
+              <ErrorMessage name="amount" component="div" className={s.error} />
               <Field
                 type="text"
                 name="comment"

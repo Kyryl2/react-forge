@@ -5,7 +5,7 @@
   --white-smoke: #f5f5f5;
   --white-20: rgba(255, 255, 255, 0.2);
   --white-40: rgba(255, 255, 255, 0.4);
-  --white-60: rgba(255, 255, 255, 0.6);
+  --white-60: #ffffff99;
   --text-button: #623f8b;
   --dashboard-text: #ff868d;
   --form-color: rgba(255, 255, 255, 0.1);
@@ -84,6 +84,13 @@
     #ffc727 0%,
     #bf6e93 61.46%,
     #a54ab2 90.54%
+  );
+
+  --button-gradient-modal: linear-gradient(
+    96.76deg,
+    #ffc727 -16.42%,
+    #9e40ba 97.04%,
+    #7000ff 150.71%
   );
 
   /* #endregion button gradients */

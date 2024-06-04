@@ -122,7 +122,13 @@
     background-size: cover;
     height: 100vh;
   }
-  /* linear-gradient(220deg, rgb(109, 84, 235, 0.4), rgb(100, 35, 144, 0.4)); */
+  @media (min-resolution: 2dppx) {
+    .mainContainer {
+    background-image: url("../../images/RegistrationPage-IMG/registr-page-gradient-tablet_2x.webp"),
+      var(--bg-tablet-linear-gradient);
+    }
+  }
+  
   .input {
     width: 409px;
     height: 35px;
@@ -178,6 +184,13 @@
     var(--bg-desktop-linear-gradient);
   }
   /* linear-gradient(220deg, rgb(109, 84, 235, 0.4), rgb(100, 35, 144, 0.4)); */
+
+  @media (min-resolution: 2dppx) {
+    .mainContainer {
+    background-image: url("../../images/RegistrationPage-IMG/registr-page-gradient-dekstop_2x.webp"),
+      var(--bg-tablet-linear-gradient);
+    }
+  }
 
   .title {
     font-size: 26px;

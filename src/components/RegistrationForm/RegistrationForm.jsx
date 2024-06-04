@@ -1,5 +1,5 @@
 import * as Yup from "yup";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch  } from "react-redux";
 import s from "./RegistrationForm.module.css";
 import { Form, Formik } from "formik";
 
@@ -9,48 +9,15 @@ import { Link } from "react-router-dom";
 import clsx from "clsx";
 import { CustomInput } from "../LoginForm/CustomInput";
 import Logo from "../Logo/Logo";
-import {
-  selectConfirm,
-  selectPassword,
-} from "../../redux/progressbar/selectors";
-import PasswordStrengthBar from "react-password-strength-bar";
 
 import toast, { Toaster } from "react-hot-toast";
 import { IoWarningOutline } from "react-icons/io5";
+import { Bar } from "./Bar";
 
 const RegistrationForm = () => {
   const dispatch = useDispatch();
 
-  let pass = useSelector(selectPassword);
 
-  const confirm = useSelector(selectConfirm);
-  let pasw = "";
-  let word = "";
-  let wrd = "";
-  let color = "";
-
-  if (pass.length < 8 && pass.length > 0) {
-    wrd = "Too short";
-    color = "red";
-  }
-  if (pass !== confirm) {
-    color = "yellow";
-    word = ["Not match"];
-  }
-  if (pass.length > 7 && confirm.length < 8 && confirm.length > 0) {
-    word = ["Not match"];
-    wrd = "Not match";
-  }
-
-  if (pass !== "" && pass.length > 7 && pass === confirm) {
-    pasw = pass;
-    word = ["Okay"];
-    color = "green";
-  }
-  if (pass !== "" && pass.length > 7 && pass !== confirm) {
-    color = "red";
-    wrd = "Not match";
-  }
   const FeedbackSchema = Yup.object().shape({
     username: Yup.string()
       .min(1, "Must be at least 1 character")
@@ -106,7 +73,7 @@ const RegistrationForm = () => {
             validationSchema={FeedbackSchema}
           >
             
-            <Form className={s.form}>
+           {({values:{password, confirm}})=> <Form className={s.form}>
               <CustomInput
                 name="username"
                 type="text"
@@ -131,14 +98,8 @@ const RegistrationForm = () => {
                 placeholder="Confirm password"
                 iconID="icon-lock"
               />
-              {pass && (
-                <PasswordStrengthBar
-                  password={pasw}
-                  minLength={2}
-                  shortScoreWord={wrd}
-                  scoreWords={[word]}
-                  barColors={[color]}
-                />
+              {password && (
+               <Bar pass={password} confirm={confirm}/>
               )}
               <div className={s.buttonsWrapper}>
                 <button className={clsx(s.btn, s.btnRegister)} type="submit">
@@ -151,6 +112,8 @@ const RegistrationForm = () => {
                 </Link>
               </div>
             </Form>
+            
+           }
           </Formik>
         </div>
       </div>

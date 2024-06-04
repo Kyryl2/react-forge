@@ -1,13 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { goitApi, updateAuthHeader } from "../../config/goitApi";
+import { goitApi } from "../../config/goitApi";
+import { getBalance } from "../auth/operations";
 
 export const getCategoriesThunk = createAsyncThunk(
   "transaction/getCategories",
   async (_, thunkAPI) => {
     try {
-      const { auth } = thunkAPI.getState();
 
-      updateAuthHeader(auth.token);
 
       const { data } = await goitApi.get("transaction-categories");
       return data;
@@ -23,9 +22,6 @@ export const getSummaryThunk = createAsyncThunk(
     try {
       const { month, year } = query;
 
-      const { auth } = thunkAPI.getState();
-
-      updateAuthHeader(auth.token);
 
       const { data } = await goitApi.get("transactions-summary", {
         params: {
@@ -45,9 +41,7 @@ export const getTransactionsThunk = createAsyncThunk(
   "transaction/getTransactions",
   async (_, thunkAPI) => {
     try {
-      const { auth } = thunkAPI.getState();
-
-      updateAuthHeader(auth.token);
+ 
 
       const { data } = await goitApi.get("transactions");
       return data;
@@ -61,9 +55,6 @@ export const postTransactionThunk = createAsyncThunk(
   "transaction/postTransaction",
   async (body, thunkAPI) => {
     try {
-      const { auth } = thunkAPI.getState();
-
-      updateAuthHeader(auth.token);
 
       const { data } = await goitApi.post("transactions", body);
 
@@ -80,11 +71,12 @@ export const patchTransactionThunk = createAsyncThunk(
     try {
       const { id, ...body } = payload;
 
-      const { auth } = thunkAPI.getState();
+      
 
-      updateAuthHeader(auth.token);
+      
 
       const { data } = await goitApi.patch(`transactions/${id}`, body);
+      await  thunkAPI.dispatch(getBalance())
 
       return data;
     } catch (error) {
@@ -97,13 +89,11 @@ export const deleteTransactionThunk = createAsyncThunk(
   "transaction/deleteTransaction",
   async (id, thunkAPI) => {
     try {
-      const { auth } = thunkAPI.getState();
 
-      updateAuthHeader(auth.token);
 
-      const { data } = await goitApi.delete(`transactions/${id}`);
-
-      return data;
+    await goitApi.delete(`transactions/${id}`);
+    await  thunkAPI.dispatch(getBalance())
+      return id;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

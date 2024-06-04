@@ -10,11 +10,11 @@ import {
 } from "./operations";
 
 const initialState = {
-  transactions: {
+  
     categories: [],
     transactions: [],
     summary: {},
-  },
+  
 };
 
 const transactionsSlice = createSlice({
@@ -23,28 +23,29 @@ const transactionsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getCategoriesThunk.fulfilled, (state, { payload }) => {
-        state.transactions.categories = payload;
+        state.categories = payload;
       })
       .addCase(getSummaryThunk.fulfilled, (state, { payload }) => {
-        state.transactions.summary = payload;
+        state.summary = payload;
       })
       .addCase(getTransactionsThunk.fulfilled, (state, { payload }) => {
-        state.transactions.transactions = payload;
+        state.transactions = payload;
       })
       .addCase(postTransactionThunk.fulfilled, (state, { payload }) => {
-        state.transactions.transactions.push(payload);
+        state.transactions.push(payload);
+        
       })
       .addCase(patchTransactionThunk.fulfilled, (state, { payload }) => {
-        const index = state.transactions.transactions.findIndex(
+        const index = state.transactions.findIndex(
           (transaction) => transaction.id === payload.id
         );
-        state.transactions.transactions[index] = payload;
+        state.transactions[index] = payload;
       })
       .addCase(deleteTransactionThunk.fulfilled, (state, { payload }) => {
-        const index = state.transactions.transactions.findIndex(
-          (transaction) => transaction.id === payload.id
+        const index = state.transactions.findIndex(
+          (transaction) => transaction.id === payload
         );
-        state.transactions.transactions.splice(index, 1);
+        state.transactions.splice(index, 1);
       })
       .addCase(userLogoutThunk.fulfilled, () => {
         return initialState;
@@ -54,7 +55,7 @@ const transactionsSlice = createSlice({
 
 export const transactionsReducer = transactionsSlice.reducer;
 export const selectCategories = (state) =>
-  state.transactions.transactions.categories;
+  state.transactions.categories;
 export const selectTransactions = (state) =>
-  state.transactions.transactions.transactions;
-export const selectSummary = (state) => state.transactions.transactions.summary;
+  state.transactions.transactions;
+export const selectSummary = (state) => state.transactions.summary;

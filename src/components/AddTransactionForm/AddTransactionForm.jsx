@@ -146,7 +146,7 @@ const AddTransactionForm = ({ closeModal }) => {
           onChange={(e) => setComment(e.target.value)}
         />
       </div>
-      <button className={s.addButton} onClick={handleAddTransaction}>
+      <button className={s.addButton} onClick={handleAddTransaction} aria-label="add button"> 
         ADD
       </button>
     </Modal>

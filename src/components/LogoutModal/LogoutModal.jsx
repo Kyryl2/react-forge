@@ -20,6 +20,7 @@ const LogOutModal = ({ closeModal }) => {
         <button
           className={s.btnLogout}
           onClick={() => dispatch(userLogoutThunk())}
+          aria-label="logout button"
         >
           LOGOUT
         </button>

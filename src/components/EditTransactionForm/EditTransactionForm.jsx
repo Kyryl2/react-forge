@@ -94,7 +94,7 @@ const EditTransactionForm = ({ transaction, closeModal }) => {
   };
 
   return (
-    <div className={s.div}>
+    // <div className={s.div}>
       <Modal closeModal={closeModal}>
         <div onClick={closeModal}>
           <Icon
@@ -181,7 +181,7 @@ const EditTransactionForm = ({ transaction, closeModal }) => {
           )}
         </Formik>
       </Modal>
-    </div>
+    // </div>
   );
 };
 

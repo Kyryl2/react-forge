@@ -99,11 +99,19 @@ const RegistrationForm = () => {
                 />
                 {password && <Bar pass={password} confirm={confirm} />}
                 <div className={s.buttonsWrapper}>
-                  <button className={clsx(s.btn, s.btnRegister)} type="submit">
+                  <button
+                    className={clsx(s.btn, s.btnRegister)}
+                    type="submit"
+                    aria-label="register button"
+                  >
                     Register
                   </button>
                   <Link to="/login">
-                    <button className={clsx(s.btn, s.btnLogin)} type="button">
+                    <button
+                      className={clsx(s.btn, s.btnLogin)}
+                      type="button"
+                      aria-label="login button"
+                    >
                       Log in
                     </button>
                   </Link>

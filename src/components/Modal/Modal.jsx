@@ -36,6 +36,7 @@ const Modal = ({ closeModal, children }) => {
           className={s.btnCancel}
           type="button"
           onClick={() => closeModal()}
+          aria-label="cancel button"
         >
           CANCEL
         </button>

@@ -170,7 +170,12 @@ const EditTransactionForm = ({ transaction, closeModal }) => {
                 className={s.error}
               />
             </div>
-            <button type="submit" className={s.save} disabled={isSubmitting}>
+            <button
+              type="submit"
+              className={s.save}
+              disabled={isSubmitting}
+              aria-label="save button"
+            >
               SAVE
             </button>
           </Form>

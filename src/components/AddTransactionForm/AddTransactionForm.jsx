@@ -130,14 +130,17 @@ const AddTransactionForm = ({ closeModal }) => {
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
           />
-          <ReactDatePicker
-            selected={startDate}
-            onChange={(date) => setStartDate(date)}
-            dateFormat="dd.MM.yyyy"
-            className={s.dateInput}
-            customInput={<CustomInputCalendar />}
-            calendarStartDay={1}
-          />
+
+          <div>
+            <ReactDatePicker
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              dateFormat="dd.MM.yyyy"
+              className={s.dateInput}
+              customInput={<CustomInputCalendar />}
+            />
+          </div>
+
         </div>
         <input
           type="text"

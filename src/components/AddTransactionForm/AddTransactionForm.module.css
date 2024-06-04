@@ -32,7 +32,7 @@
 .commentInput,
 .categorySelect {
   background: transparent;
-  color: var(--white-60);
+  color: var(--white-smoke);
   font-size: 18px;
   border: none;
   border-bottom: 1px solid var(--white-40);
@@ -48,15 +48,15 @@
 }
 
 .inputField::placeholder {
-  color: var(--white-60);
+  color: var(--white-smoke);
 }
 
 .commentInput::placeholder {
-  color: var(--white-60);
+  color: var(--white-smoke);
 }
 
 .categorySelect::placeholder {
-  color: var(--white-60);
+  color: var(--white-smoke);
 }
 
 .commentInput {

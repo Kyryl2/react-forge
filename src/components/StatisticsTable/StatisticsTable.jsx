@@ -15,7 +15,7 @@ const StatisticsTable = () => {
       {isLoading && <Loader />}
       {categoriesSummary && (
         <table className={css.table}>
-          <thead>
+          <thead className={css.table_head}>
             <tr className={css.table_row}>
               <th>Category</th>
               <th>Sum</th>

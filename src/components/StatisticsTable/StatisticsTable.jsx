@@ -26,8 +26,8 @@ const StatisticsTable = () => {
           </thead>
           <tbody className={css.table_body}>
             {categoriesSummary?.map((category, index) => (
-              <div key={index}>
-                <tr className={css.table_row}>
+              <>
+                <tr key={index} className={css.table_row}>
                   <td className={css.table_data}>
                     <span
                       className={clsx(
@@ -41,7 +41,7 @@ const StatisticsTable = () => {
                     2
                   )}`}</td>
                 </tr>
-              </div>
+              </>
             ))}
             <tr className={css.bottom_row}>
               <td className={css.bottom_data}>Expenses:</td>

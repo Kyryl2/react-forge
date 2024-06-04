@@ -1,13 +1,13 @@
 p {
-  color: white;
+  color: var(--white);
 }
 
 .title {
+  color: var(--white);
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 30px;
-  color: var(--white);
-  margin-bottom: 8px;
+  margin-bottom: 2px;
 }
 
 .tabContainer {
@@ -17,7 +17,7 @@ p {
 
 @media only screen and (min-width: 768px) {
   .title {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   .tabContainer {

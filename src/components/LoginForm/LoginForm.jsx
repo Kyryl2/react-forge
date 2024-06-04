@@ -1,15 +1,15 @@
 import { Form, Formik } from "formik";
-import s from "./LoginForm.module.css";
+import toast, { Toaster } from "react-hot-toast";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
-import { userLoginThunk } from "../../redux/auth/operations";
 import { Link } from "react-router-dom";
-
-import toast, { Toaster } from "react-hot-toast";
 import { IoWarningOutline } from "react-icons/io5";
 
+import { userLoginThunk } from "../../redux/auth/operations";
 import { CustomInput } from "./CustomInput";
 import Logo from "../Logo/Logo";
+
+import s from "./LoginForm.module.css";
 
 const LoginForm = () => {
   const dispatch = useDispatch();

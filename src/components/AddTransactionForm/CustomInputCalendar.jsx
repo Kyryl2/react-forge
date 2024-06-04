@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
 import { Icon } from "../../images/Icon/Icon";
+
 import s from "./CustomInput.module.css";
 
 const CustomInputCalendar = forwardRef(({ value, onClick }, ref) => {

@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   deleteTransactionThunk,
-  getCategoriesThunk,
 } from "../../redux/transactions/operations";
 import { Icon } from "../../images/Icon/Icon";
 import s from "./TransactionsItem.module.css";
@@ -34,11 +33,7 @@ const TransactionsItem = ({ transaction }) => {
 
   const categories = useSelector(selectCategories);
 
-  useEffect(() => {
-    if (categories.length === 0) {
-      dispatch(getCategoriesThunk());
-    }
-  }, [categories.length, dispatch]);
+ 
 
   const category = categories.find(
     (item) => item.id === transaction.categoryId

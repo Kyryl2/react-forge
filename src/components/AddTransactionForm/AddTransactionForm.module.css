@@ -159,13 +159,13 @@
 }
 
 :global .react-datepicker__month {
-  /* margin: 0.4rem;
-  text-align: center; */
-  background-color:  rgba(82, 59, 126, 0.6);
+
+  background:  var(--modal-bg-radial-gradient-tablet), var(--modal-bg-gradient-tablet);
 }
+
 :global .react-datepicker__month-container {
-  /* float: left; */
-  background-color:  rgba(82, 59, 126, 0.6);
+
+  background:  var(--modal-bg-radial-gradient-tablet), var(--modal-bg-gradient-tablet);
 }
 
 
@@ -174,4 +174,7 @@
 }
 :global .react-datepicker__current-month {
   color: var(--white-smoke);
+}
+:global .react-datepicker__day:hover{
+  background: var(--white-60);
 }

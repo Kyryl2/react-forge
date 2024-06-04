@@ -89,7 +89,7 @@ const EditTransactionForm = ({ transaction, closeModal }) => {
 
   return (
     <div>
-      <Toaster/>
+      <Toaster />
       <Modal closeModal={closeModal}>
         {!isMobile && (
           <div onClick={closeModal}>
@@ -128,7 +128,7 @@ const EditTransactionForm = ({ transaction, closeModal }) => {
                   type="text"
                   name="category"
                   placeholder="Category"
-                  className={s.inputField}
+                  className={s.inputF}
                   readOnly
                   value={categoryName}
                 />

@@ -88,7 +88,6 @@ const EditTransactionForm = ({ transaction, closeModal }) => {
   };
 
   return (
-    // <div className={s.div}>
     <Modal closeModal={closeModal}>
       <div onClick={closeModal}>
         <Icon id="icon-close" width={16} height={16} className={s.iconClose} />
@@ -114,55 +113,61 @@ const EditTransactionForm = ({ transaction, closeModal }) => {
         onSubmit={handleSubmit}
       >
         {({ isSubmitting, setFieldValue }) => (
-          <Form>
-            <div className={s.inputs}>
+          <Form className={s.form}>
+            {transactionType === "EXPENSE" && (
               <Field
-                type="number"
-                name="amount"
-                placeholder="0.00"
+                type="text"
+                name="category"
+                placeholder="Category"
                 className={s.inputField}
+                readOnly
+                value={categoryName}
               />
-              <ErrorMessage name="amount" component="div" className={s.error} />
-              <ReactDatePicker
-                selected={startDate}
-                onChange={(date) => {
-                  setStartDate(date);
-                  setFieldValue("transactionDate", date);
-                }}
-                dateFormat="dd.MM.yyyy"
-                className={s.dateInput}
-                customInput={<CustomInputCalendar />}
-              />
-              {transactionType === "EXPENSE" && (
+            )}
+            <div className={s.column}>
+              <div className={s.inputs}>
                 <Field
-                  type="text"
-                  name="category"
-                  placeholder="Category"
+                  type="number"
+                  name="amount"
+                  placeholder="0.00"
                   className={s.inputField}
-                  readOnly
-                  value={categoryName}
                 />
-              )}
+                <ErrorMessage
+                  name="amount"
+                  component="div"
+                  className={s.error}
+                />
+                <ReactDatePicker
+                  selected={startDate}
+                  onChange={(date) => {
+                    setStartDate(date);
+                    setFieldValue("transactionDate", date);
+                  }}
+                  dateFormat="dd.MM.yyyy"
+                  className={s.dateInput}
+                  customInput={<CustomInputCalendar />}
+                />
+              </div>
+
+              <Field
+                type="text"
+                name="comment"
+                placeholder="Comment"
+                className={s.commentInput}
+              />
+              <ErrorMessage
+                name="comment"
+                component="div"
+                className={s.error}
+              />
             </div>
-            <Field
-              type="text"
-              name="comment"
-              placeholder="Comment"
-              className={s.commentInput}
-            />
-            <ErrorMessage name="comment" component="div" className={s.error} />
-            <button
-              type="submit"
-              className={s.addButton}
-              disabled={isSubmitting}
-            >
+            <button type="submit" className={s.save} disabled={isSubmitting}>
               SAVE
             </button>
           </Form>
         )}
       </Formik>
     </Modal>
-    // </div>
   );
 };
 

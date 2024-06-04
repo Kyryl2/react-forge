@@ -136,6 +136,7 @@ const AddTransactionForm = ({ closeModal }) => {
             dateFormat="dd.MM.yyyy"
             className={s.dateInput}
             customInput={<CustomInputCalendar />}
+            calendarStartDay={1}
           />
         </div>
         <input

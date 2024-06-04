@@ -19,7 +19,7 @@ const Header = () => {
     <header className={s.headerLine}>
       <div className={s.header}>
         {isMobile && (
-          <NavLink to="" className={s.link}>
+          <NavLink to="" className={s.link} aria-label="icon logo">
             <div className={s.div}>
               <Icon id="icon-logo" width={18} height={18} className={s.icon} />
               <span className={s.logoName}>Money Guard</span>
@@ -27,7 +27,7 @@ const Header = () => {
           </NavLink>
         )}
         {!isMobile && (
-          <NavLink to="">
+          <NavLink to="" aria-label="icon logo">
             <div className={s.div}>
               <Icon id="icon-logo" width={25} height={23} className={s.icon} />
               <span className={s.logoName}>Money Guard</span>

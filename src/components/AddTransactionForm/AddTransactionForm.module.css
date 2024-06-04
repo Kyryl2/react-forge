@@ -148,3 +148,22 @@
 
 @media screen and (min-width: 1280px) {
 }
+
+:global .react-datepicker__header {
+  text-align: center;
+  background-color:  rgba(82, 59, 126, 0.6);
+  border-bottom: 1px solid #aeaeae;
+  border-top-left-radius: 0.3rem;
+  padding: 8px 0;
+  position: relative;
+}
+
+:global .react-datepicker__month {
+  /* margin: 0.4rem;
+  text-align: center; */
+  background-color:  rgba(82, 59, 126, 0.6);
+}
+:global .react-datepicker__month-container {
+  /* float: left; */
+  background-color:  rgba(82, 59, 126, 0.6);
+}

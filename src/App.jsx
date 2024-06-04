@@ -12,6 +12,7 @@ import HomeTab from "./components/HomeTab/HomeTab";
 import StatisticsTab from "./components/StatisticsTab/StatisticsTab";
 import Loader from "./components/Loader/Loader";
 import Currency from "./components/Currency/Currency";
+import NotFound from "./pages/NotFound/NotFound";
 
 import { userRefreshThunk } from "./redux/auth/operations";
 import { selectIsRefreshing } from "./redux/auth/selectors";
@@ -56,7 +57,7 @@ function App() {
           />
 
           <Route path="/redux-test" element={<ReduxTest />} />
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       )}
     </>

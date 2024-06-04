@@ -16,6 +16,7 @@
   }
   .inputField {
     text-align: center;
+    font-weight: 600;
   }
   .inputs {
     display: flex;

@@ -146,16 +146,18 @@ const EditTransactionForm = ({ transaction, closeModal }) => {
                   component="div"
                   className={s.error}
                 />
-                <ReactDatePicker
-                  selected={startDate}
-                  onChange={(date) => {
-                    setStartDate(date);
-                    setFieldValue("transactionDate", date);
-                  }}
-                  dateFormat="dd.MM.yyyy"
-                  className={s.dateInput}
-                  customInput={<CustomInputCalendar />}
-                />
+                <div>
+                  <ReactDatePicker
+                    selected={startDate}
+                    onChange={(date) => {
+                      setStartDate(date);
+                      setFieldValue("transactionDate", date);
+                    }}
+                    dateFormat="dd.MM.yyyy"
+                    className={s.dateInput}
+                    customInput={<CustomInputCalendar />}
+                  />
+                </div>
               </div>
 
               <Field

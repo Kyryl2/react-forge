@@ -20,10 +20,20 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   border: none;
- 
+
   background: transparent;
-  -webkit-text-fill-color: rgba(255, 255, 255, 0.659); 
-  caret-color: rgba(255, 255, 255, 0.659); 
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.659);
+  caret-color: rgba(255, 255, 255, 0.659);
   -webkit-box-shadow: transparent;
   transition: background-color 5000s ease-in-out 0s;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }

@@ -11,6 +11,7 @@ import { selectCategories } from "../../redux/transactions/selectors";
 import { patchTransactionThunk } from "../../redux/transactions/operations";
 import CustomInputCalendar from "../AddTransactionForm/CustomInputCalendar";
 import * as Yup from "yup";
+import useMedia from "../../hooks/useMedia";
 
 const EditTransactionForm = ({ transaction, closeModal }) => {
   const [startDate, setStartDate] = useState(
@@ -21,7 +22,7 @@ const EditTransactionForm = ({ transaction, closeModal }) => {
 
   const dispatch = useDispatch();
   const categories = useSelector(selectCategories);
-
+  const { isMobile } = useMedia();
   useEffect(() => {
     if (categories.length > 0) {
       const defaultCategory = categories.find(
@@ -89,9 +90,17 @@ const EditTransactionForm = ({ transaction, closeModal }) => {
 
   return (
     <Modal closeModal={closeModal}>
-      <div onClick={closeModal}>
-        <Icon id="icon-close" width={16} height={16} className={s.iconClose} />
-      </div>
+      {!isMobile && (
+        <div onClick={closeModal}>
+          <Icon
+            id="icon-close"
+            width={16}
+            height={16}
+            className={s.iconClose}
+          />
+        </div>
+      )}
+
       <p className={s.title}>Edit transaction</p>
       <div className={s.toggleContainer}>
         <span className={transactionType === "INCOME" ? s.active : ""}>

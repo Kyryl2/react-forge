@@ -32,3 +32,9 @@ p {
     gap: 10px;
   }
 }
+
+.filler p {
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
+}

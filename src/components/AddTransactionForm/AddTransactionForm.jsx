@@ -14,8 +14,11 @@ import { postTransactionThunk } from "../../redux/transactions/operations";
 import { styles } from "../../options/selectStylesAdd";
 import s from "./AddTransactionForm.module.css";
 import "react-datepicker/dist/react-datepicker.css";
+import useMedia from "../../hooks/useMedia";
 
 export const AddTransactionForm = ({ closeModal }) => {
+  const { isMobile } = useMedia();
+
   const [monthSelectIsOpen, setMonthSelectIsOpen] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
   const [transactionType, setTransactionType] = useState(true);
@@ -81,8 +84,8 @@ export const AddTransactionForm = ({ closeModal }) => {
   };
 
   return (
-    <div className={s.div}>
-      <Modal closeModal={closeModal}>
+    <Modal closeModal={closeModal}>
+      {!isMobile && (
         <div onClick={closeModal}>
           <Icon
             id="icon-close"
@@ -91,14 +94,16 @@ export const AddTransactionForm = ({ closeModal }) => {
             className={s.iconClose}
           />
         </div>
-        <p className={s.title}>Add transaction</p>
-        <Toggle onChange={setTransactionType} />
+      )}
+      <p className={s.title}>Add transaction</p>
+      <Toggle onChange={setTransactionType} />
+      <div className={s.inputContainer}>
         {!transactionType && (
           <div className={s.select_wrapper}>
             <Select
               className={s.categorySelect}
               options={categoryOptions}
-              placeholder="Select category"
+              placeholder="Select a category"
               onMenuOpen={() => handleMenuOpen("monthSelect")}
               onMenuClose={() => handleMenuClose("monthSelect")}
               styles={styles}
@@ -109,40 +114,39 @@ export const AddTransactionForm = ({ closeModal }) => {
               className={clsx(s.icon, {
                 [s.is_active]: monthSelectIsOpen,
               })}
-              width="20px"
-              height="11px"
+              width="23px"
+              height="18px"
             />
           </div>
         )}
-        <div className={s.inputContainer}>
-          <div className={s.inputs}>
-            <input
-              type="number"
-              placeholder="0.00"
-              className={s.inputField}
-              value={amount}
-              onChange={(e) => setAmount(e.target.value)}
-            />
-            <ReactDatePicker
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
-              dateFormat="dd.MM.yyyy"
-              className={s.dateInput}
-              customInput={<CustomInputCalendar />}
-            />
-          </div>
+
+        <div className={s.inputs}>
           <input
-            type="text"
-            placeholder="Comment"
-            className={s.commentInput}
-            value={comment}
-            onChange={(e) => setComment(e.target.value)}
+            type="number"
+            placeholder="0.00"
+            className={s.inputField}
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+          />
+          <ReactDatePicker
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+            dateFormat="dd.MM.yyyy"
+            className={s.dateInput}
+            customInput={<CustomInputCalendar />}
           />
         </div>
-        <button className={s.addButton} onClick={handleAddTransaction}>
-          ADD
-        </button>
-      </Modal>
-    </div>
+        <input
+          type="text"
+          placeholder="Comment"
+          className={s.commentInput}
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
+        />
+      </div>
+      <button className={s.addButton} onClick={handleAddTransaction}>
+        ADD
+      </button>
+    </Modal>
   );
 };

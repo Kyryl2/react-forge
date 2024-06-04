@@ -9,31 +9,86 @@
 .button {
   width: 69px;
   height: 29px;
-  padding: 4px 12px 4px 12px;
+  padding: 4px 12px;
   border-radius: 20px;
-  opacity: 0px;
-  border: 0px;
+  opacity: 1;
+  border: 0;
   cursor: pointer;
-  background: linear-gradient(
-    96.76deg,
-    #ffc727 -16.42%,
-    #9e40ba 97.04%,
-    #7000ff 150.71%
-  );
+  background: var(--button-gradient);
   color: white;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  animation: button-bounce-in 1.5s ease forwards;
+}
+
+@keyframes button-bounce-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+  70% {
+    transform: translateY(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.button:hover {
+  animation: button-hover 0.5s ease infinite;
+}
+
+@keyframes button-hover {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .carandash {
   background: none;
   border: none;
+  cursor: pointer;
+
+  animation: button-fade-in 1.5s ease forwards;
+}
+
+@keyframes button-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 tr {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: left;
+}
+
+.type {
+  text-align: center;
+}
+
+.sum {
+  text-align: right;
+  font-weight: 600;
 }
 
 ul {
@@ -70,6 +125,11 @@ ul {
   text-align: right;
 }
 
+.cardSum {
+  text-align: right;
+  font-weight: 600;
+}
+
 .cardActions {
   display: flex;
   justify-content: space-between;
@@ -100,4 +160,20 @@ ul {
   background-color: transparent;
   border: none;
   padding: 4px 12px;
+}
+
+.income {
+  color: #ffb627;
+}
+
+.expense {
+  color: #ff868d;
+}
+
+.cardIncome {
+  border-left: 4px solid #ffb627;
+}
+
+.cardExpense {
+  border-left: 4px solid #ff868d;
 }

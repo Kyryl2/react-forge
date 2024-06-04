@@ -1,30 +1,60 @@
 .wrapper {
   width: 100%;
-  box-sizing: border-box;
+
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 8px 8px 0px 0px;
+  box-sizing: border-box;
+  margin-bottom: 32px;
 }
 
 table {
   table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
+}
 
-  overflow: hidden;
+thead,
+tbody {
+  display: block;
+}
+
+thead {
+  width: 100%;
+  background-color: #523b7e99;
 }
 
 thead tr {
-  background-color: #523b7e99;
-  box-sizing: border-box;
+  display: table;
+  table-layout: fixed;
+  width: 100%;
 }
+
+.type {
+  text-align: center;
+}
+
+.sum {
+  text-align: right;
+}
+
+tbody {
+  width: 100%;
+  height: 480px;
+  overflow-y: auto;
+}
+
+tbody tr {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
 
 th,
 td {
   padding: 20px;
   color: white;
 }
-
-/*  */
 
 ul {
   display: flex;
@@ -63,4 +93,23 @@ ul {
 
 .cardActions button {
   margin-left: 8px;
+}
+
+tbody::-webkit-scrollbar {
+  width: 8px;
+}
+
+tbody::-webkit-scrollbar-track {
+  background: #523b7e99;
+  border-radius: 8px;
+}
+
+tbody::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    96.76deg,
+    #ffc727 -16.42%,
+    #9e40ba 97.04%,
+    #7000ff 150.71%
+  );
+  border-radius: 8px;
 }

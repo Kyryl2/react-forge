@@ -1,16 +1,14 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { goitApi, updateAuthHeader } from '../../config/goitApi';
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import { goitApi } from "../../config/goitApi";
+import { getBalance } from "../auth/operations";
 
 export const getCategoriesThunk = createAsyncThunk(
-  'transaction/getCategories',
+  "transaction/getCategories",
   async (_, thunkAPI) => {
     try {
-      const { auth } = thunkAPI.getState();
 
-      updateAuthHeader(auth.token);
 
-      const { data } = await goitApi.get('transaction-categories');
-
+      const { data } = await goitApi.get("transaction-categories");
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -19,16 +17,10 @@ export const getCategoriesThunk = createAsyncThunk(
 );
 
 export const getSummaryThunk = createAsyncThunk(
-
   "transaction/getSummary",
   async (query, thunkAPI) => {
-
     try {
       const { month, year } = query;
-
-      const { auth } = thunkAPI.getState();
-
-      updateAuthHeader(auth.token);
 
 
       const { data } = await goitApi.get("transactions-summary", {
@@ -38,7 +30,6 @@ export const getSummaryThunk = createAsyncThunk(
         },
       });
 
-
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -47,14 +38,12 @@ export const getSummaryThunk = createAsyncThunk(
 );
 
 export const getTransactionsThunk = createAsyncThunk(
-  'transaction/getTransactions',
+  "transaction/getTransactions",
   async (_, thunkAPI) => {
     try {
-      const { auth } = thunkAPI.getState();
+ 
 
-      updateAuthHeader(auth.token);
-
-      const { data } = await goitApi.get('transactions');
+      const { data } = await goitApi.get("transactions");
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -63,14 +52,11 @@ export const getTransactionsThunk = createAsyncThunk(
 );
 
 export const postTransactionThunk = createAsyncThunk(
-  'transaction/postTransaction',
+  "transaction/postTransaction",
   async (body, thunkAPI) => {
     try {
-      const { auth } = thunkAPI.getState();
 
-      updateAuthHeader(auth.token);
-
-      const { data } = await goitApi.post('transactions', body);
+      const { data } = await goitApi.post("transactions", body);
 
       return data;
     } catch (error) {
@@ -80,16 +66,17 @@ export const postTransactionThunk = createAsyncThunk(
 );
 
 export const patchTransactionThunk = createAsyncThunk(
-  'transaction/patchTransaction',
+  "transaction/patchTransaction",
   async (payload, thunkAPI) => {
     try {
       const { id, ...body } = payload;
 
-      const { auth } = thunkAPI.getState();
+      
 
-      updateAuthHeader(auth.token);
+      
 
       const { data } = await goitApi.patch(`transactions/${id}`, body);
+      await  thunkAPI.dispatch(getBalance())
 
       return data;
     } catch (error) {
@@ -99,16 +86,14 @@ export const patchTransactionThunk = createAsyncThunk(
 );
 
 export const deleteTransactionThunk = createAsyncThunk(
-  'transaction/deleteTransaction',
+  "transaction/deleteTransaction",
   async (id, thunkAPI) => {
     try {
-      const { auth } = thunkAPI.getState();
 
-      updateAuthHeader(auth.token);
 
-      const { data } = await goitApi.delete(`transactions/${id}`);
-
-      return data;
+    await goitApi.delete(`transactions/${id}`);
+    await  thunkAPI.dispatch(getBalance())
+      return id;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

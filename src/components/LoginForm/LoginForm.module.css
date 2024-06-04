@@ -52,6 +52,11 @@
   align-items: center;
 }
 
+.wrap:hover {
+  border-bottom-color: var(--btn-hover-bg);
+  transition: border-bottom-color 0.3s ease;
+}
+
 .input {
   font-weight: 400;
   font-size: 18px;
@@ -64,8 +69,9 @@
   padding-left: 19px;
   color: var(--white);
 }
+
 .input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--white-60);
 }
 
 .btnLogin {
@@ -88,8 +94,8 @@
 
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
+
 .btnLogin:hover {
-  background: #9e40ba;
   color: var(--white-smoke);
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(10, 10, 10, 0.1);
@@ -99,7 +105,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--btn-border);
   border-radius: 20px;
   width: 280px;
   height: 50px;
@@ -115,13 +120,13 @@
   text-transform: uppercase;
   text-align: center;
   color: var(--text-button);
+
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
 }
+
 .btnRegister:hover {
-  background-color: var(--btn-hover);
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3), 0 0 20px rgba(10, 10, 10, 0.1);
-  color: var(--white-smoke);
 }
 
 .error {
@@ -138,10 +143,27 @@
   }
   @media (min-resolution: 2dppx) {
     .mainContainer {
-    background-image: url("../../images/LoginPage-IMG/login-page-gradient-tablet_2x.webp"),
-      var(--bg-tablet-linear-gradient);
+      background-image: url("../../images/LoginPage-IMG/login-page-gradient-tablet_2x.webp"),
+        var(--bg-tablet-linear-gradient);
     }
   }
+
+  .container {
+    animation: slide-in 1.2s ease;
+  }
+
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
   .input {
     width: 409px;
     height: 35px;
@@ -165,7 +187,18 @@
 
   .title {
     font-size: 26px;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: scale-in 1.2s ease-out forwards;
   }
+  
+  @keyframes scale-in {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
 
   .container {
     border-radius: 8px;
@@ -189,6 +222,7 @@
   }
 }
 
+
 @media only screen and (min-width: 1280px) {
   .mainContainer {
     background-image: url("../../images/LoginPage-IMG/login-page-gradient-dekstop1x.webp"),
@@ -197,11 +231,8 @@
 
   @media (min-resolution: 2dppx) {
     .mainContainer {
-    background-image: url("../../images/LoginPage-IMG/login-page-gradient-dekstop2x.webp"),
-      var(--bg-tablet-linear-gradient);
+      background-image: url("../../images/LoginPage-IMG/login-page-gradient-dekstop2x.webp"),
+        var(--bg-tablet-linear-gradient);
     }
-  }
-  .title {
-    font-size: 26px;
   }
 }

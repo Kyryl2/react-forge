@@ -6,6 +6,8 @@ import { userLoginThunk } from "../../redux/auth/operations";
 import { Link } from "react-router-dom";
 
 import toast, { Toaster } from "react-hot-toast";
+import { IoWarningOutline } from "react-icons/io5";
+
 import { CustomInput } from "./CustomInput";
 import Logo from "../Logo/Logo";
 
@@ -29,7 +31,7 @@ const LoginForm = () => {
       .then(() => actions.resetForm())
       .catch(() =>
         toast.error("Email or password is not valid", {
-          icon: "❌",
+          icon: <IoWarningOutline style={{ width: "40px", height: "40px" }} />,
           position: "top-right",
           style: {
             backgroundImage:

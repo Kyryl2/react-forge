@@ -65,17 +65,13 @@
             <path fill="#ffc727" style="fill: var(--color5, #ffc727)"
                 d="M22.11 3.607c-2.328-0.582-4.655-1.747-6.401-3.494-1.746 1.747-4.073 2.911-6.401 3.494 0.582 5.24 2.328 8.734 6.401 11.645 4.073-2.911 6.401-6.405 6.401-11.645z">
             </path>
-            <path fill="" style="fill: "
-                d="M19.782 25.287l-16.293-19.215v9.316l12.802 14.557 3.491-4.658z"></path>
-            <path fill="" style="fill: "
-                d="M21.528 23.541l6.983-8.152v-8.734l-11.056 12.81 4.073 4.076z"></path>
-            <path fill="" style="fill: "
-                d="M22.11 26.452v5.24l6.401-7.569v-5.24l-6.401 7.569z"></path>
-            <path fill="" style="fill: "
-                d="M9.89 26.452l-6.401-7.569v5.24l6.401 7.569v-5.24z"></path>
+            <path fill="" style="fill: " d="M19.782 25.287l-16.293-19.215v9.316l12.802 14.557 3.491-4.658z"></path>
+            <path fill="" style="fill: " d="M21.528 23.541l6.983-8.152v-8.734l-11.056 12.81 4.073 4.076z"></path>
+            <path fill="" style="fill: " d="M22.11 26.452v5.24l6.401-7.569v-5.24l-6.401 7.569z"></path>
+            <path fill="" style="fill: " d="M9.89 26.452l-6.401-7.569v5.24l6.401 7.569v-5.24z"></path>
         </symbol>
 
-        <symbol id="icon-pen"> 
+        <symbol id="icon-pen">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_9004_155)">
                     <path
@@ -89,7 +85,12 @@
                     </clipPath>
                 </defs>
             </svg>
+        </symbol>
 
+        <symbol id="icon-calendar" width="18" height="20">
+            <path
+                d="M6 9H4V11H6V9ZM10 9H8V11H10V9ZM14 9H12V11H14V9ZM16 2H15V0H13V2H5V0H3V2H2C0.89 2 0.00999999 2.9 0.00999999 4L0 18C0 19.1 0.89 20 2 20H16C17.1 20 18 19.1 18 18V4C18 2.9 17.1 2 16 2ZM16 18H2V7H16V18Z"
+                fill="" />
         </symbol>
     </defs>
 </svg>

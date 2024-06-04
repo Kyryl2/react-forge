@@ -167,3 +167,11 @@
   /* float: left; */
   background-color:  rgba(82, 59, 126, 0.6);
 }
+
+
+:global  .react-datepicker__day {
+  color: var(--white-40);
+}
+:global .react-datepicker__current-month {
+  color: var(--white-smoke);
+}

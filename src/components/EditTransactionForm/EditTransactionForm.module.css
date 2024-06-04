@@ -16,7 +16,6 @@
   }
   .inputField {
     text-align: center;
-    font-weight: 600;
   }
   .inputs {
     display: flex;
@@ -47,6 +46,16 @@
 .dateInput {
   padding: 8px 12px;
 
+  width: 100%;
+}
+.inputF {
+  padding: 8px 12px;
+  background: transparent;
+  color: var(--white-smoke);
+  font-size: 18px;
+  border: none;
+  border-bottom: 1px solid var(--white-40);
+  width: 100%;
   width: 100%;
 }
 .iconClose {

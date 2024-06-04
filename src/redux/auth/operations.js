@@ -71,10 +71,6 @@ export const getBalance = createAsyncThunk(
   "auth/getBalance",
   async (_, thunkAPI) => {
     try {
-
- 
-
-
       const { data } = await goitApi.get("users/current");
 
       return data.balance;

@@ -4,7 +4,7 @@ import ReactDatePicker from "react-datepicker";
 import Select from "react-select";
 import clsx from "clsx";
 import { useDispatch, useSelector } from "react-redux";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import * as Yup from "yup";
 
 import CustomInputCalendar from "./CustomInputCalendar";
@@ -26,7 +26,7 @@ const AddTransactionForm = ({ closeModal }) => {
   const categories = useSelector(selectCategories);
 
   const [monthSelectIsOpen, setMonthSelectIsOpen] = useState(false);
-  const [transactionType, setTransactionType] = useState(true);
+  const [transactionType, setTransactionType] = useState(false); // Initialize as false for Expense
   const [defaultIncomeCategory, setDefaultIncomeCategory] = useState(null);
 
   useEffect(() => {
@@ -58,12 +58,6 @@ const AddTransactionForm = ({ closeModal }) => {
   const handleSubmit = (values, { setSubmitting }) => {
     const { amount, comment, startDate, selectedCategory } = values;
 
-    if (!amount || (!transactionType && !selectedCategory)) {
-      toast.error("Validation error: Amount and category are required.");
-      setSubmitting(false);
-      return;
-    }
-
     const newTransaction = {
       transactionDate: startDate.toISOString(),
       type: transactionType ? "INCOME" : "EXPENSE",
@@ -78,10 +72,7 @@ const AddTransactionForm = ({ closeModal }) => {
       .unwrap()
       .then(() => closeModal())
       .catch((error) => {
-        console.error(
-          "Failed to add transaction:",
-          error.response?.data || error.message
-        );
+        toast.error(error);
         setSubmitting(false);
       });
   };
@@ -96,109 +87,110 @@ const AddTransactionForm = ({ closeModal }) => {
   });
 
   return (
-    <Modal closeModal={closeModal}>
-      {!isMobile && (
-        <div onClick={closeModal}>
-          <Icon
-            id="icon-close"
-            width={16}
-            height={16}
-            className={s.iconClose}
-          />
-        </div>
-      )}
-      <p className={s.title}>Add transaction</p>
-      <Toggle onChange={setTransactionType} />
-      <Formik
-        initialValues={{
-          startDate: new Date(),
-          amount: "",
-          comment: "",
-          selectedCategory: null,
-        }}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-      >
-        {({ setFieldValue, isSubmitting, values }) => (
-          <Form className={s.form}>
-            <div className={s.inputContainer}>
-              {!transactionType && (
-                <div className={s.select_wrapper}>
-                  <Select
-                    className={s.categorySelect}
-                    options={categoryOptions}
-                    placeholder="Select a category"
-                    onMenuOpen={() => handleMenuOpen("monthSelect")}
-                    onMenuClose={() => handleMenuClose("monthSelect")}
-                    styles={styles}
-                    onChange={(option) =>
-                      setFieldValue("selectedCategory", option)
-                    }
-                  />
-                  <Icon
-                    id="icon-down-arrow"
-                    className={clsx(s.icon, {
-                      [s.is_active]: monthSelectIsOpen,
-                    })}
-                    width="23px"
-                    height="18px"
-                  />
-                </div>
-              )}
-
-              <div className={s.inputs}>
-                <Field
-                  type="number"
-                  name="amount"
-                  placeholder="0.00"
-                  required
-                  className={s.inputField}
-                />
-                <ErrorMessage
-                  name="amount"
-                  component="div"
-                  className={s.errorMessage}
-                />
-
-                <div>
-                  <ReactDatePicker
-                    selected={values.startDate}
-                    onChange={(date) => setFieldValue("startDate", date)}
-                    dateFormat="dd.MM.yyyy"
-                    className={s.dateInput}
-                    customInput={<CustomInputCalendar />}
+    <div>
+      <Toaster />
+      <Modal closeModal={closeModal}>
+        {!isMobile && (
+          <div onClick={closeModal}>
+            <Icon
+              id="icon-close"
+              width={16}
+              height={16}
+              className={s.iconClose}
+            />
+          </div>
+        )}
+        <p className={s.title}>Add transaction</p>
+        <Toggle onChange={setTransactionType} defaultActive={false} />
+        <Formik
+          initialValues={{
+            startDate: new Date(),
+            amount: "",
+            comment: "",
+            selectedCategory: null,
+          }}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ setFieldValue, isSubmitting, values }) => (
+            <Form className={s.form}>
+              <div className={s.inputContainer}>
+                {!transactionType && (
+                  <div className={s.select_wrapper}>
+                    <Select
+                      className={s.categorySelect}
+                      options={categoryOptions}
+                      placeholder="Select a category"
+                      onMenuOpen={() => handleMenuOpen("monthSelect")}
+                      onMenuClose={() => handleMenuClose("monthSelect")}
+                      styles={styles}
+                      onChange={(option) =>
+                        setFieldValue("selectedCategory", option)
+                      }
+                    />
+                    <Icon
+                      id="icon-down-arrow"
+                      className={clsx(s.icon, {
+                        [s.is_active]: monthSelectIsOpen,
+                      })}
+                      width="23px"
+                      height="18px"
+                    />
+                  </div>
+                )}
+                <div className={s.inputs}>
+                  <Field
+                    type="number"
+                    name="amount"
+                    placeholder="0.00"
+                    required
+                    className={s.inputField}
                   />
                   <ErrorMessage
-                    name="startDate"
+                    name="amount"
                     component="div"
                     className={s.errorMessage}
                   />
+                  <div>
+                    <ReactDatePicker
+                      selected={values.startDate}
+                      onChange={(date) => setFieldValue("startDate", date)}
+                      dateFormat="dd.MM.yyyy"
+                      className={s.dateInput}
+                      customInput={<CustomInputCalendar />}
+                    />
+                    <ErrorMessage
+                      name="startDate"
+                      component="div"
+                      className={s.errorMessage}
+                    />
+                  </div>
                 </div>
+                <Field
+                  type="text"
+                  name="comment"
+                  placeholder="Comment"
+                  className={s.commentInput}
+                />
+                <ErrorMessage
+                  name="comment"
+                  component="div"
+                  className={s.errorMessage}
+                />
               </div>
-              <Field
-                type="text"
-                name="comment"
-                placeholder="Comment"
-                className={s.commentInput}
-              />
-              <ErrorMessage
-                name="comment"
-                component="div"
-                className={s.errorMessage}
-              />
-            </div>
-            <button
-              type="submit"
-              className={s.addButton}
-              aria-label="add button"
-              disabled={isSubmitting}
-            >
-              ADD
-            </button>
-          </Form>
-        )}
-      </Formik>
-    </Modal>
+              <button
+                type="submit"
+                className={s.addButton}
+                aria-label="add button"
+                disabled={isSubmitting}
+              >
+                ADD
+              </button>
+            </Form>
+          )}
+        </Formik>
+      </Modal>
+    </div>
   );
 };
 

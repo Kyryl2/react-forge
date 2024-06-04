@@ -38,7 +38,12 @@ const Navigation = () => {
       {navLinks
         .filter((link) => link.visible)
         .map((link) => (
-          <NavLink key={link.title} to={link.path} className={getClasses} aria-label="link">
+          <NavLink
+            key={link.title}
+            to={link.path}
+            className={getClasses}
+            aria-label="navlink"
+          >
             <div className={s.linkIcon}>
               <Icon id={link.icon} className={s.navIcon} />
             </div>

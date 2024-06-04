@@ -49,7 +49,6 @@ tbody tr {
   width: 100%;
 }
 
-
 th,
 td {
   padding: 20px;
@@ -112,4 +111,17 @@ tbody::-webkit-scrollbar-thumb {
     #7000ff 150.71%
   );
   border-radius: 8px;
+}
+
+.filler {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.filler p {
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
 }

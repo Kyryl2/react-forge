@@ -141,11 +141,7 @@ const EditTransactionForm = ({ transaction, closeModal }) => {
                     placeholder="0.00"
                     className={s.inputField}
                   />
-                  <ErrorMessage
-                    name="amount"
-                    component="div"
-                    className={s.error}
-                  />
+
                   <div>
                     <ReactDatePicker
                       selected={startDate}
@@ -159,6 +155,11 @@ const EditTransactionForm = ({ transaction, closeModal }) => {
                     />
                   </div>
                 </div>
+                <ErrorMessage
+                  name="amount"
+                  component="div"
+                  className={s.error}
+                />
                 <Field
                   type="text"
                   name="comment"

@@ -56,7 +56,7 @@
   border: none;
   border-bottom: 1px solid var(--white-40);
   width: 100%;
-  width: 100%;
+  outline: none;
 }
 .iconClose {
   position: fixed;

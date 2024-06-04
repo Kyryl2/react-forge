@@ -83,7 +83,7 @@ const AddTransactionForm = ({ closeModal }) => {
       .positive("Amount must be positive"),
     startDate: Yup.date().required("Date is required"),
     selectedCategory: Yup.object().nullable(),
-    comment: Yup.string().required("Amount is required"),
+    comment: Yup.string().required("Comment is required"),
   });
 
   return (
@@ -113,71 +113,66 @@ const AddTransactionForm = ({ closeModal }) => {
           onSubmit={handleSubmit}
         >
           {({ setFieldValue, isSubmitting, values }) => (
-            <Form className={s.form}>
-              <div className={s.inputContainer}>
-                {!transactionType && (
-                  <div className={s.select_wrapper}>
-                    <Select
-                      className={s.categorySelect}
-                      options={categoryOptions}
-                      placeholder="Select a category"
-                      onMenuOpen={() => handleMenuOpen("monthSelect")}
-                      onMenuClose={() => handleMenuClose("monthSelect")}
-                      styles={styles}
-                      onChange={(option) =>
-                        setFieldValue("selectedCategory", option)
-                      }
-                    />
-                    <Icon
-                      id="icon-down-arrow"
-                      className={clsx(s.icon, {
-                        [s.is_active]: monthSelectIsOpen,
-                      })}
-                      width="23px"
-                      height="18px"
-                    />
-                  </div>
-                )}
-                <div className={s.inputs}>
-                  <Field
-                    type="number"
-                    name="amount"
-                    placeholder="0.00"
-                    required
-                    className={s.inputField}
+            <Form className={s.inputContainer}>
+              {!transactionType && (
+                <div className={s.select_wrapper}>
+                  <Select
+                    className={s.categorySelect}
+                    options={categoryOptions}
+                    placeholder="Select a category"
+                    onMenuOpen={() => handleMenuOpen("monthSelect")}
+                    onMenuClose={() => handleMenuClose("monthSelect")}
+                    styles={styles}
+                    onChange={(option) =>
+                      setFieldValue("selectedCategory", option)
+                    }
                   />
-                  <ErrorMessage
-                    name="amount"
-                    component="div"
-                    className={s.errorMessage}
+                  <Icon
+                    id="icon-down-arrow"
+                    className={clsx(s.icon, {
+                      [s.is_active]: monthSelectIsOpen,
+                    })}
+                    width="23px"
+                    height="18px"
                   />
-                  <div>
-                    <ReactDatePicker
-                      selected={values.startDate}
-                      onChange={(date) => setFieldValue("startDate", date)}
-                      dateFormat="dd.MM.yyyy"
-                      className={s.dateInput}
-                      customInput={<CustomInputCalendar />}
-                    />
-                    <ErrorMessage
-                      name="startDate"
-                      component="div"
-                      className={s.errorMessage}
-                    />
-                  </div>
                 </div>
+              )}
+              <div className={s.inputs}>
                 <Field
-                  type="text"
-                  name="comment"
-                  placeholder="Comment"
-                  className={s.commentInput}
+                  type="number"
+                  name="amount"
+                  placeholder="0.00"
+                  required
+                  className={s.inputField}
                 />
                 <ErrorMessage
-                  name="comment"
+                  name="amount"
                   component="div"
-                  className={s.errorMessage}
+                  className={s.error}
                 />
+                <div>
+                  <ReactDatePicker
+                    selected={values.startDate}
+                    onChange={(date) => setFieldValue("startDate", date)}
+                    dateFormat="dd.MM.yyyy"
+                    className={s.dateInput}
+                    maxDate={Date.now()}
+                    customInput={<CustomInputCalendar />}
+                  />
+                </div>
               </div>
+              <Field
+                type="text"
+                name="comment"
+                placeholder="Comment"
+                className={s.commentInput}
+              />
+              <ErrorMessage
+                name="comment"
+                component="div"
+                className={s.error}
+              />
+
               <button
                 type="submit"
                 className={s.addButton}

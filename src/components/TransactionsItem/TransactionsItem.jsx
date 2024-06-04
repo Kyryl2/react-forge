@@ -53,13 +53,19 @@ const TransactionsItem = ({ transaction }) => {
       </td>
       <td>
         <div className={s.btncontainer}>
-          <button className={s.carandash} type="button" onClick={openModal}>
+          <button
+            className={s.carandash}
+            type="button"
+            onClick={openModal}
+            aria-label="edit button"
+          >
             <Icon id="icon-pen" height={14} width={14} />
           </button>
           <button
             className={s.button}
             type="button"
             onClick={() => dispatch(deleteTransactionThunk(transaction.id))}
+            aria-label="delete button"
           >
             Delete
           </button>
@@ -110,10 +116,16 @@ const TransactionsItem = ({ transaction }) => {
           className={s.button}
           type="button"
           onClick={() => dispatch(deleteTransactionThunk(transaction.id))}
+          aria-label="delete button"
         >
           Delete
         </button>
-        <button className={s.penContainer} type="button" onClick={openModal}>
+        <button
+          className={s.penContainer}
+          type="button"
+          onClick={openModal}
+          aria-label="edit button"
+        >
           <Icon id="icon-pen" height={14} width={14} />
           <p className={s.carandash}>Edit</p>
         </button>

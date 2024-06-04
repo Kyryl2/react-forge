@@ -70,7 +70,11 @@ const LoginForm = () => {
               />
 
               <div className={s.buttonsWrapper}>
-                <button className={s.btnLogin} type="submit">
+                <button
+                  className={s.btnLogin}
+                  type="submit"
+                  aria-label="login button"
+                >
                   Log in
                 </button>
                 <Link className={s.btnRegister} to="/register">

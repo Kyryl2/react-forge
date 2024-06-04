@@ -37,7 +37,11 @@ const Header = () => {
 
         <div className={s.userExit}>
           <div className={s.userName}>{userName || "Guest"}</div>
-          <button className={s.exitWrapper} onClick={openModal}>
+          <button
+            className={s.exitWrapper}
+            onClick={openModal}
+            aria-label="open modal button"
+          >
             <Icon id="icon-exit" width={18} height={18} />
             {!isMobile && <p className={s.exitText}>Exit</p>}
           </button>

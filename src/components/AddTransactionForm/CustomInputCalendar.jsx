@@ -5,7 +5,13 @@ import s from "./CustomInput.module.css";
 
 const CustomInputCalendar = forwardRef(({ value, onClick }, ref) => {
   return (
-    <button type="button" className={s.customInput} onClick={onClick} ref={ref}>
+    <button
+      type="button"
+      className={s.customInput}
+      onClick={onClick}
+      ref={ref}
+      aria-label="calendar button"
+    >
       {value}
       <Icon
         id="icon-calendar"

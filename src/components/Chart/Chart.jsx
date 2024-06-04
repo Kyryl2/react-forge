@@ -7,9 +7,7 @@ import { selectSummary } from "../../redux/transactions/selectors";
 import { getCategoryColor } from "../../helpers/getCategoryColor";
 
 import css from "./Chart.module.css";
-
-
-
+import { useMemo } from "react";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 

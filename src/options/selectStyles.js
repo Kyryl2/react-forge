@@ -48,7 +48,6 @@ export const styles = {
     ...baseStyles,
     display: "flex",
     flexDirection: "column",
-    height: 158,
     padding: 0,
     "::-webkit-scrollbar": {
       display: "none",

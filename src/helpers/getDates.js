@@ -1,5 +1,36 @@
 import { format } from "date-fns";
 
+export const getNumericMonth = (month) => {
+  switch (month) {
+    case "january":
+      return "01";
+    case "february":
+      return "02";
+    case "march":
+      return "03";
+    case "april":
+      return "04";
+    case "may":
+      return "05";
+    case "june":
+      return "06";
+    case "july":
+      return "07";
+    case "august":
+      return "08";
+    case "september":
+      return "09";
+    case "october":
+      return "10";
+    case "november":
+      return "11";
+    case "december":
+      return "12";
+
+    default:
+  }
+};
+
 export const getOptions = (transactions) => {
   const transactionDates = transactions.map(
     (transaction) => transaction.transactionDate
@@ -41,6 +72,23 @@ export const getOptions = (transactions) => {
     }
   });
 
+  const unsortedMonthsOptions = transactionMonths.map((month) => {
+    return getNumericMonth(month.value);
+  });
+  const unsortedYearsOptions = transactionYears.toSorted((a, b) => {
+    return b - a;
+  });
+
+  const sortedMonthsOptions = unsortedMonthsOptions.toSorted((a, b) => {
+    return b - a;
+  });
+  const sortedYearsOptions = unsortedYearsOptions.toSorted((a, b) => {
+    console.log(a, b);
+  });
+
+  console.log(sortedMonthsOptions);
+  console.log(sortedYearsOptions);
+
   const yearsOptions = [...transactionYears];
   const monthsOptions = [...transactionMonths];
 
@@ -58,37 +106,6 @@ export const getOptions = (transactions) => {
   });
 
   return { filteredMonthsOptions, filteredYearsOptions };
-};
-
-export const getNumericMonth = (month) => {
-  switch (month) {
-    case "january":
-      return "01";
-    case "february":
-      return "02";
-    case "march":
-      return "03";
-    case "april":
-      return "04";
-    case "may":
-      return "05";
-    case "june":
-      return "06";
-    case "july":
-      return "07";
-    case "august":
-      return "08";
-    case "september":
-      return "09";
-    case "october":
-      return "10";
-    case "november":
-      return "11";
-    case "december":
-      return "12";
-
-    default:
-  }
 };
 
 export const getCurrentDate = () => {

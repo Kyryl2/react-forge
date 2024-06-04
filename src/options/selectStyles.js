@@ -8,6 +8,9 @@ export const styles = {
     fontWeight: 400,
     fontSize: 16,
     backgroundColor: "rgba(74, 86, 226, 0.1)",
+    ":hover": {
+      borderColor: "rgba(255, 255, 255, 1)",
+    },
   }),
   dropdownIndicator: () => ({
     display: "none",

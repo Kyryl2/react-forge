@@ -18,7 +18,7 @@ const StatisticsTable = () => {
     <>
       {isLoading && <Loader />}
       {categoriesSummary?.length === 0 ? (
-        <p className={css.blank}>Nothing To Show...</p>
+        <p className={css.blank}>Nothing to show...</p>
       ) : (
         <table className={css.table}>
           <thead className={css.table_head}>

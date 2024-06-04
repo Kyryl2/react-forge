@@ -92,6 +92,7 @@ const StatisticsDashboard = () => {
             className={css.select}
             options={filteredMonthsOptions}
             defaultValue={filteredMonthsOptions[monthIndex]}
+            placeholder={"Month"}
             styles={styles}
             onMenuOpen={() => handleMenuOpen("monthSelect")}
             onMenuClose={() => handleMenuClose("monthSelect")}
@@ -112,6 +113,7 @@ const StatisticsDashboard = () => {
             className={css.select}
             options={filteredYearsOptions}
             defaultValue={filteredYearsOptions[yearIndex]}
+            placeholder={"Year"}
             styles={styles}
             onMenuOpen={() => handleMenuOpen("yearSelect")}
             onMenuClose={() => handleMenuClose("yearSelect")}

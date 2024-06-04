@@ -15,8 +15,9 @@ import { styles } from "../../options/selectStylesAdd";
 import s from "./AddTransactionForm.module.css";
 import "react-datepicker/dist/react-datepicker.css";
 import useMedia from "../../hooks/useMedia";
+import toast from "react-hot-toast";
 
-export const AddTransactionForm = ({ closeModal }) => {
+const AddTransactionForm = ({ closeModal }) => {
   const { isMobile } = useMedia();
 
   const [monthSelectIsOpen, setMonthSelectIsOpen] = useState(false);
@@ -58,7 +59,7 @@ export const AddTransactionForm = ({ closeModal }) => {
 
   const handleAddTransaction = () => {
     if (!amount || (!transactionType && !selectedCategory)) {
-      console.error("Validation error: Amount and category are required.");
+      toast.error("Validation error: Amount and category are required.");
       return;
     }
 
@@ -124,6 +125,7 @@ export const AddTransactionForm = ({ closeModal }) => {
           <input
             type="number"
             placeholder="0.00"
+            required
             className={s.inputField}
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
@@ -150,3 +152,5 @@ export const AddTransactionForm = ({ closeModal }) => {
     </Modal>
   );
 };
+
+export default AddTransactionForm;

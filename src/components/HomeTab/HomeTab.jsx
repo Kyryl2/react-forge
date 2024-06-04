@@ -5,7 +5,8 @@ import TransactionsList from "../TransactionsList/TransactionsList";
 import { ButtonAddTransactions } from "../ButtonAddTransactions/ButtonAddTransactions";
 import Balance from "../Balance/Balance";
 import useMedia from "../../hooks/useMedia";
-import ModalAddTransaction from "../ModalAddTransaction/ModalAddTransaction";
+
+import AddTransactionForm from "../AddTransactionForm/AddTransactionForm";
 
 export default function HomeTab() {
   const { isMobile } = useMedia();
@@ -19,7 +20,7 @@ export default function HomeTab() {
       <TransactionsList />
       <ButtonAddTransactions className={s.fixedButton} />
       <ButtonAddTransactions onClick={toggleModal} className={s.fixedButton} />
-      {isModalOpen && <ModalAddTransaction closeModal={toggleModal} />}
+      {isModalOpen && <AddTransactionForm closeModal={toggleModal} />}
     </div>
   );
 }

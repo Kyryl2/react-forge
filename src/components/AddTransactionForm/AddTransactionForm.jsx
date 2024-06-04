@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
 import ReactDatePicker from "react-datepicker";
 import Select from "react-select";
-import "react-datepicker/dist/react-datepicker.css";
-import { Icon } from "../../images/Icon/Icon";
+import clsx from "clsx";
+import { useDispatch, useSelector } from "react-redux";
+
+import CustomInputCalendar from "./CustomInputCalendar";
 import Modal from "../Modal/Modal";
 import Toggle from "../Toggle/Toggle";
-import s from "./AddTransactionForm.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import { Icon } from "../../images/Icon/Icon";
+
 import { selectCategories } from "../../redux/transactions/selectors";
 import {
-  getCategoriesThunk,
   postTransactionThunk,
 } from "../../redux/transactions/operations";
 import { styles } from "../../options/selectStylesAdd";
-import clsx from "clsx";
-import CustomInputCalendar from "./CustomInputCalendar";
+import s from "./AddTransactionForm.module.css";
+import "react-datepicker/dist/react-datepicker.css";
 
 export const AddTransactionForm = ({ closeModal }) => {
   const [monthSelectIsOpen, setMonthSelectIsOpen] = useState(false);
@@ -36,9 +37,7 @@ export const AddTransactionForm = ({ closeModal }) => {
     if (id === "monthSelect") setMonthSelectIsOpen(false);
   };
 
-  useEffect(() => {
-    dispatch(getCategoriesThunk());
-  }, [dispatch]);
+
 
   useEffect(() => {
     if (categories.length > 0) {

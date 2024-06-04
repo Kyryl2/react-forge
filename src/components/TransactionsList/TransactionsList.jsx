@@ -33,7 +33,7 @@ const TransactionsList = () => {
               </tr>
             </thead>
             <tbody>
-              {transactions?.map((transaction) => (
+              {transactions?.toSorted((a,b) => new Date(b.transactionDate) - new Date(a.transactionDate)).map((transaction) => (
                 <TransactionsItem
                   key={transaction.id}
                   transaction={transaction}
@@ -44,7 +44,7 @@ const TransactionsList = () => {
         </div>
       ) : (
         <ul>
-          {transactions?.map((transaction) => (
+          {transactions?.toSorted((a,b) => new Date(b.transactionDate) - new Date(a.transactionDate)).map((transaction) => (
             <TransactionsItem key={transaction.id} transaction={transaction} />
           ))}
         </ul>

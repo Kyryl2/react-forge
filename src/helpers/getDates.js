@@ -31,6 +31,37 @@ export const getNumericMonth = (month) => {
   }
 };
 
+const convertMonthNumToString = (monthNumeric) => {
+  switch (monthNumeric) {
+    case "01":
+      return { label: "January", value: "january" };
+    case "02":
+      return { label: "February", value: "february" };
+    case "03":
+      return { label: "March", value: "march" };
+    case "04":
+      return { label: "April", value: "april" };
+    case "05":
+      return { label: "May", value: "may" };
+    case "06":
+      return { label: "June", value: "june" };
+    case "07":
+      return { label: "July", value: "july" };
+    case "08":
+      return { label: "August", value: "august" };
+    case "09":
+      return { label: "September", value: "september" };
+    case "10":
+      return { label: "October", value: "october" };
+    case "11":
+      return { label: "November", value: "november" };
+    case "12":
+      return { label: "December", value: "december" };
+
+    default:
+  }
+};
+
 export const getOptions = (transactions) => {
   const transactionDates = transactions.map(
     (transaction) => transaction.transactionDate
@@ -40,57 +71,24 @@ export const getOptions = (transactions) => {
     return { label: year, value: year };
   });
   const transactionMonths = transactionDates.map((transaction) => {
-    const monthNumerical = transaction.slice(5, 7);
-
-    switch (monthNumerical) {
-      case "01":
-        return { label: "January", value: "january" };
-      case "02":
-        return { label: "February", value: "february" };
-      case "03":
-        return { label: "March", value: "march" };
-      case "04":
-        return { label: "April", value: "april" };
-      case "05":
-        return { label: "May", value: "may" };
-      case "06":
-        return { label: "June", value: "june" };
-      case "07":
-        return { label: "July", value: "july" };
-      case "08":
-        return { label: "August", value: "august" };
-      case "09":
-        return { label: "September", value: "september" };
-      case "10":
-        return { label: "October", value: "october" };
-      case "11":
-        return { label: "November", value: "november" };
-      case "12":
-        return { label: "December", value: "december" };
-
-      default:
-    }
+    const monthNumeric = transaction.slice(5, 7);
+    return convertMonthNumToString(monthNumeric);
   });
-
   const unsortedMonthsOptions = transactionMonths.map((month) => {
     return getNumericMonth(month.value);
   });
-  const unsortedYearsOptions = transactionYears.toSorted((a, b) => {
-    return b - a;
+  const sortedNumMonthsOptions = unsortedMonthsOptions.toSorted((a, b) => {
+    return a - b;
+  });
+  const sortedMonthsOptions = sortedNumMonthsOptions.map((month) => {
+    return convertMonthNumToString(month);
+  });
+  const sortedYearsOptions = transactionYears.toSorted((a, b) => {
+    return b.value - a.value;
   });
 
-  const sortedMonthsOptions = unsortedMonthsOptions.toSorted((a, b) => {
-    return b - a;
-  });
-  const sortedYearsOptions = unsortedYearsOptions.toSorted((a, b) => {
-    console.log(a, b);
-  });
-
-  console.log(sortedMonthsOptions);
-  console.log(sortedYearsOptions);
-
-  const yearsOptions = [...transactionYears];
-  const monthsOptions = [...transactionMonths];
+  const yearsOptions = [...sortedYearsOptions];
+  const monthsOptions = [...sortedMonthsOptions];
 
   const filteredYearsOptions = yearsOptions.filter((year, index, self) => {
     return (

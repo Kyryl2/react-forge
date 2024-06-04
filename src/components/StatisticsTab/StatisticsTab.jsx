@@ -5,7 +5,8 @@ import { Chart } from "../Chart/Chart";
 import { getSummaryThunk } from "../../redux/transactions/operations";
 import StatisticsDashboard from "../StatisticsDashboard/StatisticsDashboard";
 import StatisticsTable from "../StatisticsTable/StatisticsTable";
-import css from "../../components/TransactionsList/TransactionsList.module.css";
+import css from "./StatisticsTab.module.css";
+
 import { selectTransactions } from "../../redux/transactions/selectors";
 import { useSelector } from "react-redux";
 

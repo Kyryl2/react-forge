@@ -6,6 +6,7 @@ export const getData = (data, backgroundColor) => {
         backgroundColor,
         borderColor: "transparent",
         cutout: "70%",
+        hoverOffset: 10,
       },
     ],
   };
@@ -27,6 +28,7 @@ export const getOptions = (categoriesSummary) => {
         borderColor: "rgba(0, 0, 0, 0)",
         borderRadius: 5,
         padding: 10,
+        zIndex: 1,
       },
     },
   };

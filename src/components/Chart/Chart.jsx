@@ -1,13 +1,13 @@
 import { Doughnut } from "react-chartjs-2";
+import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 
-import { getData, getOptions } from "../../helpers/chartOptions";
 import { selectSummary } from "../../redux/transactions/selectors";
+import { getData, getOptions } from "../../helpers/chartOptions";
 import { getCategoryColor } from "../../helpers/getCategoryColor";
-
+import { ShadowPlugin } from "../../helpers/shadowPlugin";
 import css from "./Chart.module.css";
-import { useMemo } from "react";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -30,11 +30,11 @@ export const Chart = () => {
 
   return (
     <div className={css.wrapper}>
-      <Doughnut data={data} options={options} />
+      <Doughnut data={data} options={options} plugins={[ShadowPlugin]} />
       <span className={css.balance}>
         {categoriesSummary?.length > 0
           ? `₴ ${periodTotal?.toFixed(2)}`
-          : "There was no Transactions In this period..."}
+          : "There was no transactions in this period..."}
       </span>
     </div>
   );

@@ -1,14 +1,16 @@
 import ReactDOM from "react-dom";
 import { useState } from "react";
+import clsx from "clsx";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteTransactionThunk } from "../../redux/transactions/operations";
-import { Icon } from "../../images/Icon/Icon";
-import s from "./TransactionsItem.module.css";
-import useMedia from "../../hooks/useMedia";
 
+import { Icon } from "../../images/Icon/Icon";
+
+import useMedia from "../../hooks/useMedia";
 import EditTransactionForm from "../EditTransactionForm/EditTransactionForm";
 import { selectCategories } from "../../redux/transactions/selectors";
-import clsx from "clsx";
+import { deleteTransactionThunk } from "../../redux/transactions/operations";
+
+import s from "./TransactionsItem.module.css";
 
 const formatDate = (dateString) => {
   const date = new Date(dateString);

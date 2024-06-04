@@ -1,14 +1,16 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { format } from "date-fns";
+import { useSelector } from "react-redux";
+
 import { Chart } from "../Chart/Chart";
-import { getSummaryThunk } from "../../redux/transactions/operations";
 import StatisticsDashboard from "../StatisticsDashboard/StatisticsDashboard";
 import StatisticsTable from "../StatisticsTable/StatisticsTable";
-import css from "./StatisticsTab.module.css";
 
+import { getSummaryThunk } from "../../redux/transactions/operations";
 import { selectTransactions } from "../../redux/transactions/selectors";
-import { useSelector } from "react-redux";
+
+import css from "./StatisticsTab.module.css";
 
 const StatisticsTab = () => {
   const dispatch = useDispatch();

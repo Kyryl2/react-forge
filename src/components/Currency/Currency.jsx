@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 
-import s from "./Currency.module.css";
 import getCurrency from "../../config/currencyApi";
 import Loader from "../../components/Loader/Loader";
 import useMedia from "../../hooks/useMedia";
+
 import desktopImage from "../../images/DashboardPage-IMG/currency-dekstop_1x.webp";
 import tabletImage from "../../images/DashboardPage-IMG/currency-tablet_1x.webp";
 import mobileImage from "../../images/DashboardPage-IMG/currency-mobile_1x.webp";
+
+import s from "./Currency.module.css";
 
 const Currency = () => {
   const { isMobile, isTablet, isDesktop } = useMedia();

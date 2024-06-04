@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import ReactDatePicker from "react-datepicker";
+import * as Yup from "yup";
 
-import "react-datepicker/dist/react-datepicker.css";
+import CustomInputCalendar from "../AddTransactionForm/CustomInputCalendar";
 import { Icon } from "../../images/Icon/Icon";
 import Modal from "../Modal/Modal";
-import s from "./EditTransactionForm.module.css";
+
+import useMedia from "../../hooks/useMedia";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCategories } from "../../redux/transactions/selectors";
 import { patchTransactionThunk } from "../../redux/transactions/operations";
-import CustomInputCalendar from "../AddTransactionForm/CustomInputCalendar";
-import * as Yup from "yup";
-import useMedia from "../../hooks/useMedia";
+
+import s from "./EditTransactionForm.module.css";
+import "react-datepicker/dist/react-datepicker.css";
 
 const EditTransactionForm = ({ transaction, closeModal }) => {
   const [startDate, setStartDate] = useState(
@@ -172,12 +174,7 @@ const EditTransactionForm = ({ transaction, closeModal }) => {
                 className={s.error}
               />
             </div>
-            <button
-              type="submit"
-              className={s.save}
-              disabled={isSubmitting}
-              aria-label="save button"
-            >
+            <button type="submit" className={s.save} disabled={isSubmitting}>
               SAVE
             </button>
           </Form>

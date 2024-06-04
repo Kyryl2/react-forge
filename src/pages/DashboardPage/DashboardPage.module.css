@@ -1,7 +1,7 @@
 .pageContainer {
   background: var(--bg-db-linear-gradient-desktop),
     var(--bg-db-radial-gradient-desktop);
-  min-height: 100vh;
+    min-height: 100vh;
 }
 
 body {

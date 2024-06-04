@@ -22,7 +22,7 @@ const Header = () => {
           <NavLink to="" className={s.link}>
             <div className={s.div}>
               <Icon id="icon-logo" width={18} height={18} className={s.icon} />
-              <p className={s.logoName}>Money Guard</p>
+              <span className={s.logoName}>Money Guard</span>
             </div>
           </NavLink>
         )}
@@ -30,7 +30,7 @@ const Header = () => {
           <NavLink to="">
             <div className={s.div}>
               <Icon id="icon-logo" width={25} height={23} className={s.icon} />
-              <p className={s.logoName}>Money Guard</p>
+              <span className={s.logoName}>Money Guard</span>
             </div>
           </NavLink>
         )}
@@ -43,7 +43,7 @@ const Header = () => {
             aria-label="open modal button"
           >
             <Icon id="icon-exit" width={18} height={18} />
-            {!isMobile && <p className={s.exitText}>Exit</p>}
+            {!isMobile && <span className={s.exitText}>Exit</span>}
           </button>
           {isOpen && <LogOutModal closeModal={closeModal} />}
         </div>

@@ -56,7 +56,6 @@ const RegistrationForm = () => {
             color: "white",
           },
         });
-        console.error("Registration error:", error);
       });
   };
 

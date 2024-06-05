@@ -17,6 +17,10 @@
   z-index: 1500;
 }
 
+.line {
+  height: 60px;
+}
+
 .icon {
   transition: fill 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   fill: white;
@@ -77,6 +81,10 @@
     height: 80px;
     padding: 16px 32px;
     max-width: 768px;
+  }
+
+  .line {
+    height: 80px;
   }
 
   .headerLine {

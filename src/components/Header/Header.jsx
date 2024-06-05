@@ -18,39 +18,40 @@ const Header = () => {
   const userName = useSelector(selectUsername);
 
   return (
-    <header className={s.headerLine}>
-      <div className={s.header}>
-        {isMobile && (
-          <NavLink to="" className={s.link} aria-label="icon logo">
-            <div className={s.div}>
-              <Icon id="icon-logo" width={18} height={18} className={s.icon} />
-              <span className={s.logoName}>Money Guard</span>
-            </div>
-          </NavLink>
-        )}
-        {!isMobile && (
-          <NavLink to="" aria-label="icon logo">
-            <div className={s.div}>
-              <Icon id="icon-logo" width={25} height={23} className={s.icon} />
-              <span className={s.logoName}>Money Guard</span>
-            </div>
-          </NavLink>
-        )}
-
-        <div className={s.userExit}>
-          <div className={s.userName}>{userName || "Guest"}</div>
-          <button
-            className={s.exitWrapper}
-            onClick={openModal}
-            aria-label="open modal button"
-          >
-            <Icon id="icon-exit" width={18} height={18} />
-            {!isMobile && <span className={s.exitText}>Exit</span>}
-          </button>
-          {isOpen && <LogOutModal closeModal={closeModal} />}
+    <div className={s.line}>
+      <header className={s.headerLine}>
+        <div className={s.header}>
+          {isMobile && (
+            <NavLink to="" className={s.link} aria-label="icon logo">
+              <div className={s.div}>
+                <Icon id="icon-logo" width={18} height={18} className={s.icon} />
+                <span className={s.logoName}>Money Guard</span>
+              </div>
+            </NavLink>
+          )}
+          {!isMobile && (
+            <NavLink to="" aria-label="icon logo">
+              <div className={s.div}>
+                <Icon id="icon-logo" width={25} height={23} className={s.icon} />
+                <span className={s.logoName}>Money Guard</span>
+              </div>
+            </NavLink>
+          )}
+          <div className={s.userExit}>
+            <div className={s.userName}>{userName || "Guest"}</div>
+            <button
+              className={s.exitWrapper}
+              onClick={openModal}
+              aria-label="open modal button"
+            >
+              <Icon id="icon-exit" width={18} height={18} />
+              {!isMobile && <span className={s.exitText}>Exit</span>}
+            </button>
+            {isOpen && <LogOutModal closeModal={closeModal} />}
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </div>
   );
 };
 

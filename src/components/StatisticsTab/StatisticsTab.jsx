@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { format } from "date-fns";
 import { useSelector } from "react-redux";
+import { format } from "date-fns";
 
-import { Chart } from "../Chart/Chart";
-import StatisticsDashboard from "../StatisticsDashboard/StatisticsDashboard";
+import Chart from "../Chart/Chart";
 import StatisticsTable from "../StatisticsTable/StatisticsTable";
+import StatisticsDashboard from "../StatisticsDashboard/StatisticsDashboard";
 
 import { getSummaryThunk } from "../../redux/transactions/operations";
 import { selectTransactions } from "../../redux/transactions/selectors";

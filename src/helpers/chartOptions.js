@@ -24,7 +24,7 @@ export const getOptions = (categoriesSummary) => {
           },
         },
         displayColors: false,
-        backgroundColor: "",
+        backgroundColor: "rgba(82, 59, 126, 1)",
         borderColor: "rgba(0, 0, 0, 0)",
         borderRadius: 5,
         padding: 10,

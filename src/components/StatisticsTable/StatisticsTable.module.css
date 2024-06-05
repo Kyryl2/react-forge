@@ -67,6 +67,10 @@
   position: relative;
 }
 
+.table_row:hover {
+  border-color: rgba(128, 128, 128, 1);
+}
+
 .table_data {
   padding: 16px 16px 16px 52px;
 }
@@ -74,6 +78,7 @@
 .label {
   width: 24px;
   height: 24px;
+  border-radius: 2px;
   background-color: #fff;
   display: block;
   position: absolute;

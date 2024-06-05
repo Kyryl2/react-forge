@@ -1,66 +1,6 @@
-import { format } from "date-fns";
-
-export const getNumericMonth = (month) => {
-  switch (month) {
-    case "january":
-      return "01";
-    case "february":
-      return "02";
-    case "march":
-      return "03";
-    case "april":
-      return "04";
-    case "may":
-      return "05";
-    case "june":
-      return "06";
-    case "july":
-      return "07";
-    case "august":
-      return "08";
-    case "september":
-      return "09";
-    case "october":
-      return "10";
-    case "november":
-      return "11";
-    case "december":
-      return "12";
-
-    default:
-  }
-};
-
-const convertMonthNumToString = (monthNumeric) => {
-  switch (monthNumeric) {
-    case "01":
-      return { label: "January", value: "january" };
-    case "02":
-      return { label: "February", value: "february" };
-    case "03":
-      return { label: "March", value: "march" };
-    case "04":
-      return { label: "April", value: "april" };
-    case "05":
-      return { label: "May", value: "may" };
-    case "06":
-      return { label: "June", value: "june" };
-    case "07":
-      return { label: "July", value: "july" };
-    case "08":
-      return { label: "August", value: "august" };
-    case "09":
-      return { label: "September", value: "september" };
-    case "10":
-      return { label: "October", value: "october" };
-    case "11":
-      return { label: "November", value: "november" };
-    case "12":
-      return { label: "December", value: "december" };
-
-    default:
-  }
-};
+import { convertMonthToNumber } from "./convertMonthToNumber";
+import { convertMonthToString } from "./convertMonthToString";
+import { getCurrentDate } from "./getCurrentDate";
 
 export const getOptions = (transactions) => {
   const transactionDates = transactions.map(
@@ -72,16 +12,16 @@ export const getOptions = (transactions) => {
   });
   const transactionMonths = transactionDates.map((transaction) => {
     const monthNumeric = transaction.slice(5, 7);
-    return convertMonthNumToString(monthNumeric);
+    return convertMonthToString(monthNumeric);
   });
   const unsortedMonthsOptions = transactionMonths.map((month) => {
-    return getNumericMonth(month.value);
+    return convertMonthToNumber(month.value);
   });
   const sortedNumMonthsOptions = unsortedMonthsOptions.toSorted((a, b) => {
     return a - b;
   });
   const sortedMonthsOptions = sortedNumMonthsOptions.map((month) => {
-    return convertMonthNumToString(month);
+    return convertMonthToString(month);
   });
   const sortedYearsOptions = transactionYears.toSorted((a, b) => {
     return b.value - a.value;
@@ -106,14 +46,6 @@ export const getOptions = (transactions) => {
   return { filteredMonthsOptions, filteredYearsOptions };
 };
 
-export const getCurrentDate = () => {
-  const date = new Date();
-  const currentMonth = format(date, "MM");
-  const currentYear = format(date, "yyyy");
-
-  return { currentMonth, currentYear };
-};
-
 export const getOptionsIndex = (
   filteredMonthsOptions,
   filteredYearsOptions
@@ -121,7 +53,7 @@ export const getOptionsIndex = (
   const { currentMonth, currentYear } = getCurrentDate();
 
   const monthIndex = filteredMonthsOptions.findIndex((month) => {
-    return getNumericMonth(month.value) === currentMonth;
+    return convertMonthToNumber(month.value) === currentMonth;
   });
   const yearIndex = filteredYearsOptions.findIndex((year) => {
     return year.value === currentYear;

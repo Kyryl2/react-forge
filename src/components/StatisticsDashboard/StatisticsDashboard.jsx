@@ -1,19 +1,16 @@
-import clsx from "clsx";
-import Select from "react-select";
-import { useDispatch, useSelector } from "react-redux";
 import { useMemo, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Select from "react-select";
+import clsx from "clsx";
 
 import { Icon } from "../../images/Icon/Icon";
 
-import { styles } from "../../options/selectStyles";
 import { getSummaryThunk } from "../../redux/transactions/operations";
 import { selectTransactions } from "../../redux/transactions/selectors";
-import {
-  getCurrentDate,
-  getNumericMonth,
-  getOptions,
-  getOptionsIndex,
-} from "../../helpers/getDates";
+import { styles } from "../../options/selectStyles";
+import { getCurrentDate } from "../../helpers/getCurrentDate";
+import { convertMonthToNumber } from "../../helpers/convertMonthToNumber";
+import { getOptions, getOptionsIndex } from "../../helpers/getDates";
 
 import css from "./StatisticsDashboard.module.css";
 
@@ -70,7 +67,7 @@ const StatisticsDashboard = () => {
   };
 
   const handleMonthSelectChange = (monthValue) => {
-    const month = getNumericMonth(monthValue);
+    const month = convertMonthToNumber(monthValue);
 
     monthRef.current = month;
 

@@ -32,11 +32,7 @@ const Chart = () => {
   return (
     <div className={css.wrapper}>
       <Doughnut data={data} options={options} plugins={[ShadowPlugin]} />
-      <span className={css.balance}>
-        {categoriesSummary?.length > 0
-          ? `₴ ${periodTotal?.toFixed(2)}`
-          : "There was no transactions in this period..."}
-      </span>
+      <span className={css.balance}>{`₴ ${periodTotal?.toFixed(2)}`}</span>
     </div>
   );
 };

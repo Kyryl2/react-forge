@@ -1,8 +1,4 @@
-p {
-  color: var(--white);
-}
-
-.title {
+.main_title {
   color: var(--white);
   font-family: var(--font-family);
   font-weight: 400;
@@ -10,17 +6,13 @@ p {
   margin-bottom: 2px;
 }
 
-.tabContainer {
+.tab_Container {
   padding: 0px 20px;
   margin-top: 12px;
 }
 
 @media only screen and (min-width: 768px) {
-  .title {
-    margin-bottom: 10px;
-  }
-
-  .tabContainer {
+  .tab_Container {
     padding: 0px;
   }
 }
@@ -33,8 +25,37 @@ p {
   }
 }
 
-.filler p {
-  font-weight: 400;
-  font-size: 20px;
+.filler {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 155px;
+}
+
+@media only screen and (min-width: 768px) {
+  .filler {
+    margin-top: 110px;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .filler {
+    margin-top: 150px;
+  }
+}
+
+.title {
+  color: var(--white);
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.description {
+  color: var(--white);
+  font-size: 16px;
   text-align: center;
 }

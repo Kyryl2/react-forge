@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { format } from "date-fns";
+import { GrHistory } from "react-icons/gr";
 
 import Chart from "../Chart/Chart";
 import StatisticsTable from "../StatisticsTable/StatisticsTable";
@@ -24,25 +25,29 @@ const StatisticsTab = () => {
     dispatch(getSummaryThunk({ month, year }));
   }, [dispatch]);
 
-  if (!transactions.length) {
-    return (
-      <div className={css.filler}>
-        <p>You don’t have any transactions now...</p>
-      </div>
-    );
-  }
-
   return (
-    <div className={css.tabContainer}>
-      <h2 className={css.title}>Statistics</h2>
-      <div className={css.wrapper}>
-        <Chart />
-        <div>
-          <StatisticsDashboard />
-          <StatisticsTable />
+    <>
+      {transactions?.length === 0 ? (
+        <div className={css.filler}>
+          <GrHistory size={45} color={"rgb(251, 251, 251)"} />
+          <p className={css.title}>No transactions yet</p>
+          <p className={css.description}>
+            After your first transaction you will be able to view it here.
+          </p>
         </div>
-      </div>
-    </div>
+      ) : (
+        <div className={css.tab_Container}>
+          <h2 className={css.main_title}>Statistics</h2>
+          <div className={css.wrapper}>
+            <Chart />
+            <div>
+              <StatisticsDashboard />
+              <StatisticsTable />
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

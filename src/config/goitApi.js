@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const goitApi = axios.create({
-  baseURL: "https://victorybackend.onrender.com/",
+  baseURL: "https://wallet.b.goit.study/api/",
 });
 
 export const updateAuthHeader = (token) => {
